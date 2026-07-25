@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a dependency-free static OSINT Tools Radar site."""
+"""Build a dependency-free static OSINT Tools Watch site."""
 
 from __future__ import annotations
 

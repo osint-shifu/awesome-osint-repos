@@ -98,7 +98,7 @@ def badge(label: str, slug: str, value: int, color: str, href: str = "") -> str:
 
 def navigation(active: str) -> str:
     items = [
-        ("OSINT Tools Radar", "README.md"),
+        ("OSINT Tools Watch", "README.md"),
         ("Emerging Projects", "EMERGING.md"),
         ("Agentic AI OSINT", "AGENTIC.md"),
         ("Catalogue Timeline", "TIMELINE.md"),
@@ -151,7 +151,7 @@ def render_readme(
         '<a id="top"></a>',
         "",
         '<div align="center">',
-        "  <h1>OSINT Tools Radar</h1>",
+        "  <h1>OSINT Tools Watch</h1>",
         "  <p>A catalogue of open-source OSINT tools organized into 12 clear categories and concrete input types.</p>",
         "  <p>",
         f'    {badge("Emerging projects", "emerging", emerging_count, "bf8700", "EMERGING.md")}',
@@ -163,13 +163,13 @@ def render_readme(
             f'last_update-{badge_date}-1f883d?style=flat-square">'
         ),
         "  </p>",
-        navigation("OSINT Tools Radar"),
+        navigation("OSINT Tools Watch"),
         "</div>",
         "",
         "## About this catalogue",
         "",
         (
-            "OSINT Tools Radar is a repository-first catalogue of open-source investigative software. "
+            "OSINT Tools Watch is a repository-first catalogue of open-source investigative software. "
             "Every record represents a public source-code repository containing an identifiable tool "
             "or integration with a practical OSINT use case."
         ),
@@ -487,7 +487,7 @@ def render_timeline(
         '<a id="top"></a>',
         "",
         '<div align="center">',
-        "  <h1>OSINT Tools Radar Timeline</h1>",
+        "  <h1>OSINT Tools Watch Timeline</h1>",
         "  <p>A visual chronology of tools added to the catalogue, newest first.</p>",
         "  <p>",
         (
@@ -508,7 +508,7 @@ def render_timeline(
         "  </p>",
         (
             '  <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · '
-            '<a href="README.md">OSINT Tools Radar</a> · '
+            '<a href="README.md">OSINT Tools Watch</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
@@ -595,7 +595,7 @@ def rendered_documents() -> dict[Path, str]:
         ROOT / "EMERGING.md": render_emerging,
         ROOT / "AGENTIC.md": render_agentic,
         ROOT / "TIMELINE.md": render_timeline,
-        ROOT / ".radar" / "README.md": render_monitoring,
+        ROOT / ".watch" / "README.md": render_monitoring,
     }
     rendered: dict[Path, str] = {}
     for path, renderer in renderers.items():

@@ -1,4 +1,4 @@
-OSINT Tools Radar GUI
+OSINT Tools Watch GUI
 
 The browser uses `osint-repositories.csv` as its only database. The local server
 reads the current CSV on every catalogue request. The static build creates a
@@ -9,7 +9,7 @@ Local development
 Run from the repository root:
 
 ```bash
-python3 .radar/gui/server.py
+python3 .watch/gui/server.py
 ```
 
 Open `http://127.0.0.1:4173`.
@@ -17,10 +17,10 @@ Open `http://127.0.0.1:4173`.
 Static hosting build
 
 ```bash
-python3 .radar/gui/build_static.py --domain osint-tools.example.com
+python3 .watch/gui/build_static.py --domain osint-tools.example.com
 ```
 
-Upload the contents of `.radar/gui/dist/` to the document root of the selected
+Upload the contents of `.watch/gui/dist/` to the document root of the selected
 subdomain. The build has no server-side or npm dependencies.
 
 Features

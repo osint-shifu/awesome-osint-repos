@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <div align="center">
-  <h1>OSINT Tools Radar Monitoring</h1>
+  <h1>OSINT Tools Watch Monitoring</h1>
   <p>Automation and review guide for maintaining a verified catalogue of open-source OSINT tools and the public source-code repositories that contain their implementations.</p>
   <p>
     <img alt="Publication policy: review gated" src="https://img.shields.io/badge/publication-review_gated-bf8700?style=flat-square">
@@ -10,7 +10,7 @@
     <img alt="Third-party code execution: disabled" src="https://img.shields.io/badge/third--party_code-not_executed-1f883d?style=flat-square">
     <img alt="Last update: 2026-07-16" src="https://img.shields.io/badge/last_update-2026--07--16-1f883d?style=flat-square">
   </p>
-  <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">OSINT Tools Radar</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
+  <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">OSINT Tools Watch</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
 </div>
 
 ## Operating model
@@ -22,9 +22,9 @@ The canonical CSV stores the publication date in its `Added` column. The rendere
 `Categories` stores exactly one of the 12 main catalogue categories. `Target Input` stores only concrete data accepted or investigated by a tool and may contain several semicolon-separated values. `AI Agent` records documented agent compatibility. Membership in the additional `EMERGING.md` and `AGENTIC.md` views is stored separately in `Source Files`.
 
 ```text
-.radar/data/sources.csv -> discover_candidates.py -> .radar/data/candidates.csv -> human review
+.watch/data/sources.csv -> discover_candidates.py -> .watch/data/candidates.csv -> human review
                                                                            -> osint-repositories.csv
-GitHub API -> refresh_metadata.py -> osint-repositories.csv + .radar/data/snapshots.csv
+GitHub API -> refresh_metadata.py -> osint-repositories.csv + .watch/data/snapshots.csv
 osint-repositories.csv -> render_catalog.py -> README.md + EMERGING.md + AGENTIC.md + TIMELINE.md
 all catalogue files -> validate_catalog.py -> pass or fail
 ```
@@ -63,28 +63,28 @@ The scripts use the Python standard library and require Python 3.11 or newer.
 Validate the canonical data and every generated table:
 
 ```bash
-python3 -m py_compile .radar/scripts/*.py
-python3 .radar/scripts/render_catalog.py --check
-python3 .radar/scripts/validate_catalog.py
+python3 -m py_compile .watch/scripts/*.py
+python3 .watch/scripts/render_catalog.py --check
+python3 .watch/scripts/validate_catalog.py
 ```
 
 Refresh GitHub metadata and save a daily snapshot. A token is required for the batched full-catalogue query:
 
 ```bash
-GITHUB_TOKEN=github_token python3 .radar/scripts/refresh_metadata.py \
+GITHUB_TOKEN=github_token python3 .watch/scripts/refresh_metadata.py \
   --write \
   --snapshot \
   --drop-archived \
   --drop-stale-before 2020-01-01 \
   --delay 0.1
-python3 .radar/scripts/render_catalog.py --write
-python3 .radar/scripts/validate_catalog.py
+python3 .watch/scripts/render_catalog.py --write
+python3 .watch/scripts/validate_catalog.py
 ```
 
 Run discovery against all enabled providers without changing files:
 
 ```bash
-GITHUB_TOKEN=github_token python3 .radar/scripts/discover_candidates.py --lookback-days 14 --report discovery-report.md
+GITHUB_TOKEN=github_token python3 .watch/scripts/discover_candidates.py --lookback-days 14 --report discovery-report.md
 ```
 
 Limit a diagnostic run to one configured source with `--source "GitHub OSINT topic"`, or repeat `--provider` to select one or more providers.
@@ -92,13 +92,13 @@ Limit a diagnostic run to one configured source with `--source "GitHub OSINT top
 Persist newly found candidates:
 
 ```bash
-GITHUB_TOKEN=github_token python3 .radar/scripts/discover_candidates.py --write --lookback-days 14 --report discovery-report.md
+GITHUB_TOKEN=github_token python3 .watch/scripts/discover_candidates.py --write --lookback-days 14 --report discovery-report.md
 ```
 
 Run a one-off historical scan of the Cyber Detective public channel:
 
 ```bash
-GITHUB_TOKEN=github_token python3 .radar/scripts/discover_candidates.py \
+GITHUB_TOKEN=github_token python3 .watch/scripts/discover_candidates.py \
   --write \
   --source "Cyber Detective Telegram" \
   --since 2026-01-01 \
@@ -109,7 +109,7 @@ GITHUB_TOKEN=github_token python3 .radar/scripts/discover_candidates.py \
 Generate a market-watch summary from candidates and snapshots:
 
 ```bash
-python3 .radar/scripts/market_report.py --output market-watch.md
+python3 .watch/scripts/market_report.py --output market-watch.md
 ```
 
 Reports are operational artifacts and are not committed by the scheduled workflows.
@@ -134,27 +134,27 @@ Do not remove a project solely because one optional entry point or installation 
 Reject a candidate:
 
 ```bash
-python3 .radar/scripts/review_candidate.py https://github.com/owner/repository --reject --notes "Not an implementation-bearing OSINT project"
+python3 .watch/scripts/review_candidate.py https://github.com/owner/repository --reject --notes "Not an implementation-bearing OSINT project"
 ```
 
 Accept a standalone project:
 
 ```bash
-python3 .radar/scripts/review_candidate.py https://github.com/owner/repository \
+python3 .watch/scripts/review_candidate.py https://github.com/owner/repository \
   --accept \
   --target-input Domain \
   --category Infrastructure \
   --type Python \
   --description "Discovers public infrastructure associated with a domain."
-python3 .radar/scripts/render_catalog.py --write
-python3 .radar/scripts/validate_catalog.py
+python3 .watch/scripts/render_catalog.py --write
+python3 .watch/scripts/validate_catalog.py
 ```
 
 Use only values from the canonical `Target Input` taxonomy and assign exactly one `--category`. Add `--view EMERGING.md` for the watchlist. For an agent integration, add `--view AGENTIC.md` together with a documented `--ai-agent` value. Repeat `--view` when both generated views apply.
 
 ## Discovery sources
 
-`.radar/data/sources.csv` currently supports these adapters:
+`.watch/data/sources.csv` currently supports these adapters:
 
 | Provider | Coverage | Authentication |
 |---|---|---|
@@ -164,13 +164,13 @@ Use only values from the canonical `Target Input` taxonomy and assign exactly on
 | Official MCP Registry | OSINT, recon, and research server search | None for public results |
 | Cyber Detective Telegram | Direct GitHub, GitLab, and Codeberg links shared in public channel posts | None for public posts |
 
-Edit `.radar/data/sources.csv` to add, disable, or narrow a query. A new provider requires a corresponding adapter in `.radar/scripts/discover_candidates.py`. Telegram channel adapters treat posts as leads and only send direct public repository links to manual review. Keep queries focused enough to make manual review practical.
+Edit `.watch/data/sources.csv` to add, disable, or narrow a query. A new provider requires a corresponding adapter in `.watch/scripts/discover_candidates.py`. Telegram channel adapters treat posts as leads and only send direct public repository links to manual review. Keep queries focused enough to make manual review practical.
 
 ## Scheduled workflows
 
 - `validate.yml` checks Python syntax, generated Markdown drift, CSV integrity, links between local files, duplicate repositories, table schemas, the 12-category taxonomy, and allowed target inputs on every push and pull request.
 - `refresh.yml` runs weekly, refreshes GitHub metadata, appends a snapshot, regenerates all catalogue tables, opens or updates a review pull request, and creates a dated market-watch issue.
-- `discover.yml` runs daily, scans configured sources, and opens or updates a review pull request when `.radar/data/candidates.csv` changes.
+- `discover.yml` runs daily, scans configured sources, and opens or updates a review pull request when `.watch/data/candidates.csv` changes.
 
 Scheduled workflows use the repository-provided `GITHUB_TOKEN`. The repository must allow GitHub Actions to create pull requests and grant workflows read and write permissions under **Settings -> Actions -> General**. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
 

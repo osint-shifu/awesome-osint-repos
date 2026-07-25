@@ -2,7 +2,7 @@
   "use strict";
 
   const PAGE_SIZE = 36;
-  const FAVORITES_KEY = "osint-tools-radar-saved";
+  const FAVORITES_KEY = "osint-tools-watch-saved";
 
   // Icon paths from Phosphor Icons core, MIT License: https://github.com/phosphor-icons/core
   const ICONS = {

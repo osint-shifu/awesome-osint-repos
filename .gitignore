@@ -6,7 +6,7 @@ Thumbs.db
 *.swo
 __pycache__/
 *.py[cod]
-.radar/gui/dist/
+.watch/gui/dist/
 .coverage
 .env
 .env.*

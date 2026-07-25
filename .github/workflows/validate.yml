@@ -1,4 +1,4 @@
-name: Validate OSINT Tools Radar
+name: Validate OSINT Tools Watch
 
 on:
   push:
@@ -21,6 +21,6 @@ jobs:
 
       - name: Check scripts and catalogue
         run: |
-          python -m py_compile .radar/scripts/*.py
-          python .radar/scripts/render_catalog.py --check
-          python .radar/scripts/validate_catalog.py
+          python -m py_compile .watch/scripts/*.py
+          python .watch/scripts/render_catalog.py --check
+          python .watch/scripts/validate_catalog.py
