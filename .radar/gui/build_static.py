@@ -19,7 +19,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--domain",
-        help="Write a CNAME file for hosts that support it, for example tools.osint360.io",
+        help="Write a CNAME file for hosts that support it, for example osint-tools.example.com",
     )
     args = parser.parse_args()
 

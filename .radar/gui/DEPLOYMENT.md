@@ -1,6 +1,6 @@
 # Deploying the catalogue browser
 
-Recommended public address: `https://tools.osint360.io/`
+Choose a stable public address, for example `https://osint-tools.example.com/`.
 
 The GUI is a static site. It does not need a database server, Node.js, or a
 Python process on the public host. Its `catalog.json` file is generated from the
@@ -11,14 +11,14 @@ repository CSV during the build.
 Run from the repository root:
 
 ```bash
-python3 .radar/gui/build_static.py --domain tools.osint360.io
+python3 .radar/gui/build_static.py --domain osint-tools.example.com
 ```
 
 The deployable files are created in `.radar/gui/dist/`.
 
 ## Existing web hosting
 
-1. Create the `tools.osint360.io` subdomain in the hosting panel.
+1. Create the selected subdomain in the hosting panel.
 2. Point its document root to a dedicated empty directory.
 3. Add the DNS record requested by the hosting provider. This is normally an
    `A` record to the hosting IP or a `CNAME` record to the host name supplied by
@@ -28,7 +28,7 @@ The deployable files are created in `.radar/gui/dist/`.
 5. Enable an SSL certificate and force HTTPS.
 6. Verify that `/`, `/catalog.json`, `/styles.css`, and `/app.js` return HTTP 200.
 
-After the public address works, add `https://tools.osint360.io/` to the main
+After the public address works, add its URL to the main
 repository README as the database browser link.
 
 ## Updating the public database
@@ -37,7 +37,7 @@ After `osint-repositories.csv` changes, rebuild and upload the generated files
 again:
 
 ```bash
-python3 .radar/gui/build_static.py --domain tools.osint360.io
+python3 .radar/gui/build_static.py --domain osint-tools.example.com
 ```
 
 This can later be automated through the hosting provider's deployment system,
@@ -47,8 +47,8 @@ current local implementation.
 ## GitHub Pages alternative
 
 The same static build can be published with GitHub Pages and a custom
-subdomain. Configure `tools.osint360.io` as the Pages custom domain and point a
-DNS `CNAME` record for `tools` to `osint360.github.io`. GitHub recommends domain
+subdomain. Configure the selected host as the Pages custom domain and point its
+DNS `CNAME` record to `oryon-osint.github.io`. GitHub recommends domain
 verification and supports HTTPS after the DNS record resolves.
 
 Official references:

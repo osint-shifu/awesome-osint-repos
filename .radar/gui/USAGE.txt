@@ -17,7 +17,7 @@ Open `http://127.0.0.1:4173`.
 Static hosting build
 
 ```bash
-python3 .radar/gui/build_static.py --domain tools.osint360.io
+python3 .radar/gui/build_static.py --domain osint-tools.example.com
 ```
 
 Upload the contents of `.radar/gui/dist/` to the document root of the selected
