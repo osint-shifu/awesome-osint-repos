@@ -35,6 +35,7 @@ CANDIDATE_FIELDS = [
     "Stars", "Language", "License", "Archived", "Fork", "Score", "Confidence",
     "Evidence", "Review Status", "Notes",
 ]
+DISCOVERY_REPORT_LIMIT = 100
 
 RELEVANCE_TERMS = {
     "osint", "socmint", "geoint", "recon", "reconnaissance", "intelligence",
@@ -489,14 +490,27 @@ def report_text(new_rows: list[dict[str, str]], errors: list[str], since: str) -
         "",
     ]
     if new_rows:
+        ranked_rows = sorted(
+            new_rows,
+            key=lambda item: (-int(item["Score"]), item["Project"].casefold()),
+        )
+        visible_rows = ranked_rows[:DISCOVERY_REPORT_LIMIT]
         lines.extend(["| Project | Source | Suggested category | Suggested views | Score | Repository |", "|---|---|---|---|---:|---|"])
-        for row in sorted(new_rows, key=lambda item: (-int(item["Score"]), item["Project"].casefold())):
+        for row in visible_rows:
             lines.append(
                 f"| {row['Project']} | {row['Discovery Source']} | {row['Suggested Category']} "
                 f"| {row['Suggested Views'] or '-'} "
                 f"| {row['Score']} | [Review]({row['Repository']}) |"
             )
         lines.append("")
+        if len(ranked_rows) > len(visible_rows):
+            lines.extend(
+                [
+                    f"Showing the {len(visible_rows)} highest-scoring candidates. "
+                    f"Review all {len(ranked_rows)} records in `.catalog/data/candidates.csv`.",
+                    "",
+                ]
+            )
     if errors:
         lines.extend(["## Source errors", ""] + [f"- {error}" for error in errors] + [""])
     lines.append("Candidates remain excluded from the public catalogue until their review status is accepted.")
