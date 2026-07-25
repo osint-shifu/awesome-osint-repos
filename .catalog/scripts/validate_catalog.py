@@ -21,7 +21,7 @@ from catalog_common import (
     MIN_LAST_UPDATE,
     NEW_PROJECT_LEGEND,
     NEW_PROJECT_MARKER,
-    WATCH_ROOT,
+    CATALOG_ROOT,
     README_SECTIONS,
     README_TABLE_ALIGNMENT,
     README_TABLE_HEADER,
@@ -262,7 +262,7 @@ def validate_local_links(validation: Validation) -> None:
         ROOT / "EMERGING.md",
         ROOT / "AGENTIC.md",
         ROOT / "TIMELINE.md",
-        WATCH_ROOT / "README.md",
+        CATALOG_ROOT / "README.md",
     ):
         text = path.read_text(encoding="utf-8")
         for _, target in MARKDOWN_LINK_PATTERN.findall(text):
@@ -323,7 +323,7 @@ def validate_update_badges(
         ROOT / "EMERGING.md",
         ROOT / "AGENTIC.md",
         ROOT / "TIMELINE.md",
-        WATCH_ROOT / "README.md",
+        CATALOG_ROOT / "README.md",
     )
     for path in markdown_files:
         text = path.read_text(encoding="utf-8")
@@ -340,21 +340,21 @@ def validate_update_badges(
 def validate_navigation(validation: Validation) -> None:
     expected = {
         ROOT / "README.md": (
-            '<p><strong><a href="README.md">OSINT Tools Watch</a></strong> · '
+            '<p><strong><a href="README.md">Awesome OSINT Tools</a></strong> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
         ROOT / "EMERGING.md": (
-            '<p><a href="README.md">OSINT Tools Watch</a> · '
+            '<p><a href="README.md">Awesome OSINT Tools</a> · '
             '<strong><a href="EMERGING.md">Emerging Projects</a></strong> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
         ROOT / "AGENTIC.md": (
-            '<p><a href="README.md">OSINT Tools Watch</a> · '
+            '<p><a href="README.md">Awesome OSINT Tools</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<strong><a href="AGENTIC.md">Agentic AI OSINT</a></strong> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
@@ -362,14 +362,14 @@ def validate_navigation(validation: Validation) -> None:
         ),
         ROOT / "TIMELINE.md": (
             '<p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · '
-            '<a href="README.md">OSINT Tools Watch</a> · '
+            '<a href="README.md">Awesome OSINT Tools</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
-        WATCH_ROOT / "README.md": (
+        CATALOG_ROOT / "README.md": (
             '<p><strong><a href="README.md">Monitoring</a></strong> · '
-            '<a href="../README.md">OSINT Tools Watch</a> · '
+            '<a href="../README.md">Awesome OSINT Tools</a> · '
             '<a href="../EMERGING.md">Emerging Projects</a> · '
             '<a href="../AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="../TIMELINE.md">Catalogue Timeline</a> · '

@@ -41,7 +41,7 @@ class GitHubClient:
     ) -> tuple[int, dict[str, object] | None]:
         headers = {
             "Accept": "application/vnd.github+json",
-            "User-Agent": "osint-tools-watch",
+            "User-Agent": "awesome-osint-tools",
             "X-GitHub-Api-Version": "2022-11-28",
         }
         if self.token:
@@ -87,7 +87,7 @@ class GitHubClient:
         headers = {
             "Accept": "application/vnd.github+json",
             "Content-Type": "application/json",
-            "User-Agent": "osint-tools-watch",
+            "User-Agent": "awesome-osint-tools",
             "X-GitHub-Api-Version": "2022-11-28",
             "Authorization": f"Bearer {self.token}",
         }

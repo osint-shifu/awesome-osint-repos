@@ -11,8 +11,8 @@ from typing import Iterable
 
 
 ROOT = Path(__file__).resolve().parents[2]
-WATCH_ROOT = ROOT / ".watch"
-DATA_ROOT = WATCH_ROOT / "data"
+CATALOG_ROOT = ROOT / ".catalog"
+DATA_ROOT = CATALOG_ROOT / "data"
 CATALOG_PATH = ROOT / "osint-repositories.csv"
 MIN_LAST_UPDATE = "2020-01-01"
 NEW_PROJECT_WINDOW_DAYS = 14

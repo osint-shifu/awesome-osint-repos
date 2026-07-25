@@ -1,4 +1,4 @@
-name: Discover OSINT Tools Watch candidates
+name: Discover Awesome OSINT Tools candidates
 
 on:
   schedule:
@@ -31,11 +31,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          branch="automation/watch-candidates"
+          branch="automation/catalog-candidates"
           pull_request=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
           if [ -n "$pull_request" ]; then
             git fetch origin "+refs/heads/$branch:refs/remotes/origin/$branch"
-            git show "refs/remotes/origin/$branch:.watch/data/candidates.csv" > "$RUNNER_TEMP/previous-candidates.csv"
+            git show "refs/remotes/origin/$branch:.catalog/data/candidates.csv" > "$RUNNER_TEMP/previous-candidates.csv"
           fi
 
       - name: Scan configured public sources
@@ -46,29 +46,29 @@ jobs:
           if [ -s "$RUNNER_TEMP/previous-candidates.csv" ]; then
             seed=(--seed-candidates "$RUNNER_TEMP/previous-candidates.csv")
           fi
-          python .watch/scripts/discover_candidates.py \
+          python .catalog/scripts/discover_candidates.py \
             --write \
             --lookback-days 14 \
             --max-per-source 100 \
             --delay 2.1 \
             "${seed[@]}" \
             --report "$RUNNER_TEMP/discovery-report.md"
-          python .watch/scripts/validate_catalog.py
+          python .catalog/scripts/validate_catalog.py
 
       - name: Open or update candidate review pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          branch="automation/watch-candidates"
-          if [ -s "$RUNNER_TEMP/previous-candidates.csv" ] && cmp -s .watch/data/candidates.csv "$RUNNER_TEMP/previous-candidates.csv"; then
+          branch="automation/catalog-candidates"
+          if [ -s "$RUNNER_TEMP/previous-candidates.csv" ] && cmp -s .catalog/data/candidates.csv "$RUNNER_TEMP/previous-candidates.csv"; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin "+refs/heads/$branch:refs/remotes/origin/$branch" || true
           git checkout -B "$branch"
-          git add .watch/data/candidates.csv
+          git add .catalog/data/candidates.csv
           if git diff --cached --quiet; then
             exit 0
           fi

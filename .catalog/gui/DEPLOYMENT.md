@@ -11,10 +11,10 @@ repository CSV during the build.
 Run from the repository root:
 
 ```bash
-python3 .watch/gui/build_static.py --domain osint-tools.example.com
+python3 .catalog/gui/build_static.py --domain osint-tools.example.com
 ```
 
-The deployable files are created in `.watch/gui/dist/`.
+The deployable files are created in `.catalog/gui/dist/`.
 
 ## Existing web hosting
 
@@ -23,7 +23,7 @@ The deployable files are created in `.watch/gui/dist/`.
 3. Add the DNS record requested by the hosting provider. This is normally an
    `A` record to the hosting IP or a `CNAME` record to the host name supplied by
    the provider.
-4. Upload the contents of `.watch/gui/dist/`, not the `dist` directory itself,
+4. Upload the contents of `.catalog/gui/dist/`, not the `dist` directory itself,
    to that document root.
 5. Enable an SSL certificate and force HTTPS.
 6. Verify that `/`, `/catalog.json`, `/styles.css`, and `/app.js` return HTTP 200.
@@ -37,7 +37,7 @@ After `osint-repositories.csv` changes, rebuild and upload the generated files
 again:
 
 ```bash
-python3 .watch/gui/build_static.py --domain osint-tools.example.com
+python3 .catalog/gui/build_static.py --domain osint-tools.example.com
 ```
 
 This can later be automated through the hosting provider's deployment system,

@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <div align="center">
-  <h1>OSINT Tools Watch</h1>
+  <h1>Awesome OSINT Tools</h1>
   <p>A catalogue of open-source OSINT tools organized into 12 clear categories and concrete input types.</p>
   <p>
     <a href="EMERGING.md"><img alt="Emerging projects: 87" src="https://img.shields.io/badge/emerging-87-bf8700?style=flat-square"></a>
@@ -10,12 +10,12 @@
     <img alt="Catalogue projects: 439" src="https://img.shields.io/badge/catalogue_projects-439-8250df?style=flat-square">
     <img alt="Last update: 2026-07-16" src="https://img.shields.io/badge/last_update-2026--07--16-1f883d?style=flat-square">
   </p>
-  <p><strong><a href="README.md">OSINT Tools Watch</a></strong> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
+  <p><strong><a href="README.md">Awesome OSINT Tools</a></strong> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
 
 ## About this catalogue
 
-OSINT Tools Watch is a repository-first catalogue of open-source investigative software. Every record represents a public source-code repository containing an identifiable tool or integration with a practical OSINT use case.
+Awesome OSINT Tools is a repository-first catalogue of open-source investigative software. Every record represents a public source-code repository containing an identifiable tool or integration with a practical OSINT use case.
 
 Each project has exactly one value in `Categories`. `Target Input` contains only concrete data accepted or investigated by the tool, such as `Username`, `Domain`, `IP Address`, `URL`, `File Hash`, or `Onion Service`. A project may have multiple target inputs.
 

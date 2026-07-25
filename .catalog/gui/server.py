@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve the local OSINT Tools Watch catalogue GUI."""
+"""Serve the local Awesome OSINT Tools catalogue GUI."""
 
 from __future__ import annotations
 
@@ -115,7 +115,7 @@ def main() -> int:
     server = ThreadingHTTPServer((args.host, args.port), handler)
     server.daemon_threads = True
     url = f"http://{args.host}:{args.port}"
-    print(f"OSINT Tools Watch GUI: {url}")
+    print(f"Awesome OSINT Tools GUI: {url}")
     print(f"Live data source: {CATALOG_PATH}")
     if args.open:
         threading.Timer(0.3, webbrowser.open, args=(url,)).start()

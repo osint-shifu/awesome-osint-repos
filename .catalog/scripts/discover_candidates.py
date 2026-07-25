@@ -48,7 +48,7 @@ class HttpClient:
         self.delay = delay
 
     def get(self, url: str, github: bool = False) -> Any:
-        headers = {"User-Agent": "osint-tools-watch", "Accept": "application/json"}
+        headers = {"User-Agent": "awesome-osint-tools", "Accept": "application/json"}
         if github:
             headers.update({"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"})
             if self.github_token:
@@ -73,7 +73,7 @@ class HttpClient:
 
     def get_text(self, url: str) -> str:
         headers = {
-            "User-Agent": "osint-tools-watch",
+            "User-Agent": "awesome-osint-tools",
             "Accept": "text/html,application/xhtml+xml",
         }
         for attempt in range(3):
@@ -472,7 +472,7 @@ def load_candidates(path: Path = CANDIDATE_PATH) -> tuple[list[str], list[dict[s
 
 def report_text(new_rows: list[dict[str, str]], errors: list[str], since: str) -> str:
     lines = [
-        "# OSINT Tools Watch Candidate Discovery",
+        "# Awesome OSINT Tools Candidate Discovery",
         "",
         f"- Scan date: {date.today().isoformat()}",
         f"- Window start: {since}",
@@ -497,7 +497,7 @@ def report_text(new_rows: list[dict[str, str]], errors: list[str], since: str) -
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--write", action="store_true", help="Write .watch/data/candidates.csv")
+    parser.add_argument("--write", action="store_true", help="Write .catalog/data/candidates.csv")
     parser.add_argument("--lookback-days", type=int, default=14)
     parser.add_argument("--since", help="Override the discovery window start with YYYY-MM-DD")
     parser.add_argument("--max-per-source", type=int, default=100)
