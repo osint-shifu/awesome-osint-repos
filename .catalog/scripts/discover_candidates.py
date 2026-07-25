@@ -104,6 +104,14 @@ def iso_date(value: object) -> str:
     return text[:10] if re.match(r"\d{4}-\d{2}-\d{2}", text) else ""
 
 
+def lifecycle_dates(item: dict[str, Any]) -> tuple[str, str] | None:
+    created = iso_date(item.get("created"))
+    updated = iso_date(item.get("updated"))
+    if not created or not updated or updated < MIN_LAST_UPDATE:
+        return None
+    return created, updated
+
+
 def bool_text(value: object) -> str:
     return "true" if bool(value) else "false"
 
@@ -560,6 +568,15 @@ def main() -> int:
             url = clean_text(item.get("url"))
             if not url or repository_key(url) in known:
                 continue
+            dates = lifecycle_dates(item)
+            if dates is None:
+                print(
+                    f"[{source['Name']}] skipped {url}: "
+                    "missing or stale lifecycle dates",
+                    file=sys.stderr,
+                )
+                continue
+            created, updated = dates
             score = candidate_score(item)
             row = {
                 "Project": clean_text(item.get("name")) or url.rstrip("/").rsplit("/", 1)[-1],
@@ -569,8 +586,8 @@ def main() -> int:
                 "Suggested Target Input": source["Suggested Target Input"],
                 "Suggested Category": source["Suggested Category"],
                 "Suggested Views": source["Suggested Views"],
-                "Description": clean_text(item.get("description")), "Created": iso_date(item.get("created")),
-                "Last Update": iso_date(item.get("updated")), "Stars": str(item.get("stars") or 0),
+                "Description": clean_text(item.get("description")), "Created": created,
+                "Last Update": updated, "Stars": str(item.get("stars") or 0),
                 "Language": clean_text(item.get("language")), "License": clean_text(item.get("license")),
                 "Archived": bool_text(item.get("archived")), "Fork": bool_text(item.get("fork")),
                 "Score": str(score), "Confidence": confidence(score),
