@@ -8,7 +8,7 @@
     <img alt="Metadata refresh: weekly" src="https://img.shields.io/badge/metadata-weekly-0969da?style=flat-square">
     <img alt="Candidate discovery: daily" src="https://img.shields.io/badge/discovery-daily-8250df?style=flat-square">
     <img alt="Third-party code execution: disabled" src="https://img.shields.io/badge/third--party_code-not_executed-1f883d?style=flat-square">
-    <img alt="Last update: 2026-07-25" src="https://img.shields.io/badge/last_update-2026--07--25-1f883d?style=flat-square">
+    <img alt="Last update: 2026-08-12" src="https://img.shields.io/badge/last_update-2026--08--12-1f883d?style=flat-square">
   </p>
   <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">Awesome OSINT Repositories</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
 </div>
