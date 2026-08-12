@@ -1,4 +1,4 @@
-name: Validate Awesome OSINT Tools
+name: Validate Awesome OSINT Repositories
 
 on:
   push:

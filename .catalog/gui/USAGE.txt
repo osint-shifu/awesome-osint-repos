@@ -1,4 +1,4 @@
-Awesome OSINT Tools GUI
+Awesome OSINT Repositories GUI
 
 The browser uses `osint-repositories.csv` as its only database. The local server
 reads the current CSV on every catalogue request. The static build creates a

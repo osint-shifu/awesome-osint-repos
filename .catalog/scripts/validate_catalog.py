@@ -340,21 +340,21 @@ def validate_update_badges(
 def validate_navigation(validation: Validation) -> None:
     expected = {
         ROOT / "README.md": (
-            '<p><strong><a href="README.md">Awesome OSINT Tools</a></strong> · '
+            '<p><strong><a href="README.md">Awesome OSINT Repositories</a></strong> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
         ROOT / "EMERGING.md": (
-            '<p><a href="README.md">Awesome OSINT Tools</a> · '
+            '<p><a href="README.md">Awesome OSINT Repositories</a> · '
             '<strong><a href="EMERGING.md">Emerging Projects</a></strong> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
         ROOT / "AGENTIC.md": (
-            '<p><a href="README.md">Awesome OSINT Tools</a> · '
+            '<p><a href="README.md">Awesome OSINT Repositories</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<strong><a href="AGENTIC.md">Agentic AI OSINT</a></strong> · '
             '<a href="TIMELINE.md">Catalogue Timeline</a> · '
@@ -362,14 +362,14 @@ def validate_navigation(validation: Validation) -> None:
         ),
         ROOT / "TIMELINE.md": (
             '<p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · '
-            '<a href="README.md">Awesome OSINT Tools</a> · '
+            '<a href="README.md">Awesome OSINT Repositories</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'
         ),
         CATALOG_ROOT / "README.md": (
             '<p><strong><a href="README.md">Monitoring</a></strong> · '
-            '<a href="../README.md">Awesome OSINT Tools</a> · '
+            '<a href="../README.md">Awesome OSINT Repositories</a> · '
             '<a href="../EMERGING.md">Emerging Projects</a> · '
             '<a href="../AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="../TIMELINE.md">Catalogue Timeline</a> · '

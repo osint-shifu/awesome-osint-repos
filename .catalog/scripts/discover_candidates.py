@@ -49,7 +49,7 @@ class HttpClient:
         self.delay = delay
 
     def get(self, url: str, github: bool = False) -> Any:
-        headers = {"User-Agent": "awesome-osint-tools", "Accept": "application/json"}
+        headers = {"User-Agent": "awesome-osint-repos", "Accept": "application/json"}
         if github:
             headers.update({"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"})
             if self.github_token:
@@ -74,7 +74,7 @@ class HttpClient:
 
     def get_text(self, url: str) -> str:
         headers = {
-            "User-Agent": "awesome-osint-tools",
+            "User-Agent": "awesome-osint-repos",
             "Accept": "text/html,application/xhtml+xml",
         }
         for attempt in range(3):
@@ -481,7 +481,7 @@ def load_candidates(path: Path = CANDIDATE_PATH) -> tuple[list[str], list[dict[s
 
 def report_text(new_rows: list[dict[str, str]], errors: list[str], since: str) -> str:
     lines = [
-        "# Awesome OSINT Tools Candidate Discovery",
+        "# Awesome OSINT Repositories Candidate Discovery",
         "",
         f"- Scan date: {date.today().isoformat()}",
         f"- Window start: {since}",

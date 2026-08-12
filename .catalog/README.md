@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <div align="center">
-  <h1>Awesome OSINT Tools Monitoring</h1>
+  <h1>Awesome OSINT Repositories Monitoring</h1>
   <p>Automation and review guide for maintaining a verified catalogue of open-source OSINT tools and the public source-code repositories that contain their implementations.</p>
   <p>
     <img alt="Publication policy: review gated" src="https://img.shields.io/badge/publication-review_gated-bf8700?style=flat-square">
@@ -10,7 +10,7 @@
     <img alt="Third-party code execution: disabled" src="https://img.shields.io/badge/third--party_code-not_executed-1f883d?style=flat-square">
     <img alt="Last update: 2026-07-25" src="https://img.shields.io/badge/last_update-2026--07--25-1f883d?style=flat-square">
   </p>
-  <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">Awesome OSINT Tools</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
+  <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">Awesome OSINT Repositories</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
 </div>
 
 ## Operating model

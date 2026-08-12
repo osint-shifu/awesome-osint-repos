@@ -1,4 +1,4 @@
-name: Refresh Awesome OSINT Tools
+name: Refresh Awesome OSINT Repositories
 
 on:
   schedule:
@@ -58,18 +58,18 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git commit -m "chore: refresh Awesome OSINT Tools metadata"
+          git commit -m "chore: refresh Awesome OSINT Repositories metadata"
           git push --force-with-lease origin "HEAD:refs/heads/$branch"
           pull_request=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
           if [ -z "$pull_request" ]; then
             gh pr create \
               --base "$BASE_BRANCH" \
               --head "$branch" \
-              --title "chore: refresh Awesome OSINT Tools metadata" \
+              --title "chore: refresh Awesome OSINT Repositories metadata" \
               --body "Automated weekly metadata refresh. Review repository status changes and generated catalogue updates before merging."
           else
             gh pr edit "$pull_request" \
-              --title "chore: refresh Awesome OSINT Tools metadata" \
+              --title "chore: refresh Awesome OSINT Repositories metadata" \
               --body "Automated weekly metadata refresh. Review repository status changes and generated catalogue updates before merging."
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -78,7 +78,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          title="Awesome OSINT Tools - $(date -u +%G-W%V)"
+          title="Awesome OSINT Repositories - $(date -u +%G-W%V)"
           issue=$(gh issue list --state open --search "$title in:title" --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -n 1)
           if [ -z "$issue" ]; then
             gh issue create --title "$title" --body-file "$RUNNER_TEMP/market-watch.md"

@@ -98,7 +98,7 @@ def badge(label: str, slug: str, value: int, color: str, href: str = "") -> str:
 
 def navigation(active: str) -> str:
     items = [
-        ("Awesome OSINT Tools", "README.md"),
+        ("Awesome OSINT Repositories", "README.md"),
         ("Emerging Projects", "EMERGING.md"),
         ("Agentic AI OSINT", "AGENTIC.md"),
         ("Catalogue Timeline", "TIMELINE.md"),
@@ -151,7 +151,7 @@ def render_readme(
         '<a id="top"></a>',
         "",
         '<div align="center">',
-        "  <h1>Awesome OSINT Tools</h1>",
+        "  <h1>Awesome OSINT Repositories</h1>",
         "  <p>A catalogue of open-source OSINT tools organized into 12 clear categories and concrete input types.</p>",
         "  <p>",
         f'    {badge("Emerging projects", "emerging", emerging_count, "bf8700", "EMERGING.md")}',
@@ -163,13 +163,13 @@ def render_readme(
             f'last_update-{badge_date}-1f883d?style=flat-square">'
         ),
         "  </p>",
-        navigation("Awesome OSINT Tools"),
+        navigation("Awesome OSINT Repositories"),
         "</div>",
         "",
         "## About this catalogue",
         "",
         (
-            "Awesome OSINT Tools is a repository-first catalogue of open-source investigative software. "
+            "Awesome OSINT Repositories is a repository-first catalogue of open-source investigative software. "
             "Every record represents a public source-code repository containing an identifiable tool "
             "or integration with a practical OSINT use case."
         ),
@@ -487,7 +487,7 @@ def render_timeline(
         '<a id="top"></a>',
         "",
         '<div align="center">',
-        "  <h1>Awesome OSINT Tools Timeline</h1>",
+        "  <h1>Awesome OSINT Repositories Timeline</h1>",
         "  <p>A visual chronology of tools added to the catalogue, newest first.</p>",
         "  <p>",
         (
@@ -508,7 +508,7 @@ def render_timeline(
         "  </p>",
         (
             '  <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · '
-            '<a href="README.md">Awesome OSINT Tools</a> · '
+            '<a href="README.md">Awesome OSINT Repositories</a> · '
             '<a href="EMERGING.md">Emerging Projects</a> · '
             '<a href="AGENTIC.md">Agentic AI OSINT</a> · '
             '<a href="osint-repositories.csv">Repository Database CSV</a></p>'

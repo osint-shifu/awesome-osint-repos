@@ -55,7 +55,7 @@ def build_report() -> str:
     hosting = Counter(row.get("Hosting") or "Unknown" for row in repositories)
 
     lines = [
-        f"# Awesome OSINT Tools - {today.isoformat()}",
+        f"# Awesome OSINT Repositories - {today.isoformat()}",
         "",
         f"- Catalogued repositories: {len(repositories)}",
         f"- Candidates awaiting review: {len(review_candidates)}",

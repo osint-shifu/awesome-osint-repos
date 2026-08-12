@@ -1,14 +1,14 @@
 <a id="top"></a>
 
 <div align="center">
-  <h1>Awesome OSINT Tools Timeline</h1>
+  <h1>Awesome OSINT Repositories Timeline</h1>
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
     <img alt="Dated additions: 142" src="https://img.shields.io/badge/dated_additions-142-0969da?style=flat-square">
     <img alt="Catalogue projects: 438" src="https://img.shields.io/badge/catalogue_projects-438-8250df?style=flat-square">
     <img alt="Last update: 2026-07-25" src="https://img.shields.io/badge/last_update-2026--07--25-1f883d?style=flat-square">
   </p>
-  <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Tools</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
+  <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
 
 > Each entry shows its catalogue addition date, repository description, target input, assigned main category, and current star count.

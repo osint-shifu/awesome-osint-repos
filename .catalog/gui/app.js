@@ -2,7 +2,7 @@
   "use strict";
 
   const PAGE_SIZE = 36;
-  const FAVORITES_KEY = "awesome-osint-tools-saved";
+  const FAVORITES_KEY = "awesome-osint-repos-saved";
 
   // Icon paths from Phosphor Icons core, MIT License: https://github.com/phosphor-icons/core
   const ICONS = {
