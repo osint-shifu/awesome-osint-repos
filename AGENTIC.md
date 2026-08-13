@@ -4,10 +4,10 @@
   <h1>Agentic AI OSINT</h1>
   <p>Open-source skills, plugins, MCP servers, and AI-agent integrations for investigative work.</p>
   <p>
-    <img alt="Total projects: 125" src="https://img.shields.io/badge/total_projects-125-bf8700?style=flat-square">
-    <img alt="MCP integrations: 63" src="https://img.shields.io/badge/MCP_integrations-63-0969da?style=flat-square">
-    <img alt="Skill integrations: 51" src="https://img.shields.io/badge/skill_integrations-51-8250df?style=flat-square">
-    <img alt="Last update: 2026-08-12" src="https://img.shields.io/badge/last_update-2026--08--12-1f883d?style=flat-square">
+    <img alt="Total projects: 127" src="https://img.shields.io/badge/total_projects-127-bf8700?style=flat-square">
+    <img alt="MCP integrations: 64" src="https://img.shields.io/badge/MCP_integrations-64-0969da?style=flat-square">
+    <img alt="Skill integrations: 52" src="https://img.shields.io/badge/skill_integrations-52-8250df?style=flat-square">
+    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
   <p><a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <strong><a href="AGENTIC.md">Agentic AI OSINT</a></strong> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -32,7 +32,7 @@ This view contains implementation-bearing repositories that expose investigative
 
 - [Identity](#identity) <sup>4 projects</sup>
 - [Social Media](#social-media) <sup>12 projects</sup>
-- [Infrastructure](#infrastructure) <sup>23 projects</sup>
+- [Infrastructure](#infrastructure) <sup>25 projects</sup>
 - [Web](#web) <sup>33 projects</sup>
 - [Dark Web](#dark-web) <sup>3 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>10 projects</sup>
@@ -40,7 +40,7 @@ This view contains implementation-bearing repositories that expose investigative
 - [Geolocation](#geolocation) <sup>4 projects</sup>
 - [Investigation](#investigation) <sup>14 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>439 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>445 unique repositories</sup>
 
 ---
 
@@ -84,7 +84,7 @@ Tools for discovering and analyzing public accounts and content on social platfo
 
 <a id="infrastructure"></a>
 
-## 🌐 Infrastructure <sup>23 projects</sup>
+## 🌐 Infrastructure <sup>25 projects</sup>
 
 Tools for domains, IP addresses, networks, ASNs, and related internet infrastructure.
 
@@ -95,6 +95,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 | [Claude BugHunter](https://github.com/elementalsouls/Claude-BugHunter) | Domain; URL | Claude Code | Adds structured web reconnaissance and vulnerability-hunting methodology. | 2026-05-05 | 2026-08-10 | ⭐ 3,500 |
 | [Claude Red](https://github.com/SnailSploit/Claude-Red) | Domain; IP Address; URL | Claude Code | Provides red-team and security research playbooks for Claude-based workflows. | 2026-03-04 | 2026-05-08 | ⭐ 2,905 |
 | [VulnClaw](https://github.com/Netw0rkNoob/VulnClaw) | Domain; IP Address; URL | Multiple / configurable agents | Orchestrates information gathering, vulnerability analysis, exploitation, and reporting. | 2026-04-18 | 2026-08-10 | ⭐ 2,706 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [redamon](https://github.com/samugit83/redamon) | Domain; IP Address; URL | Multiple / configurable agents | Coordinates AI-assisted reconnaissance, validation, remediation, and reporting workflows for authorized security testing. | 2025-12-29 | 2026-08-12 | ⭐ 2,305 |
 | [Claude OSINT](https://github.com/elementalsouls/Claude-OSINT) | Domain; URL | Claude Code | Adds structured external reconnaissance methods, dorks, validators, and reporting guidance. | 2026-04-26 | 2026-08-10 | ⭐ 2,275 |
 | [Pentest AI Agents](https://github.com/0xSteph/pentest-ai-agents) | Domain; IP Address; URL | Claude Code | Supplies specialized subagents for recon analysis, exploit research, detection, and reporting. | 2026-03-28 | 2026-08-08 | ⭐ 2,114 |
 | [CyberStrike](https://github.com/CyberStrikeus/CyberStrike) | Domain; IP Address; URL | Multiple / configurable agents | Runs agent-assisted offensive security with recon, testing, and evidence workflows. | 2026-02-14 | 2026-08-12 | ⭐ 1,751 |
@@ -102,6 +103,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 | [Pentest AI](https://github.com/0xSteph/pentest-ai) | Domain; IP Address; URL | Multiple / configurable agents | Exposes security tools, specialist agents, and deterministic probes through CLI and MCP. | 2026-04-04 | 2026-08-08 | ⭐ 1,584 |
 | [Recon Skills](https://github.com/uphiago/recon-skills) | Domain; IP Address; URL | Any Agent Skills-compatible agent | Provides field-oriented recon, dorking, secret discovery, asset mapping, and testing playbooks. | 2026-06-24 | 2026-07-31 | ⭐ 1,087 |
 | [Transilience Community Tools](https://github.com/transilienceai/communitytools) | Domain; IP Address; URL | Claude Code | Covers security reconnaissance, bug bounty, AI threat testing, validation, and reporting. | 2025-11-21 | 2026-07-29 | ⭐ 465 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [TORCH](https://github.com/Encod3d-Sec/TORCH) | Domain; IP Address; URL | Claude Code | Provides Claude Code with reconnaissance and authorized security-testing workflows, a searchable technique library, persistent engagement state, and MCP retrieval. | 2026-07-14 | 2026-08-13 | ⭐ 270 |
 | [ThreatSwarm](https://github.com/mukul975/Threatswarm) | Domain; IP Address; URL | Claude Code | Coordinates scope-aware agents across recon, exploitation, DFIR, and final reporting. | 2026-04-29 | 2026-04-29 | ⭐ 66 |
 | [MCP dnstwist](https://github.com/w0h1v/mcp-dnstwist) | Domain | Any MCP-compatible agent | Exposes look-alike domain discovery for phishing and impersonation investigations. | 2024-12-19 | 2025-03-03 | ⭐ 51 |
 | [OSINT AI](https://github.com/dkyazzentwatwa/osint-ai) | Name; Organization Name; Domain | Generic AI agent | Provides guided people, domain, organization, breach, and evidence-analysis workflows. | 2026-02-27 | 2026-03-07 | ⭐ 47 |

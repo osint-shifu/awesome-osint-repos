@@ -4,9 +4,9 @@
   <h1>Awesome OSINT Repositories Timeline</h1>
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
-    <img alt="Dated additions: 143" src="https://img.shields.io/badge/dated_additions-143-0969da?style=flat-square">
-    <img alt="Catalogue projects: 439" src="https://img.shields.io/badge/catalogue_projects-439-8250df?style=flat-square">
-    <img alt="Last update: 2026-08-12" src="https://img.shields.io/badge/last_update-2026--08--12-1f883d?style=flat-square">
+    <img alt="Dated additions: 149" src="https://img.shields.io/badge/dated_additions-149-0969da?style=flat-square">
+    <img alt="Catalogue projects: 445" src="https://img.shields.io/badge/catalogue_projects-445-8250df?style=flat-square">
+    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
   <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -24,6 +24,66 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td align="right" valign="middle"><strong>2026-08-13</strong><br><sub>6 projects</sub></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/barretlee/agent-pulse">agent-pulse</a></strong><br>
+        Turns public AI releases, research, policy, funding, and propagation signals into source-linked events and evolving assessments.<br>
+        <sub>Target Input: URL; Document · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;232</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/simplifaisoul/osiris">osiris</a></strong><br>
+        Aggregates live aviation, maritime, camera, seismic, wildfire, news, weather, space, cyber, sanctions, and public Telegram data in a real-time situational-awareness dashboard.<br>
+        <sub>Target Input: - · Category: Investigation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;7,598</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/samugit83/redamon">redamon</a></strong><br>
+        Coordinates AI-assisted reconnaissance, validation, remediation, and reporting workflows for authorized security testing.<br>
+        <sub>Target Input: Domain; IP Address; URL · Category: Infrastructure</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;2,305</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/soxoj/sharetrace">sharetrace</a></strong><br>
+        Extracts public identity metadata exposed by supported social, document, code, and content-sharing links.<br>
+        <sub>Target Input: URL · Category: Identity</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;217</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/Encod3d-Sec/TORCH">TORCH</a></strong><br>
+        Provides Claude Code with reconnaissance and authorized security-testing workflows, a searchable technique library, persistent engagement state, and MCP retrieval.<br>
+        <sub>Target Input: Domain; IP Address; URL · Category: Infrastructure</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;270</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/mwakidenis/WebCheck-OSINT">WebCheck-OSINT</a></strong><br>
+        Collects and presents public DNS, TLS, headers, hosting, network, technology, security, and performance data for a website.<br>
+        <sub>Target Input: Domain; URL · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;163</strong></td>
+    </tr>
     <tr>
       <td align="right" valign="middle"><strong>2026-08-12</strong><br><sub>2 projects</sub></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
