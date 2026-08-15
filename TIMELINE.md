@@ -5,7 +5,7 @@
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
     <img alt="Dated additions: 149" src="https://img.shields.io/badge/dated_additions-149-0969da?style=flat-square">
-    <img alt="Catalogue projects: 445" src="https://img.shields.io/badge/catalogue_projects-445-8250df?style=flat-square">
+    <img alt="Catalogue projects: 443" src="https://img.shields.io/badge/catalogue_projects-443-8250df?style=flat-square">
     <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
   <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -1520,7 +1520,7 @@
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
 <details>
-<summary><strong>Legacy entries without a catalogue date</strong> <sup>296 projects</sup></summary>
+<summary><strong>Legacy entries without a catalogue date</strong> <sup>294 projects</sup></summary>
 
 These projects predate reliable per-entry addition tracking. They are listed alphabetically without an invented date.
 
@@ -1535,7 +1535,7 @@ These projects predate reliable per-entry addition tracking. They are listed alp
   </thead>
   <tbody>
     <tr>
-      <td align="right" valign="middle"><strong>No date</strong><br><sub>296 projects</sub></td>
+      <td align="right" valign="middle"><strong>No date</strong><br><sub>294 projects</sub></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
         <strong><a href="https://github.com/frangelbarrera/Abster-Intelligence">Abster Intelligence</a></strong><br>
@@ -2478,16 +2478,6 @@ These projects predate reliable per-entry addition tracking. They are listed alp
       <td align="right" valign="middle"></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
-        <strong><a href="https://github.com/Vyntral/god-eye">god-eye</a></strong><br>
-        Combines subdomain enumeration with local language-model analysis.<br>
-        <sub>Target Input: Domain · Category: Infrastructure</sub>
-      </td>
-      <td align="right" valign="top"><strong>⭐&nbsp;515</strong></td>
-    </tr>
-    <tr>
-      <td align="right" valign="middle"></td>
-      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
-      <td valign="middle">
         <strong><a href="https://github.com/m3n0sd0n4ld/GooFuzz">GooFuzz</a></strong><br>
         Uses search-engine results to enumerate web paths, files, and parameters.<br>
         <sub>Target Input: URL · Category: Web</sub>
@@ -2593,16 +2583,6 @@ These projects predate reliable per-entry addition tracking. They are listed alp
         <sub>Target Input: IP Address · Category: Threat Intelligence</sub>
       </td>
       <td align="right" valign="top"><strong>⭐&nbsp;1,288</strong></td>
-    </tr>
-    <tr>
-      <td align="right" valign="middle"></td>
-      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
-      <td valign="middle">
-        <strong><a href="https://github.com/connerlambden/helium-mcp">Helium MCP</a></strong><br>
-        Provides news discovery, bias scoring, market data, and multi-source synthesis.<br>
-        <sub>Target Input: URL · Category: Web</sub>
-      </td>
-      <td align="right" valign="top"><strong>⭐&nbsp;11</strong></td>
     </tr>
     <tr>
       <td align="right" valign="middle"></td>

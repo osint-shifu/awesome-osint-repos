@@ -4,10 +4,10 @@
   <h1>Awesome OSINT Repositories</h1>
   <p>A catalogue of open-source OSINT tools organized into 12 clear categories and concrete input types.</p>
   <p>
-    <a href="EMERGING.md"><img alt="Emerging projects: 93" src="https://img.shields.io/badge/emerging-93-bf8700?style=flat-square"></a>
+    <a href="EMERGING.md"><img alt="Emerging projects: 92" src="https://img.shields.io/badge/emerging-92-bf8700?style=flat-square"></a>
     <a href="#social-media"><img alt="Social Media projects: 69" src="https://img.shields.io/badge/social_media-69-8250df?style=flat-square"></a>
-    <a href="AGENTIC.md"><img alt="Agentic integrations: 127" src="https://img.shields.io/badge/agentic_integrations-127-d1242f?style=flat-square"></a>
-    <img alt="Catalogue projects: 445" src="https://img.shields.io/badge/catalogue_projects-445-8250df?style=flat-square">
+    <a href="AGENTIC.md"><img alt="Agentic integrations: 126" src="https://img.shields.io/badge/agentic_integrations-126-d1242f?style=flat-square"></a>
+    <img alt="Catalogue projects: 443" src="https://img.shields.io/badge/catalogue_projects-443-8250df?style=flat-square">
     <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
   <p><strong><a href="README.md">Awesome OSINT Repositories</a></strong> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -41,8 +41,8 @@ Each project has exactly one value in `Categories`. `Target Input` contains only
 - [Identity](#identity) <sup>30 projects</sup>
 - [Social Media](#social-media) <sup>69 projects</sup>
 - [Code Repositories](#code-repositories) <sup>14 projects</sup>
-- [Infrastructure](#infrastructure) <sup>57 projects</sup>
-- [Web](#web) <sup>79 projects</sup>
+- [Infrastructure](#infrastructure) <sup>56 projects</sup>
+- [Web](#web) <sup>78 projects</sup>
 - [Dark Web](#dark-web) <sup>15 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>21 projects</sup>
 - [Documents & Records](#documents-records) <sup>44 projects</sup>
@@ -50,10 +50,10 @@ Each project has exactly one value in `Categories`. `Target Input` contains only
 - [Geolocation](#geolocation) <sup>34 projects</sup>
 - [Cryptocurrency](#cryptocurrency) <sup>8 projects</sup>
 - [Investigation](#investigation) <sup>28 projects</sup>
-- [Emerging projects](EMERGING.md) <sup>93 projects</sup>
-- [Agentic AI OSINT](AGENTIC.md) <sup>127 projects</sup>
+- [Emerging projects](EMERGING.md) <sup>92 projects</sup>
+- [Agentic AI OSINT](AGENTIC.md) <sup>126 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>445 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>
 
 ---
 
@@ -205,7 +205,7 @@ Tools that investigate public source-code repositories, accounts, and repository
 
 <a id="infrastructure"></a>
 
-## 🌐 Infrastructure <sup>57 projects</sup>
+## 🌐 Infrastructure <sup>56 projects</sup>
 
 Tools for domains, IP addresses, networks, ASNs, and related internet infrastructure.
 
@@ -251,7 +251,6 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 | [Subdominator](https://github.com/RevoltSecurities/Subdominator) | Python | Domain | Performs low-impact subdomain discovery across multiple sources. | 2023-07-24 | 2026-06-21 | ⭐ 799 |
 | [Cyberbro](https://github.com/stanfrbd/cyberbro) | Python | Domain; IP Address; URL | Extracts observables from unstructured input and checks them across CTI services. | 2024-10-31 | 2026-08-10 | ⭐ 679 |
 | [CloudRip](https://github.com/moscovium-mc/CloudRip) | Python | Domain; IP Address | Looks for origin IP addresses hidden behind Cloudflare. | 2024-10-12 | 2026-07-06 | ⭐ 640 |
-| [god-eye](https://github.com/Vyntral/god-eye) | Go | Domain | Combines subdomain enumeration with local language-model analysis. | 2025-11-19 | 2026-04-18 | ⭐ 515 |
 | [Transilience Community Tools](https://github.com/transilienceai/communitytools) | Skills + agents | Domain; IP Address; URL | Covers security reconnaissance, bug bounty, AI threat testing, validation, and reporting. | 2025-11-21 | 2026-07-29 | ⭐ 465 |
 | <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [TORCH](https://github.com/Encod3d-Sec/TORCH) | Skill library + MCP | Domain; IP Address; URL | Provides Claude Code with reconnaissance and authorized security-testing workflows, a searchable technique library, persistent engagement state, and MCP retrieval. | 2026-07-14 | 2026-08-13 | ⭐ 270 |
 | [netscout](https://github.com/caio-ishikawa/netscout) | Go | Domain; URL | Crawls from a seed URL to find domains, paths, endpoints, and files. | 2024-03-28 | 2024-04-05 | ⭐ 182 |
@@ -273,7 +272,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 
 <a id="web"></a>
 
-## 🔗 Web <sup>79 projects</sup>
+## 🔗 Web <sup>78 projects</sup>
 
 Tools that collect, search, analyze, crawl, or preserve public web content.
 
@@ -350,7 +349,6 @@ Tools that collect, search, analyze, crawl, or preserve public web content.
 | [AtDork](https://github.com/amnottdevv/AtDork) | Python | URL | Automates multi-engine search queries with rate and failure controls. | 2026-06-07 | 2026-08-10 | ⭐ 34 |
 | [Wayback Archive](https://github.com/GeiserX/Wayback-Archive) | Python | URL | Downloads complete archived websites with their referenced assets. | 2025-12-11 | 2026-08-01 | ⭐ 26 |
 | [GiaSip Skills](https://github.com/GiaSip/giasip-skills) | Skills + plugin | URL | Provides quick recon, fact-checking, research orchestration, and multi-model dispatch. | 2026-05-30 | 2026-08-09 | ⭐ 12 |
-| [Helium MCP](https://github.com/connerlambden/helium-mcp) | MCP server | URL | Provides news discovery, bias scoring, market data, and multi-source synthesis. | 2026-04-10 | 2026-07-06 | ⭐ 11 |
 | [Web Multi Search](https://github.com/soxoj/web-multi-search-skill) | Skill + script | URL | Searches several web engines in parallel and exports deduplicated results. | 2026-02-08 | 2026-02-08 | ⭐ 7 |
 | [Digital Research Skills](https://github.com/smarks26/digital-research-skills) | Research skill system | URL | Plans evidence-driven research waves for OSINT, due diligence, trends, and long-form analysis. | 2026-05-29 | 2026-05-16 | ⭐ 3 |
 | [Memorious4](https://github.com/dataresearchcenter/memorious) | Python | URL | Runs maintained configurable crawlers for investigative documents and structured public data. | 2025-01-21 | 2026-08-06 | ⭐ 3 |

@@ -4,7 +4,7 @@
   <h1>Emerging OSINT Projects</h1>
   <p>A watchlist of early-stage open-source OSINT tools and supporting technologies.</p>
   <p>
-    <a href="#projects"><img alt="Emerging projects: 93" src="https://img.shields.io/badge/emerging_projects-93-bf8700?style=flat-square"></a>
+    <a href="#projects"><img alt="Emerging projects: 92" src="https://img.shields.io/badge/emerging_projects-92-bf8700?style=flat-square"></a>
     <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
   <p><a href="README.md">Awesome OSINT Repositories</a> · <strong><a href="EMERGING.md">Emerging Projects</a></strong> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -20,7 +20,7 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <a id="projects"></a>
 
-## Projects <sup>93 projects</sup>
+## Projects <sup>92 projects</sup>
 
 | Project | Target Input | Categories | Description | Created | Last Update | Stars |
 |:---|:---|:---:|:---|:---:|:---:|---:|
@@ -57,7 +57,6 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 | [PANO](https://github.com/ALW1EZ/PANO) | Name; Organization Name; Event Data | Investigation | Combines link graphs, timelines, notes, and assisted investigation features. | 2024-12-30 | 2026-02-13 | ⭐ 562 |
 | [Maltego Telegram](https://github.com/vognik/maltego-telegram) | Username | Social Media | Adds Maltego transforms for Telegram channels, groups, users, and messages. | 2024-11-04 | 2026-01-27 | ⭐ 537 |
 | [Sightline](https://github.com/ni5arga/sightline) | Location | Geolocation | Searches OpenStreetMap data for real-world infrastructure patterns. | 2026-01-25 | 2026-05-10 | ⭐ 519 |
-| [god-eye](https://github.com/Vyntral/god-eye) | Domain | Infrastructure | Combines subdomain enumeration with local language-model analysis. | 2025-11-19 | 2026-04-18 | ⭐ 515 |
 | [ArkhamMirror](https://github.com/mantisfury/ArkhamMirror) | Document | Documents & Records | Provides local document intelligence, retrieval, and relationship analysis for investigations. | 2025-11-25 | 2026-01-25 | ⭐ 484 |
 | [VibeNVR](https://github.com/spupuz/VibeNVR) | Image; Video | Media | Provides privacy-focused local camera recording and monitoring without a cloud dependency. | 2026-01-15 | 2026-08-12 | ⭐ 358 |
 | [Deanonymizer](https://github.com/ni5arga/deanonymizer) | Name | Identity | Compares public posting history and behavioral timing patterns. | 2026-06-02 | 2026-06-15 | ⭐ 326 |
@@ -120,4 +119,4 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
-[Complete repository database (CSV)](osint-repositories.csv) <sup>445 unique repositories</sup>
+[Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>

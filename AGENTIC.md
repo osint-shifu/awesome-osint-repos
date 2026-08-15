@@ -4,8 +4,8 @@
   <h1>Agentic AI OSINT</h1>
   <p>Open-source skills, plugins, MCP servers, and AI-agent integrations for investigative work.</p>
   <p>
-    <img alt="Total projects: 127" src="https://img.shields.io/badge/total_projects-127-bf8700?style=flat-square">
-    <img alt="MCP integrations: 64" src="https://img.shields.io/badge/MCP_integrations-64-0969da?style=flat-square">
+    <img alt="Total projects: 126" src="https://img.shields.io/badge/total_projects-126-bf8700?style=flat-square">
+    <img alt="MCP integrations: 63" src="https://img.shields.io/badge/MCP_integrations-63-0969da?style=flat-square">
     <img alt="Skill integrations: 52" src="https://img.shields.io/badge/skill_integrations-52-8250df?style=flat-square">
     <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
   </p>
@@ -33,14 +33,14 @@ This view contains implementation-bearing repositories that expose investigative
 - [Identity](#identity) <sup>4 projects</sup>
 - [Social Media](#social-media) <sup>12 projects</sup>
 - [Infrastructure](#infrastructure) <sup>25 projects</sup>
-- [Web](#web) <sup>33 projects</sup>
+- [Web](#web) <sup>32 projects</sup>
 - [Dark Web](#dark-web) <sup>3 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>10 projects</sup>
 - [Documents & Records](#documents-records) <sup>22 projects</sup>
 - [Geolocation](#geolocation) <sup>4 projects</sup>
 - [Investigation](#investigation) <sup>14 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>445 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>
 
 ---
 
@@ -120,7 +120,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 
 <a id="web"></a>
 
-## 🔗 Web <sup>33 projects</sup>
+## 🔗 Web <sup>32 projects</sup>
 
 Tools that collect, search, analyze, crawl, or preserve public web content.
 
@@ -154,7 +154,6 @@ Tools that collect, search, analyze, crawl, or preserve public web content.
 | [OpenRouter Deep Research MCP](https://github.com/wheattoast11/openrouter-deep-research-mcp) | URL | Any MCP-compatible agent | Orchestrates parallel research agents and consensus-backed synthesis through OpenRouter. | 2025-03-28 | 2026-03-04 | ⭐ 53 |
 | [Web Researcher MCP](https://github.com/zoharbabin/web-researcher-mcp) | URL | Any MCP-compatible agent | Searches the web, extracts sources, and produces citation-aware research results. | 2026-05-18 | 2026-08-08 | ⭐ 48 |
 | [GiaSip Skills](https://github.com/GiaSip/giasip-skills) | URL | Claude Code; OpenAI Codex | Provides quick recon, fact-checking, research orchestration, and multi-model dispatch. | 2026-05-30 | 2026-08-09 | ⭐ 12 |
-| [Helium MCP](https://github.com/connerlambden/helium-mcp) | URL | Any MCP-compatible agent | Provides news discovery, bias scoring, market data, and multi-source synthesis. | 2026-04-10 | 2026-07-06 | ⭐ 11 |
 | [Web Multi Search](https://github.com/soxoj/web-multi-search-skill) | URL | OpenClaw | Searches several web engines in parallel and exports deduplicated results. | 2026-02-08 | 2026-02-08 | ⭐ 7 |
 | [Digital Research Skills](https://github.com/smarks26/digital-research-skills) | URL | Multiple / configurable agents | Plans evidence-driven research waves for OSINT, due diligence, trends, and long-form analysis. | 2026-05-29 | 2026-05-16 | ⭐ 3 |
 | [Agent Toolkit](https://github.com/000001000000/agent-toolkit) | URL | Any Agent Skills-compatible agent | Includes an OSINT dorking workflow with search tooling and evaluation assets. | 2026-04-11 | 2026-06-08 | ⭐ 1 |
