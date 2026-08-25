@@ -400,6 +400,7 @@ def telegram_items(
     source: dict[str, str],
     since: str,
     limit: int,
+    fail_on_repository_error: bool = False,
 ) -> list[dict[str, Any]]:
     since_date = date.fromisoformat(since)
     base_url = source["Query"].split("?", 1)[0].rstrip("/")
@@ -439,10 +440,10 @@ def telegram_items(
         try:
             item = repository_item(client, repository_url, evidence)
         except Exception as error:
-            print(
-                f"Telegram repository skipped: {repository_url}: {error}",
-                file=sys.stderr,
-            )
+            message = f"Telegram repository lookup failed: {repository_url}: {error}"
+            if fail_on_repository_error:
+                raise RuntimeError(message) from error
+            print(message.replace("failed", "skipped"), file=sys.stderr)
             continue
         if item is None:
             continue
@@ -528,6 +529,11 @@ def main() -> int:
     parser.add_argument("--seed-candidates", type=Path, help="Merge candidates from an existing review branch")
     parser.add_argument("--delay", type=float, default=2.1, help="Delay between source requests")
     parser.add_argument("--report", type=Path, help="Write a Markdown discovery report")
+    parser.add_argument(
+        "--fail-on-source-error",
+        action="store_true",
+        help="Return failure and leave candidates unchanged when any source lookup fails",
+    )
     args = parser.parse_args()
 
     if args.since:
@@ -570,8 +576,11 @@ def main() -> int:
         if adapter is None:
             errors.append(f"{source['Name']}: unsupported provider {source['Provider']}")
             continue
+        adapter_kwargs: dict[str, bool] = {}
+        if source["Provider"] == "Telegram Channel":
+            adapter_kwargs["fail_on_repository_error"] = args.fail_on_source_error
         try:
-            items = adapter(client, source, since, args.max_per_source)
+            items = adapter(client, source, since, args.max_per_source, **adapter_kwargs)
         except Exception as error:
             errors.append(f"{source['Name']}: {error}")
             continue
@@ -615,13 +624,16 @@ def main() -> int:
 
     all_candidates = existing_candidates + new_rows
     all_candidates.sort(key=lambda row: (row["Review Status"], -int(row["Score"] or 0), row["Project"].casefold()))
-    if args.write:
-        write_csv(CANDIDATE_PATH, fields or CANDIDATE_FIELDS, all_candidates)
     report = report_text(new_rows, errors, since)
     if args.report:
         args.report.write_text(report, encoding="utf-8")
     else:
         print(report)
+    if errors and args.fail_on_source_error:
+        print(f"sources={len(sources)} new_candidates={len(new_rows)} errors={len(errors)}")
+        return 1
+    if args.write:
+        write_csv(CANDIDATE_PATH, fields or CANDIDATE_FIELDS, all_candidates)
     print(f"sources={len(sources)} new_candidates={len(new_rows)} errors={len(errors)}")
     return 1 if errors and not new_rows else 0
 
