@@ -371,7 +371,7 @@ After Python setup, add:
           fi
 ~~~
 
-The legacy branch remains intact. Its candidate CSV is only a seed for the new direct-main queue.
+The legacy branch remains intact. Only its `Review Status: review` records are a seed for the new direct-main queue; historical accepted and rejected rows are not imported.
 
 - [ ] **Step 3: Add strict discovery, gates, and publication**
 
@@ -386,7 +386,10 @@ Add these steps after the seed, with the same schedule condition:
           set -euo pipefail
           seed=()
           if [ -s "$RUNNER_TEMP/previous-candidates.csv" ]; then
-            seed=(--seed-candidates "$RUNNER_TEMP/previous-candidates.csv")
+            seed=(
+              --seed-candidates "$RUNNER_TEMP/previous-candidates.csv"
+              --seed-review-only
+            )
           fi
           python .catalog/scripts/discover_candidates.py \
             --write \
@@ -492,7 +495,7 @@ GITHUB_TOKEN=github_token python3 .catalog/scripts/discover_candidates.py \
 Change the discover.yml paragraph to state these exact rules:
 
 - it runs once at 03:00 Europe/Warsaw using two UTC cron entries and a time guard;
-- it merges the legacy candidate branch when present, scans configured sources, and commits only .catalog/data/candidates.csv directly to main after source, renderer, CSV, whitespace, and allowlist gates;
+- it merges only `Review Status: review` records from the legacy candidate branch when present, scans configured sources, and commits only .catalog/data/candidates.csv directly to main after source, renderer, CSV, whitespace, and allowlist gates;
 - each discovery remains Review Status: review, and review_candidate.py remains the only acceptance or rejection path;
 - it requires no OpenAI key, personal token, or custom secret, only the repository-provided GITHUB_TOKEN with Actions write permission;
 - it never force-pushes, closes the legacy PR, or performs a metadata refresh.

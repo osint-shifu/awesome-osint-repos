@@ -480,6 +480,23 @@ def load_candidates(path: Path = CANDIDATE_PATH) -> tuple[list[str], list[dict[s
         return list(reader.fieldnames or CANDIDATE_FIELDS), list(reader)
 
 
+def merge_seed_candidates(
+    existing_candidates: list[dict[str, str]],
+    seed_candidates: list[dict[str, str]],
+    review_only: bool = False,
+) -> list[dict[str, str]]:
+    merged = list(existing_candidates)
+    existing_keys = {repository_key(row["Repository"]) for row in merged}
+    for row in seed_candidates:
+        if review_only and row.get("Review Status") != "review":
+            continue
+        key = repository_key(row["Repository"])
+        if key not in existing_keys:
+            merged.append(row)
+            existing_keys.add(key)
+    return merged
+
+
 def report_text(new_rows: list[dict[str, str]], errors: list[str], since: str) -> str:
     lines = [
         "# Awesome OSINT Repositories Candidate Discovery",
@@ -527,6 +544,11 @@ def main() -> int:
     parser.add_argument("--provider", action="append", default=[], help="Limit providers")
     parser.add_argument("--source", action="append", default=[], help="Limit exact configured source names")
     parser.add_argument("--seed-candidates", type=Path, help="Merge candidates from an existing review branch")
+    parser.add_argument(
+        "--seed-review-only",
+        action="store_true",
+        help="With --seed-candidates, merge only records awaiting review",
+    )
     parser.add_argument("--delay", type=float, default=2.1, help="Delay between source requests")
     parser.add_argument("--report", type=Path, help="Write a Markdown discovery report")
     parser.add_argument(
@@ -551,12 +573,11 @@ def main() -> int:
         if seed_fields != CANDIDATE_FIELDS:
             print(f"Invalid candidate seed schema: {args.seed_candidates}", file=sys.stderr)
             return 2
-        existing_keys = {repository_key(row["Repository"]) for row in existing_candidates}
-        for row in seed_candidates:
-            key = repository_key(row["Repository"])
-            if key not in existing_keys:
-                existing_candidates.append(row)
-                existing_keys.add(key)
+        existing_candidates = merge_seed_candidates(
+            existing_candidates,
+            seed_candidates,
+            review_only=args.seed_review_only,
+        )
     known = {repository_key(row["Repository"]) for row in catalog_rows}
     known.update(repository_key(row["Repository"]) for row in existing_candidates)
     providers = set(args.provider)

@@ -13,6 +13,26 @@ import discover_candidates as discovery
 
 
 class StrictDiscoveryTests(unittest.TestCase):
+    def test_merge_seed_candidates_can_keep_only_review_records(self) -> None:
+        existing = [
+            {"Repository": "https://github.com/main/existing", "Review Status": "review"},
+        ]
+        seed = [
+            {"Repository": "https://github.com/legacy/accepted", "Review Status": "accepted"},
+            {"Repository": "https://github.com/legacy/rejected", "Review Status": "rejected"},
+            {"Repository": "https://github.com/legacy/review", "Review Status": "review"},
+        ]
+
+        merged = discovery.merge_seed_candidates(existing, seed, review_only=True)
+
+        self.assertEqual(
+            [row["Repository"] for row in merged],
+            [
+                "https://github.com/main/existing",
+                "https://github.com/legacy/review",
+            ],
+        )
+
     def test_strict_source_error_returns_one_without_writing_candidates(self) -> None:
         source = {"Name": "Broken", "Provider": "Unsupported", "Enabled": "true"}
         with (

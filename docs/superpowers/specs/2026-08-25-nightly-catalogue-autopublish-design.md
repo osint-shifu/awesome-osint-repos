@@ -50,9 +50,11 @@ runs and never cancels an active run.
 
 1. Check out `main` with full history and fetch it before beginning the scan.
 2. When the existing `automation/catalog-candidates` branch is available,
-   extract its candidate CSV as a seed. This preserves the candidate queue from
-   the currently open review pull request. The workflow does not close that
-   pull request or delete its branch.
+   extract only its `Review Status: review` records as a seed. This preserves
+   pending candidate review work from the currently open pull request without
+   importing historical accepted or rejected decisions that do not belong to
+   the current canonical catalogue. The workflow does not close that pull
+   request or delete its branch.
 3. Run the existing `discover_candidates.py --write` against the configured
    GitHub, GitLab, Codeberg, MCP Registry, and Telegram sources with its current
    14-day lookback, 100-result source cap, and request delay. The seed is merged
@@ -133,8 +135,8 @@ it is not a personal access token and has no separate cost or configuration.
 
 ## Verification strategy
 
-- Unit tests cover strict failure on any source error and the single-file
-  staging gate.
+- Unit tests cover strict failure on any source error, review-only legacy seed
+  merging, and the single-file staging gate.
 - The existing Python compilation, renderer check, catalogue validator, and
   whitespace gate run inside the workflow before every possible commit and
   again after a rebase.

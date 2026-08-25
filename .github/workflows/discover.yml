@@ -62,7 +62,10 @@ jobs:
           set -euo pipefail
           seed=()
           if [ -s "$RUNNER_TEMP/previous-candidates.csv" ]; then
-            seed=(--seed-candidates "$RUNNER_TEMP/previous-candidates.csv")
+            seed=(
+              --seed-candidates "$RUNNER_TEMP/previous-candidates.csv"
+              --seed-review-only
+            )
           fi
           python .catalog/scripts/discover_candidates.py \
             --write \
