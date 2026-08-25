@@ -95,6 +95,17 @@ Persist newly found candidates:
 GITHUB_TOKEN=github_token python3 .catalog/scripts/discover_candidates.py --write --lookback-days 14 --report discovery-report.md
 ```
 
+The scheduled workflow uses strict mode. A failed source leaves the candidate
+CSV unchanged and prevents publication:
+
+```bash
+GITHUB_TOKEN=github_token python3 .catalog/scripts/discover_candidates.py \
+  --write \
+  --fail-on-source-error \
+  --lookback-days 14 \
+  --report discovery-report.md
+```
+
 Run a one-off historical scan of the Cyber Detective public channel:
 
 ```bash
@@ -170,9 +181,9 @@ Edit `.catalog/data/sources.csv` to add, disable, or narrow a query. A new provi
 
 - `validate.yml` checks Python syntax, generated Markdown drift, CSV integrity, links between local files, duplicate repositories, table schemas, the 12-category taxonomy, and allowed target inputs on every push and pull request.
 - `refresh.yml` runs weekly, refreshes GitHub metadata, appends a snapshot, regenerates all catalogue tables, opens or updates a review pull request, and creates a dated market-watch issue.
-- `discover.yml` runs daily, scans configured sources, and opens or updates a review pull request when `.catalog/data/candidates.csv` changes.
+- `discover.yml` runs once at 03:00 Europe/Warsaw using two UTC cron entries and a time guard. It preserves the legacy candidate branch when present, scans configured sources, and directly commits only `.catalog/data/candidates.csv` to `main` after strict source, renderer, CSV, whitespace, and allowlist gates. Every discovery remains at `Review Status: review`; `review_candidate.py` remains the only acceptance or rejection path.
 
-Scheduled workflows use the repository-provided `GITHUB_TOKEN`. The repository must allow GitHub Actions to create pull requests and grant workflows read and write permissions under **Settings -> Actions -> General**. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
+Scheduled workflows use the repository-provided `GITHUB_TOKEN`. The candidate workflow requires Actions write permission but no OpenAI key, personal token, custom secret, pull-request creation, force push, or metadata refresh. It does not close the legacy candidate pull request. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
 
 ## Metadata and lifecycle policy
 
