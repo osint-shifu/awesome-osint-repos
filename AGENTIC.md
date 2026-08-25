@@ -4,10 +4,10 @@
   <h1>Agentic AI OSINT</h1>
   <p>Open-source skills, plugins, MCP servers, and AI-agent integrations for investigative work.</p>
   <p>
-    <img alt="Total projects: 126" src="https://img.shields.io/badge/total_projects-126-bf8700?style=flat-square">
+    <img alt="Total projects: 129" src="https://img.shields.io/badge/total_projects-129-bf8700?style=flat-square">
     <img alt="MCP integrations: 63" src="https://img.shields.io/badge/MCP_integrations-63-0969da?style=flat-square">
     <img alt="Skill integrations: 52" src="https://img.shields.io/badge/skill_integrations-52-8250df?style=flat-square">
-    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
+    <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <strong><a href="AGENTIC.md">Agentic AI OSINT</a></strong> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -33,14 +33,14 @@ This view contains implementation-bearing repositories that expose investigative
 - [Identity](#identity) <sup>4 projects</sup>
 - [Social Media](#social-media) <sup>12 projects</sup>
 - [Infrastructure](#infrastructure) <sup>25 projects</sup>
-- [Web](#web) <sup>32 projects</sup>
+- [Web](#web) <sup>35 projects</sup>
 - [Dark Web](#dark-web) <sup>3 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>10 projects</sup>
 - [Documents & Records](#documents-records) <sup>22 projects</sup>
 - [Geolocation](#geolocation) <sup>4 projects</sup>
 - [Investigation](#investigation) <sup>14 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>447 unique repositories</sup>
 
 ---
 
@@ -120,20 +120,23 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 
 <a id="web"></a>
 
-## 🔗 Web <sup>32 projects</sup>
+## 🔗 Web <sup>35 projects</sup>
 
 Tools that collect, search, analyze, crawl, or preserve public web content.
 
 | Project | Target Input | AI Agent | Description | Created | Last Update | Stars |
 |:---|:---|:---|:---|:---:|:---:|---:|
 | [Browser Use](https://github.com/browser-use/browser-use) | URL | Multiple / configurable agents | Lets AI agents navigate websites, interact with pages, and extract information. | 2024-10-31 | 2026-08-11 | ⭐ 108,903 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [DeerFlow](https://github.com/bytedance/deer-flow) | URL | Multiple / configurable agents | Orchestrates deep research with subagents, memory, optional web search, tools, and sandboxing. | 2025-05-07 | 2026-08-25 | ⭐ 80,823 |
 | [Scrapling](https://github.com/D4Vinci/Scrapling) | URL | Any Agent Skills-compatible agent; Any MCP-compatible agent | Provides adaptive web scraping, crawling, browser automation, and structured extraction. | 2024-10-13 | 2026-08-10 | ⭐ 73,589 |
 | [TrendRadar](https://github.com/sansan0/TrendRadar) | URL | Any MCP-compatible agent | Monitors news and RSS sources, tracks trends, stores history, and exposes MCP access. | 2025-04-28 | 2026-07-17 | ⭐ 61,404 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenHuman](https://github.com/tinyhumansai/openhuman) | URL; Document | Multiple / configurable agents | Builds local context and runs deep research across personal data and the web with browser tooling and durable agent workflows. | 2026-02-18 | 2026-08-25 | ⭐ 37,441 |
 | [Vane](https://github.com/ItzCrazyKns/Vane) | URL | Multiple / configurable agents | Provides a self-hosted research interface that answers questions with linked sources. | 2024-04-09 | 2026-04-11 | ⭐ 36,099 |
 | [GPT Researcher](https://github.com/assafelovic/gpt-researcher) | URL | Multiple / configurable agents | Runs multi-agent web research and produces source-grounded reports with citations. | 2023-05-12 | 2026-07-14 | ⭐ 28,937 |
 | [Stagehand](https://github.com/browserbase/stagehand) | URL | Multiple / configurable agents | Provides an SDK for agent-driven browser automation and page extraction. | 2024-03-24 | 2026-08-11 | ⭐ 23,908 |
 | [deep-research](https://github.com/dzhng/deep-research) | URL | Multiple / configurable agents | Runs iterative web searches, evaluates findings, and builds source-grounded research answers. | 2025-02-04 | 2026-04-11 | ⭐ 19,540 |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | URL | Multiple / configurable agents | Implements a configurable deep-research agent with pluggable search and model providers. | 2024-11-20 | 2026-08-10 | ⭐ 12,598 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenJarvis](https://github.com/open-jarvis/OpenJarvis) | URL; Document | Multiple / configurable agents | Runs local-first deep research across the web and indexed documents with citations and scheduled monitoring. | 2026-02-15 | 2026-08-25 | ⭐ 9,009 |
 | [Firecrawl MCP Server](https://github.com/firecrawl/firecrawl-mcp-server) | URL | Any MCP-compatible agent | Gives agents web search, crawling, scraping, extraction, and structured research tools. | 2024-12-06 | 2026-08-11 | ⭐ 7,216 |
 | [Exa MCP Server](https://github.com/exa-labs/exa-mcp-server) | URL | Any MCP-compatible agent | Provides semantic web search, content retrieval, and research discovery through Exa. | 2024-11-27 | 2026-08-10 | ⭐ 4,858 |
 | [Deep Research](https://github.com/u14app/deep-research) | URL | Multiple / configurable agents | Runs iterative web research and synthesis with configurable models and MCP access. | 2025-02-22 | 2026-06-18 | ⭐ 4,685 |

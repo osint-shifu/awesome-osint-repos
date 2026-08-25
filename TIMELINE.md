@@ -4,9 +4,9 @@
   <h1>Awesome OSINT Repositories Timeline</h1>
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
-    <img alt="Dated additions: 149" src="https://img.shields.io/badge/dated_additions-149-0969da?style=flat-square">
-    <img alt="Catalogue projects: 443" src="https://img.shields.io/badge/catalogue_projects-443-8250df?style=flat-square">
-    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
+    <img alt="Dated additions: 153" src="https://img.shields.io/badge/dated_additions-153-0969da?style=flat-square">
+    <img alt="Catalogue projects: 447" src="https://img.shields.io/badge/catalogue_projects-447-8250df?style=flat-square">
+    <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -24,6 +24,46 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td align="right" valign="middle"><strong>2026-08-25</strong><br><sub>4 projects</sub></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/bytedance/deer-flow">DeerFlow</a></strong><br>
+        Orchestrates deep research with subagents, memory, optional web search, tools, and sandboxing.<br>
+        <sub>Target Input: URL · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;80,823</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/tinyhumansai/openhuman">OpenHuman</a></strong><br>
+        Builds local context and runs deep research across personal data and the web with browser tooling and durable agent workflows.<br>
+        <sub>Target Input: URL; Document · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;37,441</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/open-jarvis/OpenJarvis">OpenJarvis</a></strong><br>
+        Runs local-first deep research across the web and indexed documents with citations and scheduled monitoring.<br>
+        <sub>Target Input: URL; Document · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;9,009</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/chadi0x/TheBigBrother">The Big Brother</a></strong><br>
+        Provides a multi-module public-source investigation console for identity, infrastructure, media, geolocation, and cryptocurrency workflows.<br>
+        <sub>Target Input: - · Category: Investigation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;750</strong></td>
+    </tr>
     <tr>
       <td align="right" valign="middle"><strong>2026-08-13</strong><br><sub>6 projects</sub></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>

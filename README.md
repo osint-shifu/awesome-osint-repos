@@ -4,11 +4,11 @@
   <h1>Awesome OSINT Repositories</h1>
   <p>A catalogue of open-source OSINT tools organized into 12 clear categories and concrete input types.</p>
   <p>
-    <a href="EMERGING.md"><img alt="Emerging projects: 92" src="https://img.shields.io/badge/emerging-92-bf8700?style=flat-square"></a>
+    <a href="EMERGING.md"><img alt="Emerging projects: 95" src="https://img.shields.io/badge/emerging-95-bf8700?style=flat-square"></a>
     <a href="#social-media"><img alt="Social Media projects: 69" src="https://img.shields.io/badge/social_media-69-8250df?style=flat-square"></a>
-    <a href="AGENTIC.md"><img alt="Agentic integrations: 126" src="https://img.shields.io/badge/agentic_integrations-126-d1242f?style=flat-square"></a>
-    <img alt="Catalogue projects: 443" src="https://img.shields.io/badge/catalogue_projects-443-8250df?style=flat-square">
-    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
+    <a href="AGENTIC.md"><img alt="Agentic integrations: 129" src="https://img.shields.io/badge/agentic_integrations-129-d1242f?style=flat-square"></a>
+    <img alt="Catalogue projects: 447" src="https://img.shields.io/badge/catalogue_projects-447-8250df?style=flat-square">
+    <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><strong><a href="README.md">Awesome OSINT Repositories</a></strong> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -42,18 +42,18 @@ Each project has exactly one value in `Categories`. `Target Input` contains only
 - [Social Media](#social-media) <sup>69 projects</sup>
 - [Code Repositories](#code-repositories) <sup>14 projects</sup>
 - [Infrastructure](#infrastructure) <sup>56 projects</sup>
-- [Web](#web) <sup>78 projects</sup>
+- [Web](#web) <sup>81 projects</sup>
 - [Dark Web](#dark-web) <sup>15 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>21 projects</sup>
 - [Documents & Records](#documents-records) <sup>44 projects</sup>
 - [Media](#media) <sup>46 projects</sup>
 - [Geolocation](#geolocation) <sup>34 projects</sup>
 - [Cryptocurrency](#cryptocurrency) <sup>8 projects</sup>
-- [Investigation](#investigation) <sup>28 projects</sup>
-- [Emerging projects](EMERGING.md) <sup>92 projects</sup>
-- [Agentic AI OSINT](AGENTIC.md) <sup>126 projects</sup>
+- [Investigation](#investigation) <sup>29 projects</sup>
+- [Emerging projects](EMERGING.md) <sup>95 projects</sup>
+- [Agentic AI OSINT](AGENTIC.md) <sup>129 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>447 unique repositories</sup>
 
 ---
 
@@ -272,7 +272,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 
 <a id="web"></a>
 
-## 🔗 Web <sup>78 projects</sup>
+## 🔗 Web <sup>81 projects</sup>
 
 Tools that collect, search, analyze, crawl, or preserve public web content.
 
@@ -280,11 +280,13 @@ Tools that collect, search, analyze, crawl, or preserve public web content.
 |:---|:---|:---|:---|:---:|:---:|---:|
 | [Firecrawl](https://github.com/firecrawl/firecrawl) | TypeScript | URL | Provides APIs for web search, scraping, crawling, and structured extraction. | 2024-04-15 | 2026-08-11 | ⭐ 166,162 |
 | [Browser Use](https://github.com/browser-use/browser-use) | Agent framework | URL | Lets AI agents navigate websites, interact with pages, and extract information. | 2024-10-31 | 2026-08-11 | ⭐ 108,903 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [DeerFlow](https://github.com/bytedance/deer-flow) | Research agent | URL | Orchestrates deep research with subagents, memory, optional web search, tools, and sandboxing. | 2025-05-07 | 2026-08-25 | ⭐ 80,823 |
 | [Crawl4AI](https://github.com/unclecode/crawl4ai) | Python | URL | Crawls websites and produces structured, LLM-ready content and metadata. | 2024-05-09 | 2026-07-15 | ⭐ 77,896 |
 | [Scrapling](https://github.com/D4Vinci/Scrapling) | Python | URL | Provides adaptive web scraping, crawling, browser automation, and structured extraction. | 2024-10-13 | 2026-08-10 | ⭐ 73,589 |
 | [Scrapy](https://github.com/scrapy/scrapy) | Python | URL | Implements a mature Python framework for crawling and extracting structured web data. | 2010-02-22 | 2026-08-12 | ⭐ 63,821 |
 | [TrendRadar](https://github.com/sansan0/TrendRadar) | Monitoring platform + MCP | URL | Monitors news and RSS sources, tracks trends, stores history, and exposes MCP access. | 2025-04-28 | 2026-07-17 | ⭐ 61,404 |
 | [EasySpider](https://github.com/NaiboWang/EasySpider) | JavaScript | URL | Creates and runs visual no-code web crawling and data extraction tasks. | 2020-07-18 | 2026-07-03 | ⭐ 44,354 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenHuman](https://github.com/tinyhumansai/openhuman) | Research agent | URL; Document | Builds local context and runs deep research across personal data and the web with browser tooling and durable agent workflows. | 2026-02-18 | 2026-08-25 | ⭐ 37,441 |
 | [Vane](https://github.com/ItzCrazyKns/Vane) | Research agent | URL | Provides a self-hosted research interface that answers questions with linked sources. | 2024-04-09 | 2026-04-11 | ⭐ 36,099 |
 | [SearXNG](https://github.com/searxng/searxng) | Python | URL | Aggregates results from multiple search services in a self-hosted metasearch engine. | 2021-04-12 | 2026-08-11 | ⭐ 35,340 |
 | [Web-Check](https://github.com/lissy93/web-check) | TypeScript | URL | Produces a broad technical and open-source intelligence report for a website. | 2023-06-25 | 2026-08-11 | ⭐ 34,479 |
@@ -301,6 +303,7 @@ Tools that collect, search, analyze, crawl, or preserve public web content.
 | [Photon](https://github.com/s0md3v/Photon) | Python | URL | Crawls a supplied URL to collect links and related open-source data. | 2018-03-30 | 2026-08-07 | ⭐ 13,105 |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | Research agent | URL | Implements a configurable deep-research agent with pluggable search and model providers. | 2024-11-20 | 2026-08-10 | ⭐ 12,598 |
 | [httpx](https://github.com/projectdiscovery/httpx) | Go | URL | Probes web targets at scale and reports HTTP, TLS, technology, and response metadata. | 2020-05-28 | 2026-08-05 | ⭐ 10,269 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenJarvis](https://github.com/open-jarvis/OpenJarvis) | Research agent | URL; Document | Runs local-first deep research across the web and indexed documents with citations and scheduled monitoring. | 2026-02-15 | 2026-08-25 | ⭐ 9,009 |
 | [Steel Browser](https://github.com/steel-dev/steel-browser) | TypeScript | URL | Runs a self-hosted browser API and sandbox for automated web operations. | 2024-11-01 | 2026-07-20 | ⭐ 7,468 |
 | [Firecrawl MCP Server](https://github.com/firecrawl/firecrawl-mcp-server) | MCP server | URL | Gives agents web search, crawling, scraping, extraction, and structured research tools. | 2024-12-06 | 2026-08-11 | ⭐ 7,216 |
 | [Trafilatura](https://github.com/adbar/trafilatura) | Python | URL | Extracts main text, metadata, links, and document structure from web pages. | 2019-04-08 | 2026-08-11 | ⭐ 6,619 |
@@ -595,7 +598,7 @@ Tools for cryptocurrency addresses, blockchain activity, and transaction analysi
 
 <a id="investigation"></a>
 
-## 🔎 Investigation <sup>28 projects</sup>
+## 🔎 Investigation <sup>29 projects</sup>
 
 Cross-cutting investigation, case-management, correlation, and research workspaces.
 
@@ -613,6 +616,7 @@ Cross-cutting investigation, case-management, correlation, and research workspac
 | [OpenOSINT](https://github.com/OpenOSINT/OpenOSINT) | Agent + CLI + MCP | - | Combines OSINT tools in an interactive agent, command-line interface, and MCP server. | 2026-05-06 | 2026-08-11 | ⭐ 1,392 |
 | [Hackingtool Plugin](https://github.com/AKCodez/hackingtool-plugin) | Plugin + skill | - | Makes a large catalogue of pentest and OSINT tools discoverable and runnable by Claude. | 2026-04-23 | 2026-04-25 | ⭐ 988 |
 | [Seekr](https://github.com/seekr-osint/seekr) | Go | Keyword | Offers a multi-purpose OSINT toolkit through a web interface. | 2022-12-06 | 2026-06-16 | ⭐ 848 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [The Big Brother](https://github.com/chadi0x/TheBigBrother) | Python + web console | - | Provides a multi-module public-source investigation console for identity, infrastructure, media, geolocation, and cryptocurrency workflows. | 2025-12-08 | 2026-08-13 | ⭐ 750 |
 | [PANO](https://github.com/ALW1EZ/PANO) | Python | Name; Organization Name; Event Data | Combines link graphs, timelines, notes, and assisted investigation features. | 2024-12-30 | 2026-02-13 | ⭐ 562 |
 | [LinkScope Client](https://github.com/AccentuSoft/LinkScope_Client) | Python | Name; Organization Name | Represents investigation entities and relationships in an extensible visual workspace. | 2021-09-15 | 2025-02-06 | ⭐ 488 |
 | [FollowTheMoney](https://github.com/alephdata/followthemoney) | Python | Name; Organization Name; Dataset | Defines an investigative data model for entities, assets, documents, and relationships. | 2017-10-20 | 2025-06-27 | ⭐ 283 |

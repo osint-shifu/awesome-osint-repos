@@ -4,8 +4,8 @@
   <h1>Emerging OSINT Projects</h1>
   <p>A watchlist of early-stage open-source OSINT tools and supporting technologies.</p>
   <p>
-    <a href="#projects"><img alt="Emerging projects: 92" src="https://img.shields.io/badge/emerging_projects-92-bf8700?style=flat-square"></a>
-    <img alt="Last update: 2026-08-13" src="https://img.shields.io/badge/last_update-2026--08--13-1f883d?style=flat-square">
+    <a href="#projects"><img alt="Emerging projects: 95" src="https://img.shields.io/badge/emerging_projects-95-bf8700?style=flat-square"></a>
+    <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><a href="README.md">Awesome OSINT Repositories</a> · <strong><a href="EMERGING.md">Emerging Projects</a></strong> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -20,13 +20,15 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <a id="projects"></a>
 
-## Projects <sup>92 projects</sup>
+## Projects <sup>95 projects</sup>
 
 | Project | Target Input | Categories | Description | Created | Last Update | Stars |
 |:---|:---|:---:|:---|:---:|:---:|---:|
 | [World Monitor](https://github.com/koala73/worldmonitor) | Location | Geolocation | Unifies geopolitical news, infrastructure, and event monitoring in one dashboard. | 2026-01-08 | 2026-08-12 | ⭐ 81,038 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenHuman](https://github.com/tinyhumansai/openhuman) | URL; Document | Web | Builds local context and runs deep research across personal data and the web with browser tooling and durable agent workflows. | 2026-02-18 | 2026-08-25 | ⭐ 37,441 |
 | [Crucix](https://github.com/calesthio/Crucix) | Domain; IP Address; URL; File Hash | Threat Intelligence | Watches multiple public intelligence sources and reports relevant changes. | 2026-03-14 | 2026-05-20 | ⭐ 11,286 |
 | [Shadowbroker](https://github.com/BigBodyCobain/Shadowbroker) | Location | Geolocation | Tracks aircraft, satellites, seismic events, and other global activity. | 2026-03-05 | 2026-08-11 | ⭐ 10,759 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenJarvis](https://github.com/open-jarvis/OpenJarvis) | URL; Document | Web | Runs local-first deep research across the web and indexed documents with citations and scheduled monitoring. | 2026-02-15 | 2026-08-25 | ⭐ 9,009 |
 | <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [osiris](https://github.com/simplifaisoul/osiris) | - | Investigation | Aggregates live aviation, maritime, camera, seismic, wildfire, news, weather, space, cyber, sanctions, and public Telegram data in a real-time situational-awareness dashboard. | 2026-05-12 | 2026-08-13 | ⭐ 7,598 |
 | [Flowsint](https://github.com/reconurge/flowsint) | Name; Organization Name | Investigation | Explores investigation entities and enrichments in a local graph-based workspace. | 2025-01-31 | 2026-08-11 | ⭐ 7,593 |
 | [Robin](https://github.com/apurvsinghgautam/robin) | Onion Service | Dark Web | Refines queries, filters dark-web search results, and saves assisted investigation summaries. | 2025-04-08 | 2026-08-07 | ⭐ 6,273 |
@@ -46,6 +48,7 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 | [X Tweet Fetcher](https://github.com/ythx-101/x-tweet-fetcher) | Username | Social Media | Retrieves public X posts, replies, timelines, and articles without login. | 2026-02-14 | 2026-08-08 | ⭐ 932 |
 | [urlfinder](https://github.com/projectdiscovery/urlfinder) | URL | Web | Passively collects URLs associated with a target. | 2024-04-30 | 2026-08-05 | ⭐ 897 |
 | [GHOST OSINT CRM](https://github.com/elm1nst3r/GHOST-osint-crm) | Name | Identity | Manages people, relationships, evidence, and investigation notes locally. | 2025-05-16 | 2026-08-12 | ⭐ 810 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [The Big Brother](https://github.com/chadi0x/TheBigBrother) | - | Investigation | Provides a multi-module public-source investigation console for identity, infrastructure, media, geolocation, and cryptocurrency workflows. | 2025-12-08 | 2026-08-13 | ⭐ 750 |
 | [Emora](https://github.com/idefasoft/Emora-Project) | Username | Identity | Provides a graphical interface for cross-platform username searches. | 2024-03-11 | 2026-02-07 | ⭐ 710 |
 | [Manuscript](https://github.com/chainbase-labs/manuscript-core) | Crypto Address | Cryptocurrency | Streams on-chain and off-chain data into systems prepared for analysis. | 2024-09-24 | 2026-08-09 | ⭐ 689 |
 | [Cyberbro](https://github.com/stanfrbd/cyberbro) | Domain; IP Address; URL | Infrastructure | Extracts observables from unstructured input and checks them across CTI services. | 2024-10-31 | 2026-08-10 | ⭐ 679 |
@@ -119,4 +122,4 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
-[Complete repository database (CSV)](osint-repositories.csv) <sup>443 unique repositories</sup>
+[Complete repository database (CSV)](osint-repositories.csv) <sup>447 unique repositories</sup>
