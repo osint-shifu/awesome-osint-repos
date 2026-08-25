@@ -21,6 +21,7 @@ jobs:
 
       - name: Check scripts and catalogue
         run: |
+          python -m unittest discover -s tests -v
           python -m py_compile .catalog/scripts/*.py
           python .catalog/scripts/render_catalog.py --check
           python .catalog/scripts/validate_catalog.py
