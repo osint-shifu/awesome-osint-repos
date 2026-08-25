@@ -4,7 +4,7 @@
   <h1>Agentic AI OSINT</h1>
   <p>Open-source skills, plugins, MCP servers, and AI-agent integrations for investigative work.</p>
   <p>
-    <img alt="Total projects: 129" src="https://img.shields.io/badge/total_projects-129-bf8700?style=flat-square">
+    <img alt="Total projects: 131" src="https://img.shields.io/badge/total_projects-131-bf8700?style=flat-square">
     <img alt="MCP integrations: 63" src="https://img.shields.io/badge/MCP_integrations-63-0969da?style=flat-square">
     <img alt="Skill integrations: 52" src="https://img.shields.io/badge/skill_integrations-52-8250df?style=flat-square">
     <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
@@ -37,10 +37,10 @@ This view contains implementation-bearing repositories that expose investigative
 - [Dark Web](#dark-web) <sup>3 projects</sup>
 - [Threat Intelligence](#threat-intelligence) <sup>10 projects</sup>
 - [Documents & Records](#documents-records) <sup>22 projects</sup>
-- [Geolocation](#geolocation) <sup>4 projects</sup>
-- [Investigation](#investigation) <sup>14 projects</sup>
+- [Geolocation](#geolocation) <sup>5 projects</sup>
+- [Investigation](#investigation) <sup>15 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>447 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>458 unique repositories</sup>
 
 ---
 
@@ -234,12 +234,13 @@ Tools for documents, files, datasets, public records, extraction, and structured
 
 <a id="geolocation"></a>
 
-## 📍 Geolocation <sup>4 projects</sup>
+## 📍 Geolocation <sup>5 projects</sup>
 
 Tools for locations, coordinates, maps, wireless identifiers, aircraft, and satellite data.
 
 | Project | Target Input | AI Agent | Description | Created | Last Update | Stars |
 |:---|:---|:---|:---|:---:|:---:|---:|
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Velocity](https://github.com/AndrewCTF/velocity) | Location; Aircraft ID; Event Data | Any MCP-compatible agent | Self-hosted situation console that fuses public aircraft, maritime, satellite, hazard, and conflict feeds with provenance, replay, and evidence capture. | 2026-06-12 | 2026-08-20 | ⭐ 80 |
 | [Geo Trajectory Analysis](https://github.com/eyal-weiss/geo-trajectory-analysis) | Location; Video | Claude (agent unspecified) | Applies a documented video-geolocation method to estimate missile launch origins. | 2026-03-23 | 2026-03-23 | ⭐ 3 |
 | [Bellingcat OSINT Toolkit Skills](https://github.com/CasualSecurityInc/Bellingcat-OSINT-Toolkit) | - | Any Agent Skills-compatible agent | Packages hundreds of investigation resources by geolocation, media, identity, transport, and conflict use case. | 2026-07-12 | 2026-07-12 | ⭐ 0 |
 | [Norteia Lead Recon](https://github.com/Luispitik/norteia-lead-recon) | Name; Organization Name; Location | Claude Code | Researches Spanish companies and leads through official open registers and geodata. | 2026-04-29 | 2026-04-29 | ⭐ 0 |
@@ -249,7 +250,7 @@ Tools for locations, coordinates, maps, wireless identifiers, aircraft, and sate
 
 <a id="investigation"></a>
 
-## 🔎 Investigation <sup>14 projects</sup>
+## 🔎 Investigation <sup>15 projects</sup>
 
 Cross-cutting investigation, case-management, correlation, and research workspaces.
 
@@ -260,6 +261,7 @@ Cross-cutting investigation, case-management, correlation, and research workspac
 | [CTF Skills](https://github.com/ljagiello/ctf-skills) | - | Any Agent Skills-compatible agent | Supplies agent workflows for CTF categories including OSINT, forensics, and web investigation. | 2026-02-01 | 2026-07-31 | ⭐ 2,970 |
 | [OpenOSINT](https://github.com/OpenOSINT/OpenOSINT) | - | Multiple / configurable agents | Combines OSINT tools in an interactive agent, command-line interface, and MCP server. | 2026-05-06 | 2026-08-11 | ⭐ 1,392 |
 | [Hackingtool Plugin](https://github.com/AKCodez/hackingtool-plugin) | - | Claude Code | Makes a large catalogue of pentest and OSINT tools discoverable and runnable by Claude. | 2026-04-23 | 2026-04-25 | ⭐ 988 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [World Intel MCP](https://github.com/marc-shade/world-intel-mcp) | Keyword; Location; Event Data | Any MCP-compatible agent | Provides an MCP server, CLI, and dashboard for cited multi-source global intelligence, geofenced monitoring, alerts, and situation briefs. | 2025-11-29 | 2026-08-16 | ⭐ 315 |
 | [Huntkit](https://github.com/assafkip/huntkit) | Name; Organization Name; Event Data | Claude Code | Organizes cases, targets, findings, timelines, evidence hashes, and chain-of-custody records. | 2026-04-15 | 2026-07-06 | ⭐ 48 |
 | [deep-recon](https://github.com/kvarnelis/deep-recon) | - | Claude Code | Coordinates multi-agent research and stores reconnaissance findings in Obsidian. | 2026-02-18 | 2026-02-21 | ⭐ 43 |
 | [OSINT Agent Skills](https://github.com/frangelbarrera/osint-agent-skills) | - | Multiple / configurable agents | Combines OSINT playbooks, agent instructions, report templates, and MCP tool definitions. | 2026-06-27 | 2026-07-27 | ⭐ 22 |

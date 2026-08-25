@@ -4,8 +4,8 @@
   <h1>Awesome OSINT Repositories Timeline</h1>
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
-    <img alt="Dated additions: 153" src="https://img.shields.io/badge/dated_additions-153-0969da?style=flat-square">
-    <img alt="Catalogue projects: 447" src="https://img.shields.io/badge/catalogue_projects-447-8250df?style=flat-square">
+    <img alt="Dated additions: 164" src="https://img.shields.io/badge/dated_additions-164-0969da?style=flat-square">
+    <img alt="Catalogue projects: 458" src="https://img.shields.io/badge/catalogue_projects-458-8250df?style=flat-square">
     <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -25,7 +25,37 @@
   </thead>
   <tbody>
     <tr>
-      <td align="right" valign="middle"><strong>2026-08-25</strong><br><sub>4 projects</sub></td>
+      <td align="right" valign="middle"><strong>2026-08-25</strong><br><sub>15 projects</sub></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/ArunHax/AH-OSINT">AH-OSINT</a></strong><br>
+        Modular passive framework for domain, IP, DNS, and website intelligence with structured JSON reporting.<br>
+        <sub>Target Input: Domain; IP Address; URL · Category: Infrastructure</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;9</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/Hack23/cia">Citizen Intelligence Agency</a></strong><br>
+        Analyzes Swedish parliamentary, government, election, and World Bank open data for transparent political intelligence, risk rules, and evidence-linked reports.<br>
+        <sub>Target Input: Name; Organization Name; Event Data · Category: Investigation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;234</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/soxoj/CommiPiste">CommiPiste</a></strong><br>
+        Fingerprints publicly served static files to identify deployed open-source software versions and map verified CVE exposure.<br>
+        <sub>Target Input: URL · Category: Infrastructure</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;40</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
         <strong><a href="https://github.com/bytedance/deer-flow">DeerFlow</a></strong><br>
@@ -58,11 +88,91 @@
       <td align="right" valign="middle"></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
+        <strong><a href="https://github.com/Gacut/OpenTrace">OpenTrace</a></strong><br>
+        Offline desktop workspace for structuring OSINT cases with evidence, relationships, hypotheses, provenance details, and portable exports.<br>
+        <sub>Target Input: Name; URL; Document; Image · Category: Investigation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;17</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/praetorian-inc/pius">Pius</a></strong><br>
+        Discovers organizational domains, CIDRs, and related infrastructure through passive-first certificate, registry, and public-data plugins with confidence scoring.<br>
+        <sub>Target Input: Organization Name; Domain; ASN; CIDR · Category: Infrastructure</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;88</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/giovabal/pulpit">Pulpit</a></strong><br>
+        Collects selected public Telegram channels and maps forwarding and linking relationships for influence and political communication analysis.<br>
+        <sub>Target Input: Username; Keyword · Category: Social Media</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;9</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/SK-CERT/Taranis-NG">Taranis NG</a></strong><br>
+        Collects, analyzes, and reports on open-source information for CSIRT teams, with collaboration and asset-management workflows.<br>
+        <sub>Target Input: URL; Keyword; Document · Category: Threat Intelligence</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;127</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
         <strong><a href="https://github.com/chadi0x/TheBigBrother">The Big Brother</a></strong><br>
         Provides a multi-module public-source investigation console for identity, infrastructure, media, geolocation, and cryptocurrency workflows.<br>
         <sub>Target Input: - · Category: Investigation</sub>
       </td>
       <td align="right" valign="top"><strong>⭐&nbsp;750</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/HackUnderway/TokIntel">TokIntel</a></strong><br>
+        Collects TikTok profile metadata, metrics, and avatars for supplied usernames and writes structured local reports through the Apify scraper API.<br>
+        <sub>Target Input: Username · Category: Social Media</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;102</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/AndrewCTF/velocity">Velocity</a></strong><br>
+        Self-hosted situation console that fuses public aircraft, maritime, satellite, hazard, and conflict feeds with provenance, replay, and evidence capture.<br>
+        <sub>Target Input: Location; Aircraft ID; Event Data · Category: Geolocation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;80</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/vidithq/vidit">Vidit</a></strong><br>
+        Self-hosted platform for archiving, reviewing, and mapping geolocated armed-conflict events with sources, media, and analyst verification.<br>
+        <sub>Target Input: Coordinates; Location; Image; Video; URL · Category: Geolocation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;3</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/marc-shade/world-intel-mcp">World Intel MCP</a></strong><br>
+        Provides an MCP server, CLI, and dashboard for cited multi-source global intelligence, geofenced monitoring, alerts, and situation briefs.<br>
+        <sub>Target Input: Keyword; Location; Event Data · Category: Investigation</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;315</strong></td>
     </tr>
     <tr>
       <td align="right" valign="middle"><strong>2026-08-13</strong><br><sub>6 projects</sub></td>

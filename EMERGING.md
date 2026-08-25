@@ -4,7 +4,7 @@
   <h1>Emerging OSINT Projects</h1>
   <p>A watchlist of early-stage open-source OSINT tools and supporting technologies.</p>
   <p>
-    <a href="#projects"><img alt="Emerging projects: 95" src="https://img.shields.io/badge/emerging_projects-95-bf8700?style=flat-square"></a>
+    <a href="#projects"><img alt="Emerging projects: 101" src="https://img.shields.io/badge/emerging_projects-101-bf8700?style=flat-square"></a>
     <img alt="Last update: 2026-08-25" src="https://img.shields.io/badge/last_update-2026--08--25-1f883d?style=flat-square">
   </p>
   <p><a href="README.md">Awesome OSINT Repositories</a> · <strong><a href="EMERGING.md">Emerging Projects</a></strong> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -20,7 +20,7 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <a id="projects"></a>
 
-## Projects <sup>95 projects</sup>
+## Projects <sup>101 projects</sup>
 
 | Project | Target Input | Categories | Description | Created | Last Update | Stars |
 |:---|:---|:---:|:---|:---:|:---:|---:|
@@ -85,11 +85,13 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 | [Telespot](https://github.com/thumpersecure/Telespot) | Phone Number | Identity | Searches phone-number variations across public engines and correlates identity clues. | 2025-12-28 | 2026-02-26 | ⭐ 135 |
 | [Project Eyes On](https://github.com/Y0oshi/Project-Eyes-On) | Video | Media | Finds publicly accessible IP-camera streams through public directories and web-search queries. | 2026-01-10 | 2026-01-12 | ⭐ 128 |
 | [IntelHub](https://github.com/tomsec8/IntelHub) | URL; Image | Media | Adds local browser tools for metadata, archives, dorking, and OSINT lookups. | 2025-05-15 | 2026-07-09 | ⭐ 120 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [TokIntel](https://github.com/HackUnderway/TokIntel) | Username | Social Media | Collects TikTok profile metadata, metrics, and avatars for supplied usernames and writes structured local reports through the Apify scraper API. | 2026-03-29 | 2026-07-26 | ⭐ 102 |
 | [TikSpyder](https://github.com/estebanpdl/tik-spyder) | Username; Video | Social Media | Collects TikTok search, user, tag, and media data through SerpAPI and Apify. | 2024-07-16 | 2026-02-27 | ⭐ 100 |
 | [OWASP Social OSINT Agent](https://github.com/bm-github/owasp-social-osint-agent) | Username | Social Media | Collects public social activity and uses configurable language models to produce analytical reports. | 2025-10-07 | 2026-04-25 | ⭐ 95 |
 | [Telespotter](https://github.com/thumpersecure/Telespotter) | Phone Number | Identity | Searches phone numbers across public engines and people-search sources in a Rust CLI. | 2026-01-02 | 2026-02-27 | ⭐ 75 |
 | [IntellyWeave](https://github.com/vericle/intellyweave) | URL; Location; Document | Geolocation | Combines archive discovery, entity extraction, maps, graphs, and document analysis. | 2025-12-12 | 2026-01-12 | ⭐ 74 |
 | [Huntkit](https://github.com/assafkip/huntkit) | Name; Organization Name; Event Data | Investigation | Organizes cases, targets, findings, timelines, evidence hashes, and chain-of-custody records. | 2026-04-15 | 2026-07-06 | ⭐ 48 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [CommiPiste](https://github.com/soxoj/CommiPiste) | URL | Infrastructure | Fingerprints publicly served static files to identify deployed open-source software versions and map verified CVE exposure. | 2026-06-27 | 2026-07-13 | ⭐ 40 |
 | [Wiwok](https://github.com/Kirozaku/Wiwok) | Username; Email; Phone Number | Identity | Investigates usernames, email addresses, phone numbers, and names without mandatory API keys. | 2026-04-26 | 2026-05-22 | ⭐ 39 |
 | [LinkedIn OSINT Toolkit](https://github.com/michaelelizarov/linkedin-osint-toolkit) | Name; Organization Name | Social Media | Discovers companies and employees, classifies roles, and builds organization views. | 2026-02-16 | 2026-02-16 | ⭐ 38 |
 | [AtDork](https://github.com/amnottdevv/AtDork) | URL | Web | Automates multi-engine search queries with rate and failure controls. | 2026-06-07 | 2026-08-10 | ⭐ 34 |
@@ -100,14 +102,18 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 | [European Parliament MCP](https://github.com/Hack23/European-Parliament-MCP-Server) | Name; Document | Documents & Records | Provides agent access to European Parliament members, committees, votes, documents, and questions. | 2026-02-16 | 2026-08-12 | ⭐ 23 |
 | [Sicry](https://github.com/JacobJandon/Sicry) | Onion Service | Dark Web | Checks Tor health, rotates identity, searches onion engines, fetches known services, and exposes optional agent-assisted analysis. | 2026-03-14 | 2026-05-28 | ⭐ 18 |
 | [Bellingcat CouncilSearcher](https://github.com/bellingcat/CouncilSearcher) | Location | Geolocation | Searches local-government documents and records across supported council websites. | 2025-05-07 | 2026-01-07 | ⭐ 17 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OpenTrace](https://github.com/Gacut/OpenTrace) | Name; URL; Document; Image | Investigation | Offline desktop workspace for structuring OSINT cases with evidence, relationships, hypotheses, provenance details, and portable exports. | 2026-07-23 | 2026-08-06 | ⭐ 17 |
 | [Abster Intelligence](https://github.com/frangelbarrera/Abster-Intelligence) | Name; Organization Name; Event Data | Investigation | Provides a local-first workspace for evidence, relationship graphs, timelines, OSINT lookups, and reports. | 2026-04-10 | 2026-07-21 | ⭐ 16 |
 | [YouTube Research MCP](https://github.com/coyaSONG/youtube-mcp-server) | Username; Video | Social Media | Exposes YouTube videos, channels, search results, comments, and transcripts through MCP. | 2025-03-31 | 2026-07-17 | ⭐ 15 |
 | [Vantage](https://github.com/thometnanni/vantage) | Location; Image | Geolocation | Reconstructs image and video viewpoints inside three-dimensional environments. | 2024-11-15 | 2026-05-13 | ⭐ 14 |
 | [NEXUS](https://github.com/Kit4Some/NEXUsint) | Domain; IP Address; URL; Location; File Hash | Geolocation | Combines live multi-INT feeds, knowledge graphs, maps, and assisted analysis in a desktop platform. | 2026-03-20 | 2026-03-30 | ⭐ 14 |
 | <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [OSINT Skills](https://github.com/useosint/osint-skills) | - | Investigation | Provides 28 source-grounded skills for agent-led OSINT workflows, evidence grading, and investigative reporting. | 2026-08-02 | 2026-08-03 | ⭐ 12 |
 | [LeakRecon](https://github.com/egnake/LeakRecon) | Onion Service | Dark Web | Runs Tor-routed leak reconnaissance with local history, change tracking, and report export. | 2026-05-18 | 2026-06-04 | ⭐ 11 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Pulpit](https://github.com/giovabal/pulpit) | Username; Keyword | Social Media | Collects selected public Telegram channels and maps forwarding and linking relationships for influence and political communication analysis. | 2024-10-30 | 2026-08-25 | ⭐ 9 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [AH-OSINT](https://github.com/ArunHax/AH-OSINT) | Domain; IP Address; URL | Infrastructure | Modular passive framework for domain, IP, DNS, and website intelligence with structured JSON reporting. | 2026-07-28 | 2026-07-28 | ⭐ 9 |
 | [Discord Inspector](https://github.com/Euronymou5/Discord-Inspector) | Username | Social Media | Retrieves public user, server, and application metadata from Discord identifiers. | 2024-12-03 | 2024-12-05 | ⭐ 6 |
 | [Wash Trade Scanner](https://github.com/Yog-Sotho/Wash-Trade-Scanner) | Crypto Address | Cryptocurrency | Audits blockchain activity for wash trading and artificial volume patterns. | 2026-04-16 | 2026-08-08 | ⭐ 3 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Vidit](https://github.com/vidithq/vidit) | Coordinates; Location; Image; Video; URL | Geolocation | Self-hosted platform for archiving, reviewing, and mapping geolocated armed-conflict events with sources, media, and analyst verification. | 2026-06-06 | 2026-08-25 | ⭐ 3 |
 | [PolyShadow](https://github.com/Ha1o/PolyShadow) | Crypto Address | Cryptocurrency | Monitors new Polymarket wallets for unusual high-value positions. | 2026-01-10 | 2026-02-23 | ⭐ 2 |
 | [LeakIX MCP](https://github.com/LeakIX/leakix-mcp) | Domain; IP Address; URL | Infrastructure | Exposes LeakIX searches for internet services, leaks, domains, and IP addresses through MCP. | 2026-01-27 | 2026-08-03 | ⭐ 2 |
 | [BitSleuth Analyzer](https://github.com/BitSleuthAI/Analyzer) | Crypto Address | Cryptocurrency | Analyzes Bitcoin wallets, transaction patterns, and mempool activity. | 2025-08-05 | 2026-07-07 | ⭐ 1 |
@@ -122,4 +128,4 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
-[Complete repository database (CSV)](osint-repositories.csv) <sup>447 unique repositories</sup>
+[Complete repository database (CSV)](osint-repositories.csv) <sup>458 unique repositories</sup>
