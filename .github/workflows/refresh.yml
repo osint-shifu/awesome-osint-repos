@@ -12,7 +12,6 @@ concurrency:
 permissions:
   contents: write
   issues: write
-  pull-requests: write
 
 jobs:
   refresh:
@@ -42,37 +41,46 @@ jobs:
           python .catalog/scripts/validate_catalog.py
           python .catalog/scripts/market_report.py --output "$RUNNER_TEMP/market-watch.md"
 
-      - name: Open or update metadata pull request
-        id: changes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+      - name: Verify catalogue gates
         run: |
-          branch="automation/catalog-metadata"
+          set -euo pipefail
+          python -m py_compile .catalog/scripts/*.py
+          python .catalog/scripts/render_catalog.py --check
+          python .catalog/scripts/validate_catalog.py
+          git diff --check
+          python .catalog/scripts/check_changed_files.py \
+            --base HEAD \
+            --allow osint-repositories.csv \
+            --allow .catalog/README.md \
+            --allow .catalog/data/candidates.csv \
+            --allow .catalog/data/snapshots.csv \
+            --allow README.md \
+            --allow EMERGING.md \
+            --allow AGENTIC.md \
+            --allow TIMELINE.md
+
+      - name: Commit and publish refreshed metadata
+        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin "+refs/heads/$branch:refs/remotes/origin/$branch" || true
-          git checkout -B "$branch"
           git add osint-repositories.csv .catalog/README.md .catalog/data/candidates.csv .catalog/data/snapshots.csv README.md EMERGING.md AGENTIC.md TIMELINE.md
           if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No metadata change." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           git commit -m "chore: refresh Awesome OSINT Repositories metadata"
-          git push --force-with-lease origin "HEAD:refs/heads/$branch"
-          pull_request=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
-          if [ -z "$pull_request" ]; then
-            gh pr create \
-              --base "$BASE_BRANCH" \
-              --head "$branch" \
-              --title "chore: refresh Awesome OSINT Repositories metadata" \
-              --body "Automated weekly metadata refresh. Review repository status changes and generated catalogue updates before merging."
-          else
-            gh pr edit "$pull_request" \
-              --title "chore: refresh Awesome OSINT Repositories metadata" \
-              --body "Automated weekly metadata refresh. Review repository status changes and generated catalogue updates before merging."
-          fi
-          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git fetch origin main
+          git rebase origin/main
+          python -m py_compile .catalog/scripts/*.py
+          python .catalog/scripts/render_catalog.py --check
+          python .catalog/scripts/validate_catalog.py
+          git diff --check origin/main...HEAD
+          git push origin HEAD:main
+          local_sha=$(git rev-parse HEAD)
+          remote_sha=$(git ls-remote origin refs/heads/main | awk 'NR == 1 { print $1 }')
+          test "$local_sha" = "$remote_sha"
+          echo "Commit: $local_sha" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create or update weekly market-watch issue
         env:

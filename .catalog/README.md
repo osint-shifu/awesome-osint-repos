@@ -180,10 +180,10 @@ Edit `.catalog/data/sources.csv` to add, disable, or narrow a query. A new provi
 ## Scheduled workflows
 
 - `validate.yml` checks Python syntax, generated Markdown drift, CSV integrity, links between local files, duplicate repositories, table schemas, the 12-category taxonomy, and allowed target inputs on every push and pull request.
-- `refresh.yml` runs weekly, refreshes GitHub metadata, appends a snapshot, regenerates all catalogue tables, opens or updates a review pull request, and creates a dated market-watch issue.
+- `refresh.yml` runs weekly, refreshes GitHub metadata, appends a snapshot, regenerates all catalogue tables, and creates a dated market-watch issue. It commits the refreshed data files directly to `main` after the same renderer, CSV, whitespace, and allowlist gates the candidate workflow uses, so published metadata never waits on an unmerged review branch.
 - `discover.yml` runs once at 03:00 Europe/Warsaw using two UTC cron entries and a time guard. It preserves only `Review Status: review` records from the legacy candidate branch when present, scans configured sources, and directly commits only `.catalog/data/candidates.csv` to `main` after strict source, renderer, CSV, whitespace, and allowlist gates. Historical accepted or rejected records are not imported. Every discovery remains at `Review Status: review`; `review_candidate.py` remains the only acceptance or rejection path.
 
-Scheduled workflows use the repository-provided `GITHUB_TOKEN`. The candidate workflow requires Actions write permission but no OpenAI key, personal token, custom secret, pull-request creation, force push, or metadata refresh. It does not close the legacy candidate pull request. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
+Scheduled workflows use the repository-provided `GITHUB_TOKEN`. Both scheduled workflows require Actions write permission but no OpenAI key, personal token, custom secret, pull-request creation, or force push. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
 
 ## Metadata and lifecycle policy
 
