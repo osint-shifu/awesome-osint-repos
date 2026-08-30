@@ -40,6 +40,18 @@ Each project has exactly one value in `Categories`. `Target Input` contains only
 
 - [Identity](#identity) <sup>34 projects</sup>
 - [Social Media](#social-media) <sup>72 projects</sup>
+  - [Cross-platform](#social-media-cross-platform) <sup>21 projects</sup>
+  - [Telegram](#social-media-telegram) <sup>14 projects</sup>
+  - [Instagram](#social-media-instagram) <sup>8 projects</sup>
+  - [X / Twitter](#social-media-x-twitter) <sup>6 projects</sup>
+  - [LinkedIn](#social-media-linkedin) <sup>5 projects</sup>
+  - [Discord](#social-media-discord) <sup>4 projects</sup>
+  - [YouTube](#social-media-youtube) <sup>4 projects</sup>
+  - [Reddit](#social-media-reddit) <sup>3 projects</sup>
+  - [Steam](#social-media-steam) <sup>3 projects</sup>
+  - [TikTok](#social-media-tiktok) <sup>2 projects</sup>
+  - [Snapchat](#social-media-snapchat) <sup>1 project</sup>
+  - [WhatsApp](#social-media-whatsapp) <sup>1 project</sup>
 - [Code Repositories](#code-repositories) <sup>14 projects</sup>
 - [Infrastructure](#infrastructure) <sup>62 projects</sup>
 - [Web](#web) <sup>84 projects</sup>
@@ -108,80 +120,163 @@ Tools centered on people, names, contact identifiers, and identity resolution.
 
 Tools for discovering and analyzing public accounts and content on social platforms.
 
+<a id="social-media-cross-platform"></a>
+
+### Cross-platform <sup>21 projects</sup>
+
+Tools that search many networks at once rather than a single platform.
+
 | Project | Type | Target Input | Description | Created | Last Update | Stars |
 |:---|:---|:---|:---|:---:|:---:|---:|
-| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Python | Username; Video | Downloads public video, audio, subtitles, comments, and metadata from supported platforms. | 2020-10-26 | 2026-08-30 | ⭐ 187,910 |
 | [Sherlock](https://github.com/sherlock-project/sherlock) | Python | Username | Checks a username across many social networks. | 2018-12-24 | 2026-08-01 | ⭐ 90,642 |
 | [Agent Reach](https://github.com/Panniantong/Agent-Reach) | CLI + skill | Username; URL | Gives agents collection workflows for public content across multiple social and developer platforms. | 2026-02-24 | 2026-08-25 | ⭐ 76,729 |
 | [last30days](https://github.com/mvanhorn/last30days-skill) | Skill + plugin | Username; URL | Researches recent discussion across social platforms, communities, prediction markets, and the web. | 2026-01-23 | 2026-08-26 | ⭐ 60,415 |
 | [Maigret](https://github.com/soxoj/maigret) | Python | Username | Builds username-based account reports across thousands of sites. | 2020-06-27 | 2026-08-29 | ⭐ 37,158 |
 | [Social Analyzer](https://github.com/qeeqbox/social-analyzer) | JavaScript | Name; Username | Searches and analyzes profiles across numerous social platforms. | 2020-11-30 | 2026-01-12 | ⭐ 23,890 |
-| [Osintgram](https://github.com/Datalux/Osintgram) | Python | Name; Username; Image | Provides an interactive interface for collecting information from Instagram profiles. | 2019-06-07 | 2025-08-25 | ⭐ 14,187 |
-| [Instaloader](https://github.com/instaloader/instaloader) | Python | Name; Username; Image | Downloads Instagram posts, captions, profile data, and related metadata. | 2016-06-15 | 2026-07-26 | ⭐ 13,261 |
-| [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) | C# | Username | Exports accessible Discord message history and rich media to local files. | 2017-07-12 | 2026-08-27 | ⭐ 11,888 |
 | [Blackbird](https://github.com/p1ngul1n0/blackbird) | Python | Username | Searches social platforms for accounts linked to a username or email. | 2022-05-06 | 2025-07-13 | ⭐ 7,904 |
-| [twikit](https://github.com/d60/twikit) | Python | Username | Provides an alternative Python client for collecting and interacting with public X data. | 2024-01-20 | 2026-03-10 | ⭐ 4,639 |
-| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Toutatis](https://github.com/megadose/toutatis) | Python | Username | Extracts obfuscated contact details and account metadata from public Instagram profiles. | 2020-02-03 | 2024-12-05 | ⭐ 4,252 |
 | [Snoop](https://github.com/snooppr/snoop) | Python | Username | Searches for username usage across a large collection of websites. | 2020-02-14 | 2026-08-25 | ⭐ 4,009 |
 | [user-scanner](https://github.com/kaifcodec/user-scanner) | Python | Username; Email | Runs username and email discovery checks across many services. | 2025-10-19 | 2026-08-30 | ⭐ 3,873 |
 | [Aliens Eye](https://github.com/arxhr007/Aliens_eye) | Python | Username | Searches for accounts associated with a username across hundreds of platforms. | 2021-09-22 | 2026-07-16 | ⭐ 3,723 |
 | [gosearch](https://github.com/ibnaleem/gosearch) | Go | Username | Searches for a person's digital footprint across hundreds of websites. | 2024-11-09 | 2026-08-28 | ⭐ 3,643 |
-| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [yesitsme](https://github.com/0x0be/yesitsme) | Python | Name; Email; Phone Number | Finds Instagram profiles matching a supplied name, email address, or phone number. | 2021-12-23 | 2021-12-23 | ⭐ 3,054 |
 | [Tookie](https://github.com/Alfredredbird/tookie-osint) | Python | Username | Provides a multi-target information gathering toolkit. | 2023-08-22 | 2026-08-28 | ⭐ 2,873 |
 | [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) | Python | Username | Checks usernames using community-maintained site definitions and scripts. | 2015-10-02 | 2026-08-16 | ⭐ 2,810 |
-| [twscrape](https://github.com/vladkens/twscrape) | Python | Username | Collects public X data through supported GraphQL endpoints with account-pool rotation. | 2023-05-05 | 2026-08-28 | ⭐ 2,723 |
-| [Yark](https://github.com/Owez/yark) | Python | Name; Username; Video | Archives public YouTube channels, videos, and metadata for local analysis. | 2022-08-16 | 2025-12-17 | ⭐ 2,184 |
-| [linkedin2username](https://github.com/initstring/linkedin2username) | Python | Name; Organization Name | Generates possible corporate usernames from public LinkedIn employee data. | 2018-02-22 | 2026-05-20 | ⭐ 1,829 |
-| [Telegram Phone Number Checker](https://github.com/bellingcat/telegram-phone-number-checker) | Python | Username | Checks whether supplied phone numbers are connected to Telegram accounts. | 2021-02-17 | 2026-08-17 | ⭐ 1,775 |
-| [Informer](https://github.com/paulpierre/informer) | Python | Username | Collects and indexes Telegram channel and group activity. | 2019-12-09 | 2025-10-20 | ⭐ 1,662 |
-| [CrossLinked](https://github.com/m8sec/CrossLinked) | Python | Name; Organization Name | Extracts employee names from public LinkedIn search results. | 2019-05-16 | 2024-11-26 | ⭐ 1,582 |
-| [Arctic Shift](https://github.com/ArthurHeitmann/arctic_shift) | TypeScript | Username | Provides searchable Reddit archives through data dumps, an API, and a web interface. | 2023-08-03 | 2026-08-09 | ⭐ 1,452 |
-| [Instagram Monitor](https://github.com/misiektoja/instagram_monitor) | Python | Username; Image | Tracks public Instagram profile changes, activity, and captured content. | 2024-04-25 | 2026-08-28 | ⭐ 1,401 |
-| [Telerecon](https://github.com/sockysec/Telerecon) | Python | Username | Provides a modular framework for researching Telegram entities. | 2023-08-30 | 2024-04-22 | ⭐ 1,324 |
-| [Telepathy Community](https://github.com/prose-intelligence-ltd/Telepathy-Community) | Python | Username | Collects and analyzes public Telegram chat data. | 2022-01-17 | 2026-08-10 | ⭐ 1,235 |
 | [socid-extractor](https://github.com/soxoj/socid-extractor) | Python | Username | Converts profile URLs into structured identity records across many platforms. | 2019-11-17 | 2026-08-18 | ⭐ 1,076 |
-| [Universal Reddit Scraper](https://github.com/JosephLai241/URS) | Python | Username | Scrapes and archives Reddit submissions, comments, and user activity. | 2019-03-20 | 2026-07-11 | ⭐ 1,021 |
 | [Linkook](https://github.com/JackJuly/linkook) | Python | Username | Discovers linked social accounts and email clues from a username. | 2025-01-30 | 2026-02-28 | ⭐ 1,010 |
-| [X Tweet Fetcher](https://github.com/ythx-101/x-tweet-fetcher) | Python | Username | Retrieves public X posts, replies, timelines, and articles without login. | 2026-02-14 | 2026-08-08 | ⭐ 950 |
-| [Osintgraph](https://github.com/XD-MHLOO/Osintgraph) | Python | Username; Image | Maps Instagram followers and relationships in Neo4j for network analysis. | 2025-04-30 | 2026-05-10 | ⭐ 942 |
-| [Tosint](https://github.com/drego85/tosint) | Python | Username | Extracts Telegram bot, chat, and user information from tokens and identifiers. | 2021-07-26 | 2026-07-29 | ⭐ 846 |
-| [LinkedInDumper](https://github.com/l4rm4nd/LinkedInDumper) | Python | Name; Organization Name | Extracts company employee records through LinkedIn endpoints. | 2022-10-17 | 2026-08-21 | ⭐ 610 |
-| [Discord History Tracker](https://github.com/chylex/Discord-History-Tracker) | C# | Username | Saves accessible Discord chat history for offline preservation and review. | 2016-10-22 | 2026-01-29 | ⭐ 584 |
-| [Maltego Telegram](https://github.com/vognik/maltego-telegram) | Python | Username | Adds Maltego transforms for Telegram channels, groups, users, and messages. | 2024-11-04 | 2026-01-27 | ⭐ 561 |
-| [TeleTracker](https://github.com/tsale/TeleTracker) | Python | Username | Collects Telegram channel information and supports repeatable investigation tasks. | 2024-01-15 | 2024-04-29 | ⭐ 541 |
-| [tubeup](https://github.com/bibanon/tubeup) | Python | Username; Video | Archives online video and metadata to the Internet Archive through yt-dlp. | 2016-02-05 | 2026-08-12 | ⭐ 515 |
-| [SoIG](https://github.com/yezz123/SoIG) | Python | Username; Image | Retrieves selected public information associated with an Instagram account. | 2020-06-08 | 2026-06-28 | ⭐ 411 |
-| [telegram-tracker](https://github.com/estebanpdl/telegram-tracker) | Python | Username | Exports channel details and posts from selected Telegram channels. | 2022-04-06 | 2026-04-20 | ⭐ 383 |
-| [WhatsOSINT](https://github.com/HackUnderway/WhatsOSINT) | Python | Username; Phone Number | Retrieves public WhatsApp account details associated with a number. | 2024-11-19 | 2026-08-15 | ⭐ 335 |
-| [SnapIntel](https://github.com/Kr0wZ/SnapIntel) | Python | Username | Retrieves public account details associated with Snapchat usernames. | 2021-03-02 | 2026-03-24 | ⭐ 333 |
 | [Marple](https://github.com/soxoj/marple) | Python | Username | Finds profile links through search engines and extensible analysis plugins. | 2021-11-16 | 2026-08-17 | ⭐ 321 |
-| [TeleGraphite](https://github.com/hamodywe/telegram-scraper-TeleGraphite) | Python | Username | Collects Telegram channel posts and exports them as JSON. | 2025-04-12 | 2026-08-11 | ⭐ 286 |
 | [MCP Maigret](https://github.com/w0h1v/mcp-maigret) | MCP server | Username | Exposes Maigret username searches and public account discovery through MCP. | 2024-12-13 | 2026-01-27 | ⭐ 259 |
-| [xint](https://github.com/0xNyk/xint) | CLI + skill + MCP | Username | Searches, monitors, and exports public X data for agent-assisted investigations. | 2026-02-14 | 2026-08-28 | ⭐ 248 |
-| [Reddit Research MCP](https://github.com/dialog-tools/reddit-research-mcp) | MCP server | Username; URL | Supports structured Reddit discovery, thread collection, and community research. | 2025-08-12 | 2026-08-14 | ⭐ 234 |
-| [Telegram Similar Channels](https://github.com/SocialLinks-IO/telegram-similar-channels) | Python | Username | Finds related Telegram channels through CLI and Maltego interfaces. | 2023-12-07 | 2024-04-10 | ⭐ 197 |
-| [Telegram Archive](https://github.com/GeiserX/Telegram-Archive) | Python | Username | Creates incremental local archives of Telegram chats, media, and message history. | 2025-11-25 | 2026-08-30 | ⭐ 192 |
-| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [TokIntel](https://github.com/HackUnderway/TokIntel) | Python | Username | Collects TikTok profile metadata, metrics, and avatars for supplied usernames and writes structured local reports through the Apify scraper API. | 2026-03-29 | 2026-07-26 | ⭐ 103 |
-| [TikSpyder](https://github.com/estebanpdl/tik-spyder) | Python | Username; Video | Collects TikTok search, user, tag, and media data through SerpAPI and Apify. | 2024-07-16 | 2026-02-27 | ⭐ 102 |
 | [OWASP Social OSINT Agent](https://github.com/bm-github/owasp-social-osint-agent) | Python | Username | Collects public social activity and uses configurable language models to produce analytical reports. | 2025-10-07 | 2026-04-25 | ⭐ 100 |
-| [steam-osint](https://github.com/matiash26/steam-osint) | Python | Username | Finds mutual friends between public Steam profiles. | 2022-03-12 | 2026-08-29 | ⭐ 98 |
 | [Social OSINT](https://github.com/krishpranav/socialosint) | Rust | Username; Email | Collects exposed email addresses from supported social platforms and checks related leak data. | 2021-07-02 | 2026-02-10 | ⭐ 97 |
-| [insto](https://github.com/subzeroid/insto) | Python | Username; Image | Collects Instagram profile, media, relationship, and timeline data through interchangeable backends. | 2026-04-26 | 2026-06-20 | ⭐ 93 |
-| [Telegram OSINT Polo](https://github.com/Ironship/TelegramOSINTPolo) | Python | Username | Downloads Telegram feed posts for local review and assisted analysis. | 2025-03-04 | 2026-03-12 | ⭐ 56 |
-| [Steam Monitor](https://github.com/misiektoja/steam_monitor) | Python | Username | Tracks public Steam player activity, game sessions, and status changes. | 2024-04-25 | 2026-08-04 | ⭐ 56 |
-| [LinkedIn OSINT Toolkit](https://github.com/michaelelizarov/linkedin-osint-toolkit) | Python | Name; Organization Name | Discovers companies and employees, classifies roles, and builds organization views. | 2026-02-16 | 2026-02-16 | ⭐ 48 |
-| [x-scraper](https://github.com/proxidize/x-scraper) | Python | Username | Collects X timelines and search results through Playwright with resume and proxy controls. | 2025-10-30 | 2026-06-22 | ⭐ 35 |
-| [SteamReveal](https://github.com/Berchez/SteamReveal) | TypeScript | Username | Analyzes Steam profiles for close contacts and possible location clues. | 2024-02-20 | 2026-08-30 | ⭐ 27 |
-| [discord-urls-extractor](https://github.com/TheTechRobo/discord-urls-extractor) | Rust | Username; URL | Extracts URLs and media references from supported Discord archive formats. | 2021-11-21 | 2024-12-19 | ⭐ 21 |
-| [YouTube Research MCP](https://github.com/coyaSONG/youtube-mcp-server) | MCP server | Username; Video | Exposes YouTube videos, channels, search results, comments, and transcripts through MCP. | 2025-03-31 | 2026-07-17 | ⭐ 18 |
-| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Pulpit](https://github.com/giovabal/pulpit) | Python | Username; Keyword | Collects selected public Telegram channels and maps forwarding and linking relationships for influence and political communication analysis. | 2024-10-30 | 2026-08-25 | ⭐ 9 |
-| [Discord Inspector](https://github.com/Euronymou5/Discord-Inspector) | Python | Username | Retrieves public user, server, and application metadata from Discord identifiers. | 2024-12-03 | 2024-12-05 | ⭐ 6 |
-| [Telegram MCP TDLib](https://github.com/tolboy/telegram-mcp-tdlib) | MCP server | Username | Exposes Telegram searches, chats, messages, and public content to MCP clients through TDLib. | 2026-07-04 | 2026-08-22 | ⭐ 5 |
 | [OSINT Social](https://github.com/guleguleguru/osint-social) | Skill | Username | Wraps broad username discovery with additional coverage for major Chinese platforms. | 2026-02-28 | 2026-02-28 | ⭐ 1 |
-| [LinkedIn Recon Skill](https://github.com/Kewanvk/linkedin-recon-skill) | Skill | Name; Organization Name | Maps public hiring networks and organizational relationships from LinkedIn evidence. | 2026-05-08 | 2026-05-25 | ⭐ 0 |
 | [Sherlock Skill](https://github.com/ImL1s/sherlock-skill) | Skill | Username | Wraps Sherlock username searches with a portable skill and structured dossier output. | 2026-04-22 | 2026-04-22 | ⭐ 0 |
 | [Chinese OSINT Skills](https://github.com/zomin/chinese-osint-skills) | Skill pack | Username | Supplies Chinese-platform research methods and scripts for cross-platform identity pivots. | 2026-04-30 | 2026-04-30 | ⭐ 0 |
+
+<a id="social-media-telegram"></a>
+
+### Telegram <sup>14 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [Telegram Phone Number Checker](https://github.com/bellingcat/telegram-phone-number-checker) | Python | Username | Checks whether supplied phone numbers are connected to Telegram accounts. | 2021-02-17 | 2026-08-17 | ⭐ 1,775 |
+| [Informer](https://github.com/paulpierre/informer) | Python | Username | Collects and indexes Telegram channel and group activity. | 2019-12-09 | 2025-10-20 | ⭐ 1,662 |
+| [Telerecon](https://github.com/sockysec/Telerecon) | Python | Username | Provides a modular framework for researching Telegram entities. | 2023-08-30 | 2024-04-22 | ⭐ 1,324 |
+| [Telepathy Community](https://github.com/prose-intelligence-ltd/Telepathy-Community) | Python | Username | Collects and analyzes public Telegram chat data. | 2022-01-17 | 2026-08-10 | ⭐ 1,235 |
+| [Tosint](https://github.com/drego85/tosint) | Python | Username | Extracts Telegram bot, chat, and user information from tokens and identifiers. | 2021-07-26 | 2026-07-29 | ⭐ 846 |
+| [Maltego Telegram](https://github.com/vognik/maltego-telegram) | Python | Username | Adds Maltego transforms for Telegram channels, groups, users, and messages. | 2024-11-04 | 2026-01-27 | ⭐ 561 |
+| [TeleTracker](https://github.com/tsale/TeleTracker) | Python | Username | Collects Telegram channel information and supports repeatable investigation tasks. | 2024-01-15 | 2024-04-29 | ⭐ 541 |
+| [telegram-tracker](https://github.com/estebanpdl/telegram-tracker) | Python | Username | Exports channel details and posts from selected Telegram channels. | 2022-04-06 | 2026-04-20 | ⭐ 383 |
+| [TeleGraphite](https://github.com/hamodywe/telegram-scraper-TeleGraphite) | Python | Username | Collects Telegram channel posts and exports them as JSON. | 2025-04-12 | 2026-08-11 | ⭐ 286 |
+| [Telegram Similar Channels](https://github.com/SocialLinks-IO/telegram-similar-channels) | Python | Username | Finds related Telegram channels through CLI and Maltego interfaces. | 2023-12-07 | 2024-04-10 | ⭐ 197 |
+| [Telegram Archive](https://github.com/GeiserX/Telegram-Archive) | Python | Username | Creates incremental local archives of Telegram chats, media, and message history. | 2025-11-25 | 2026-08-30 | ⭐ 192 |
+| [Telegram OSINT Polo](https://github.com/Ironship/TelegramOSINTPolo) | Python | Username | Downloads Telegram feed posts for local review and assisted analysis. | 2025-03-04 | 2026-03-12 | ⭐ 56 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Pulpit](https://github.com/giovabal/pulpit) | Python | Username; Keyword | Collects selected public Telegram channels and maps forwarding and linking relationships for influence and political communication analysis. | 2024-10-30 | 2026-08-25 | ⭐ 9 |
+| [Telegram MCP TDLib](https://github.com/tolboy/telegram-mcp-tdlib) | MCP server | Username | Exposes Telegram searches, chats, messages, and public content to MCP clients through TDLib. | 2026-07-04 | 2026-08-22 | ⭐ 5 |
+
+<a id="social-media-instagram"></a>
+
+### Instagram <sup>8 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [Osintgram](https://github.com/Datalux/Osintgram) | Python | Name; Username; Image | Provides an interactive interface for collecting information from Instagram profiles. | 2019-06-07 | 2025-08-25 | ⭐ 14,187 |
+| [Instaloader](https://github.com/instaloader/instaloader) | Python | Name; Username; Image | Downloads Instagram posts, captions, profile data, and related metadata. | 2016-06-15 | 2026-07-26 | ⭐ 13,261 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Toutatis](https://github.com/megadose/toutatis) | Python | Username | Extracts obfuscated contact details and account metadata from public Instagram profiles. | 2020-02-03 | 2024-12-05 | ⭐ 4,252 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [yesitsme](https://github.com/0x0be/yesitsme) | Python | Name; Email; Phone Number | Finds Instagram profiles matching a supplied name, email address, or phone number. | 2021-12-23 | 2021-12-23 | ⭐ 3,054 |
+| [Instagram Monitor](https://github.com/misiektoja/instagram_monitor) | Python | Username; Image | Tracks public Instagram profile changes, activity, and captured content. | 2024-04-25 | 2026-08-28 | ⭐ 1,401 |
+| [Osintgraph](https://github.com/XD-MHLOO/Osintgraph) | Python | Username; Image | Maps Instagram followers and relationships in Neo4j for network analysis. | 2025-04-30 | 2026-05-10 | ⭐ 942 |
+| [SoIG](https://github.com/yezz123/SoIG) | Python | Username; Image | Retrieves selected public information associated with an Instagram account. | 2020-06-08 | 2026-06-28 | ⭐ 411 |
+| [insto](https://github.com/subzeroid/insto) | Python | Username; Image | Collects Instagram profile, media, relationship, and timeline data through interchangeable backends. | 2026-04-26 | 2026-06-20 | ⭐ 93 |
+
+<a id="social-media-x-twitter"></a>
+
+### X / Twitter <sup>6 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [twikit](https://github.com/d60/twikit) | Python | Username | Provides an alternative Python client for collecting and interacting with public X data. | 2024-01-20 | 2026-03-10 | ⭐ 4,639 |
+| [twscrape](https://github.com/vladkens/twscrape) | Python | Username | Collects public X data through supported GraphQL endpoints with account-pool rotation. | 2023-05-05 | 2026-08-28 | ⭐ 2,723 |
+| [X Tweet Fetcher](https://github.com/ythx-101/x-tweet-fetcher) | Python | Username | Retrieves public X posts, replies, timelines, and articles without login. | 2026-02-14 | 2026-08-08 | ⭐ 950 |
+| [xint](https://github.com/0xNyk/xint) | CLI + skill + MCP | Username | Searches, monitors, and exports public X data for agent-assisted investigations. | 2026-02-14 | 2026-08-28 | ⭐ 248 |
+| [x-scraper](https://github.com/proxidize/x-scraper) | Python | Username | Collects X timelines and search results through Playwright with resume and proxy controls. | 2025-10-30 | 2026-06-22 | ⭐ 35 |
 | [X Archive RAG](https://github.com/mameshivaa/x-archive-rag) | RAG system | Username | Indexes exported X data for local semantic search and retrieval-augmented analysis. | 2026-05-26 | 2026-06-18 | ⭐ 0 |
+
+<a id="social-media-linkedin"></a>
+
+### LinkedIn <sup>5 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [linkedin2username](https://github.com/initstring/linkedin2username) | Python | Name; Organization Name | Generates possible corporate usernames from public LinkedIn employee data. | 2018-02-22 | 2026-05-20 | ⭐ 1,829 |
+| [CrossLinked](https://github.com/m8sec/CrossLinked) | Python | Name; Organization Name | Extracts employee names from public LinkedIn search results. | 2019-05-16 | 2024-11-26 | ⭐ 1,582 |
+| [LinkedInDumper](https://github.com/l4rm4nd/LinkedInDumper) | Python | Name; Organization Name | Extracts company employee records through LinkedIn endpoints. | 2022-10-17 | 2026-08-21 | ⭐ 610 |
+| [LinkedIn OSINT Toolkit](https://github.com/michaelelizarov/linkedin-osint-toolkit) | Python | Name; Organization Name | Discovers companies and employees, classifies roles, and builds organization views. | 2026-02-16 | 2026-02-16 | ⭐ 48 |
+| [LinkedIn Recon Skill](https://github.com/Kewanvk/linkedin-recon-skill) | Skill | Name; Organization Name | Maps public hiring networks and organizational relationships from LinkedIn evidence. | 2026-05-08 | 2026-05-25 | ⭐ 0 |
+
+<a id="social-media-discord"></a>
+
+### Discord <sup>4 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) | C# | Username | Exports accessible Discord message history and rich media to local files. | 2017-07-12 | 2026-08-27 | ⭐ 11,888 |
+| [Discord History Tracker](https://github.com/chylex/Discord-History-Tracker) | C# | Username | Saves accessible Discord chat history for offline preservation and review. | 2016-10-22 | 2026-01-29 | ⭐ 584 |
+| [discord-urls-extractor](https://github.com/TheTechRobo/discord-urls-extractor) | Rust | Username; URL | Extracts URLs and media references from supported Discord archive formats. | 2021-11-21 | 2024-12-19 | ⭐ 21 |
+| [Discord Inspector](https://github.com/Euronymou5/Discord-Inspector) | Python | Username | Retrieves public user, server, and application metadata from Discord identifiers. | 2024-12-03 | 2024-12-05 | ⭐ 6 |
+
+<a id="social-media-youtube"></a>
+
+### YouTube <sup>4 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Python | Username; Video | Downloads public video, audio, subtitles, comments, and metadata from supported platforms. | 2020-10-26 | 2026-08-30 | ⭐ 187,910 |
+| [Yark](https://github.com/Owez/yark) | Python | Name; Username; Video | Archives public YouTube channels, videos, and metadata for local analysis. | 2022-08-16 | 2025-12-17 | ⭐ 2,184 |
+| [tubeup](https://github.com/bibanon/tubeup) | Python | Username; Video | Archives online video and metadata to the Internet Archive through yt-dlp. | 2016-02-05 | 2026-08-12 | ⭐ 515 |
+| [YouTube Research MCP](https://github.com/coyaSONG/youtube-mcp-server) | MCP server | Username; Video | Exposes YouTube videos, channels, search results, comments, and transcripts through MCP. | 2025-03-31 | 2026-07-17 | ⭐ 18 |
+
+<a id="social-media-reddit"></a>
+
+### Reddit <sup>3 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [Arctic Shift](https://github.com/ArthurHeitmann/arctic_shift) | TypeScript | Username | Provides searchable Reddit archives through data dumps, an API, and a web interface. | 2023-08-03 | 2026-08-09 | ⭐ 1,452 |
+| [Universal Reddit Scraper](https://github.com/JosephLai241/URS) | Python | Username | Scrapes and archives Reddit submissions, comments, and user activity. | 2019-03-20 | 2026-07-11 | ⭐ 1,021 |
+| [Reddit Research MCP](https://github.com/dialog-tools/reddit-research-mcp) | MCP server | Username; URL | Supports structured Reddit discovery, thread collection, and community research. | 2025-08-12 | 2026-08-14 | ⭐ 234 |
+
+<a id="social-media-steam"></a>
+
+### Steam <sup>3 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [steam-osint](https://github.com/matiash26/steam-osint) | Python | Username | Finds mutual friends between public Steam profiles. | 2022-03-12 | 2026-08-29 | ⭐ 98 |
+| [Steam Monitor](https://github.com/misiektoja/steam_monitor) | Python | Username | Tracks public Steam player activity, game sessions, and status changes. | 2024-04-25 | 2026-08-04 | ⭐ 56 |
+| [SteamReveal](https://github.com/Berchez/SteamReveal) | TypeScript | Username | Analyzes Steam profiles for close contacts and possible location clues. | 2024-02-20 | 2026-08-30 | ⭐ 27 |
+
+<a id="social-media-tiktok"></a>
+
+### TikTok <sup>2 projects</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [TokIntel](https://github.com/HackUnderway/TokIntel) | Python | Username | Collects TikTok profile metadata, metrics, and avatars for supplied usernames and writes structured local reports through the Apify scraper API. | 2026-03-29 | 2026-07-26 | ⭐ 103 |
+| [TikSpyder](https://github.com/estebanpdl/tik-spyder) | Python | Username; Video | Collects TikTok search, user, tag, and media data through SerpAPI and Apify. | 2024-07-16 | 2026-02-27 | ⭐ 102 |
+
+<a id="social-media-snapchat"></a>
+
+### Snapchat <sup>1 project</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [SnapIntel](https://github.com/Kr0wZ/SnapIntel) | Python | Username | Retrieves public account details associated with Snapchat usernames. | 2021-03-02 | 2026-03-24 | ⭐ 333 |
+
+<a id="social-media-whatsapp"></a>
+
+### WhatsApp <sup>1 project</sup>
+
+| Project | Type | Target Input | Description | Created | Last Update | Stars |
+|:---|:---|:---|:---|:---:|:---:|---:|
+| [WhatsOSINT](https://github.com/HackUnderway/WhatsOSINT) | Python | Username; Phone Number | Retrieves public WhatsApp account details associated with a number. | 2024-11-19 | 2026-08-15 | ⭐ 335 |
 
 <p align="right"><a href="#table-of-contents">Back to contents ↑</a></p>
 

@@ -14,7 +14,9 @@ from catalog_common import (
     AGENTIC_TABLE_ALIGNMENT,
     AGENTIC_TABLE_HEADER,
     AGENTIC_SECTIONS,
+    CROSS_PLATFORM_LABEL,
     NEW_PROJECT_LEGEND,
+    PLATFORM_CATEGORY,
     README_SECTIONS,
     README_TABLE_ALIGNMENT,
     README_TABLE_HEADER,
@@ -24,6 +26,7 @@ from catalog_common import (
     format_agentic_markdown_row,
     format_markdown_row,
     format_readme_markdown_row,
+    platform_groups,
     load_catalog,
     recent_repository_keys,
     repository_key,
@@ -86,6 +89,15 @@ def rendered_rows(
 
 def anchor_for(label: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", label.casefold()).strip("-")
+
+
+CROSS_PLATFORM_NOTE = (
+    "Tools that search many networks at once rather than a single platform."
+)
+
+
+def platform_anchor(platform: str) -> str:
+    return f"{anchor_for(PLATFORM_CATEGORY)}-{anchor_for(platform)}"
 
 
 def badge(label: str, slug: str, value: int, color: str, href: str = "") -> str:
@@ -207,10 +219,17 @@ def render_readme(
         "## Table of contents",
         "",
     ]
-    for label, _ in README_SECTIONS:
+    for label, category in README_SECTIONS:
         lines.append(
             f"- [{label}](#{anchor_for(label)}) <sup>{counts[label]} {count_label(counts[label])}</sup>"
         )
+        if category != PLATFORM_CATEGORY:
+            continue
+        for platform, group in platform_groups(rows_for_category(rows, category)):
+            lines.append(
+                f"  - [{platform}](#{platform_anchor(platform)}) "
+                f"<sup>{len(group)} {count_label(len(group))}</sup>"
+            )
     lines.extend(
         [
             f"- [Emerging projects](EMERGING.md) <sup>{emerging_count} {count_label(emerging_count)}</sup>",
@@ -235,6 +254,22 @@ def render_readme(
                 "",
             ]
         )
+        if category == PLATFORM_CATEGORY:
+            for platform, group in platform_groups(selected):
+                lines.extend(
+                    [
+                        f'<a id="{platform_anchor(platform)}"></a>',
+                        "",
+                        f"### {platform} <sup>{len(group)} {count_label(len(group))}</sup>",
+                        "",
+                    ]
+                )
+                if platform == CROSS_PLATFORM_LABEL:
+                    lines.extend([CROSS_PLATFORM_NOTE, ""])
+                append_table(lines, group, recent_keys, readme=True)
+                lines.append("")
+            lines.extend(['<p align="right"><a href="#table-of-contents">Back to contents ↑</a></p>', ""])
+            continue
         append_table(lines, selected, recent_keys, readme=True)
         lines.extend(["", '<p align="right"><a href="#table-of-contents">Back to contents ↑</a></p>', ""])
     return "\n".join(lines)

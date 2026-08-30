@@ -13,8 +13,10 @@ from urllib.parse import quote, urlparse
 from catalog_common import (
     ALL_CATEGORIES,
     ALL_COLUMNS,
+    PLATFORM_CATEGORY,
     MIN_LAST_UPDATE,
     ROOT,
+    canonical_platform,
     canonical_source_files,
     canonical_target_inputs,
     load_catalog,
@@ -190,6 +192,11 @@ def main() -> int:
         default=[],
         help="Additional generated view: EMERGING.md or AGENTIC.md; may be repeated",
     )
+    parser.add_argument(
+        "--platform",
+        default="",
+        help=f"Social platform for a {PLATFORM_CATEGORY} record; leave unset for cross-platform tools",
+    )
     parser.add_argument("--type", dest="project_type", help="Language or integration type")
     parser.add_argument("--ai-agent", default="", help="Documented agent runtime or compatibility")
     parser.add_argument("--description", help="Curated neutral description")
@@ -262,6 +269,14 @@ def main() -> int:
     if args.category not in ALL_CATEGORIES:
         print(f"Unknown category: {args.category}", file=sys.stderr)
         return 2
+    try:
+        platform = canonical_platform(args.platform)
+    except ValueError as error:
+        print(str(error), file=sys.stderr)
+        return 2
+    if platform and args.category != PLATFORM_CATEGORY:
+        print(f"--platform is only valid with --category {PLATFORM_CATEGORY}", file=sys.stderr)
+        return 2
     requested_views: list[str] = []
     for value in args.view:
         requested_views.extend(split_values(value))
@@ -297,6 +312,7 @@ def main() -> int:
             "Review Status": "accepted",
             "Discovery Source": candidate["Discovery Source"],
             "Source Files": "; ".join(source_files),
+            "Platform": platform,
         }
     )
     candidate["Review Status"] = "accepted"

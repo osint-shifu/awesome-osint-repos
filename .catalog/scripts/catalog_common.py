@@ -50,7 +50,11 @@ MONITOR_COLUMNS = [
     "Source Files",
 ]
 
-ALL_COLUMNS = PUBLIC_COLUMNS + MONITOR_COLUMNS
+PLATFORM_COLUMNS = [
+    "Platform",
+]
+
+ALL_COLUMNS = PUBLIC_COLUMNS + MONITOR_COLUMNS + PLATFORM_COLUMNS
 
 TABLE_HEADER = (
     "| Project | Target Input | Categories | Description | Created | Last Update | Stars |"
@@ -116,6 +120,25 @@ TARGET_INPUTS = {
 }
 SOURCE_FILE_ORDER = ["README.md", "EMERGING.md", "AGENTIC.md"]
 
+# Platform is a rendering dimension inside the Social Media category, not a
+# thirteenth category. A blank value means the tool is deliberately
+# cross-platform, never that it is unclassified.
+PLATFORM_CATEGORY = "Social Media"
+CROSS_PLATFORM_LABEL = "Cross-platform"
+PLATFORMS = {
+    "Telegram",
+    "Instagram",
+    "X / Twitter",
+    "LinkedIn",
+    "YouTube",
+    "Discord",
+    "Reddit",
+    "Steam",
+    "TikTok",
+    "Snapchat",
+    "WhatsApp",
+}
+
 
 def split_values(value: str) -> list[str]:
     return [item.strip() for item in value.split(";") if item.strip()]
@@ -139,6 +162,42 @@ def canonical_source_files(value: str | Iterable[str]) -> list[str]:
     if unknown:
         raise ValueError(f"Unknown Source Files: {', '.join(unknown)}")
     return [item for item in SOURCE_FILE_ORDER if item in raw_values]
+
+
+def canonical_platform(value: str) -> str:
+    platform = (value or "").strip()
+    if platform and platform not in PLATFORMS:
+        raise ValueError(f"Unknown Platform: {platform}")
+    return platform
+
+
+def misplaced_platform(row: dict[str, str]) -> bool:
+    """A platform only carries meaning inside the Social Media category."""
+    return bool((row.get("Platform") or "").strip()) and row.get("Categories", "") != PLATFORM_CATEGORY
+
+
+def platform_groups(rows: Iterable[dict[str, str]]) -> list[tuple[str, list[dict[str, str]]]]:
+    """Group Social Media rows into a cross-platform bucket and per-platform buckets.
+
+    The cross-platform bucket leads because the catalogue's most used social
+    tools search hundreds of sites and belong to no single platform. Remaining
+    groups follow by descending size so the busiest platforms surface first,
+    with alphabetical order breaking ties for a stable render.
+    """
+    buckets: dict[str, list[dict[str, str]]] = {}
+    for row in rows:
+        buckets.setdefault(row.get("Platform", "").strip(), []).append(row)
+
+    ordered: list[tuple[str, list[dict[str, str]]]] = []
+    if buckets.get(""):
+        ordered.append((CROSS_PLATFORM_LABEL, buckets.pop("")))
+    buckets.pop("", None)
+    for platform in sorted(buckets, key=lambda name: (-len(buckets[name]), name.casefold())):
+        ordered.append((platform, buckets[platform]))
+    return [
+        (label, sorted(group, key=lambda row: -stars_as_int(row.get("Stars", "0"))))
+        for label, group in ordered
+    ]
 
 
 def load_catalog(path: Path = CATALOG_PATH) -> tuple[list[str], list[dict[str, str]]]:

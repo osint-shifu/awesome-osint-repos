@@ -19,7 +19,7 @@
 
 The canonical CSV stores the publication date in its `Added` column. The renderer places a 6 px green dot before projects in public Markdown views for 14 days after acceptance.
 
-`Categories` stores exactly one of the 12 main catalogue categories. `Target Input` stores only concrete data accepted or investigated by a tool and may contain several semicolon-separated values. `AI Agent` records documented agent compatibility. Membership in the additional `EMERGING.md` and `AGENTIC.md` views is stored separately in `Source Files`.
+`Categories` stores exactly one of the 12 main catalogue categories. `Target Input` stores only concrete data accepted or investigated by a tool and may contain several semicolon-separated values. `AI Agent` records documented agent compatibility. `Platform` names the single social platform a `Social Media` record targets. Membership in the additional `EMERGING.md` and `AGENTIC.md` views is stored separately in `Source Files`.
 
 ```text
 .catalog/data/sources.csv -> discover_candidates.py -> .catalog/data/candidates.csv -> human review
@@ -55,6 +55,18 @@ Allowed `Target Input` values are:
 `Name`, `Username`, `Email`, `Phone Number`, `Domain`, `IP Address`, `ASN`, `CIDR`, `URL`, `Onion Service`, `Image`, `Location`, `BSSID / SSID`, `Organization Name`, `Crypto Address`, `File Hash`, `Document`, `Keyword`, `Video`, `Repository URL`, `Event Data`, `Coordinates`, `Dataset`, `CVE ID`, `File`, `Audio`, `Text`, and `Aircraft ID`.
 
 `Target Input` may contain several semicolon-separated values. It may be blank only when a tool has no fixed input type, such as a general investigation workspace or reusable agent workflow.
+
+## Social platforms
+
+`Platform` is a presentation dimension inside the `Social Media` category, not a thirteenth category. It selects the subsection a record appears under in the generated `README.md` and is ignored everywhere else.
+
+Allowed `Platform` values are:
+
+`Telegram`, `Instagram`, `X / Twitter`, `LinkedIn`, `YouTube`, `Discord`, `Reddit`, `Steam`, `TikTok`, `Snapchat`, and `WhatsApp`.
+
+A blank `Platform` means the tool deliberately searches many networks at once, as Sherlock, Maigret, and WhatsMyName do. **It never means the record is unclassified**, so blanks are not a backlog to fill in. Recognition outranks technical scope. When a multi-site tool is overwhelmingly known for one platform, file it under that platform so readers find it where they look for it. `yt-dlp` and `tubeup` support hundreds of sites and still belong under `YouTube`; a reader browsing that subsection who does not find `yt-dlp` is worse served than one who finds it filed slightly too narrowly. Reserve the cross-platform group for tools with no dominant association, as username searches across hundreds of networks have.
+
+`Platform` must be blank for every category other than `Social Media`. Subsections are generated from the data: a platform with no records produces no heading, and a platform that gains its first record appears without a renderer change. Adding a value to the vocabulary is a one-line change in `.catalog/scripts/catalog_common.py`, which keeps one spelling per platform instead of letting `X`, `Twitter`, and `X (Twitter)` drift apart.
 
 ## Local commands
 
@@ -161,7 +173,7 @@ python3 .catalog/scripts/render_catalog.py --write
 python3 .catalog/scripts/validate_catalog.py
 ```
 
-Use only values from the canonical `Target Input` taxonomy and assign exactly one `--category`. Add `--view EMERGING.md` for the watchlist. For an agent integration, add `--view AGENTIC.md` together with a documented `--ai-agent` value. Repeat `--view` when both generated views apply.
+Use only values from the canonical `Target Input` taxonomy and assign exactly one `--category`. For a `Social Media` project, add `--platform` when the tool targets one named platform and leave it unset when it searches many. Add `--view EMERGING.md` for the watchlist. For an agent integration, add `--view AGENTIC.md` together with a documented `--ai-agent` value. Repeat `--view` when both generated views apply.
 
 ## Discovery sources
 

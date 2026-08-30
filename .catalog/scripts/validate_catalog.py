@@ -28,6 +28,8 @@ from catalog_common import (
     ROOT,
     TABLE_ALIGNMENT,
     TABLE_HEADER,
+    PLATFORM_CATEGORY,
+    canonical_platform,
     canonical_source_files,
     canonical_target_inputs,
     categories,
@@ -35,6 +37,8 @@ from catalog_common import (
     format_markdown_row,
     format_readme_markdown_row,
     load_catalog,
+    misplaced_platform,
+    platform_groups,
     recent_repository_keys,
     repository_key,
     rows_for_category,
@@ -62,10 +66,18 @@ def parse_markdown_tables(path: Path, validation: Validation) -> dict[str, list[
     lines = path.read_text(encoding="utf-8").splitlines()
     tables: dict[str, list[str]] = {}
     current_heading = ""
+    current_section = ""
+
+    def heading_text(raw: str) -> str:
+        cleaned = re.sub(r"\s*<sup>.*?</sup>\s*$", "", raw).strip()
+        return re.sub(r"^[^\w]+", "", cleaned)
+
     for index, line in enumerate(lines):
-        if line.startswith("## "):
-            current_heading = re.sub(r"\s*<sup>.*?</sup>\s*$", "", line[3:]).strip()
-            current_heading = re.sub(r"^[^\w]+", "", current_heading)
+        if line.startswith("### "):
+            current_heading = f"{current_section} / {heading_text(line[4:])}"
+        elif line.startswith("## "):
+            current_section = heading_text(line[3:])
+            current_heading = current_section
         table_schemas = {
             TABLE_HEADER: (TABLE_ALIGNMENT, 7),
             README_TABLE_HEADER: (README_TABLE_ALIGNMENT, 7),
@@ -189,6 +201,14 @@ def validate_catalog(validation: Validation) -> tuple[list[str], list[dict[str, 
                 bool(row.get("AI Agent", "").strip()),
                 f"osint-repositories.csv:{line_number}: AGENTIC.md entry is missing AI Agent",
             )
+        try:
+            canonical_platform(row.get("Platform", ""))
+        except ValueError as error:
+            validation.errors.append(f"osint-repositories.csv:{line_number}: {error}")
+        validation.check(
+            not misplaced_platform(row),
+            f"osint-repositories.csv:{line_number}: Platform is only valid for {PLATFORM_CATEGORY}",
+        )
         validation.check(row.get("Repository Status", "") in allowed_status, f"osint-repositories.csv:{line_number}: invalid Repository Status")
         validation.check(row.get("Review Status", "") == "accepted", f"osint-repositories.csv:{line_number}: canonical records must be accepted")
         validation.check(row.get("Archived", "") == "false", f"osint-repositories.csv:{line_number}: archived repositories must be removed")
@@ -198,15 +218,24 @@ def validate_catalog(validation: Validation) -> tuple[list[str], list[dict[str, 
     return fields, rows
 
 
+def readme_sections(rows: list[dict[str, str]]) -> list[tuple[str, list[dict[str, str]], object]]:
+    sections: list[tuple[str, list[dict[str, str]], object]] = []
+    for label, category in README_SECTIONS:
+        selected = rows_for_category(rows, category)
+        if category != PLATFORM_CATEGORY:
+            sections.append((label, selected, format_readme_markdown_row))
+            continue
+        for platform, group in platform_groups(selected):
+            sections.append((f"{label} / {platform}", group, format_readme_markdown_row))
+    return sections
+
+
 def validate_markdown(validation: Validation, rows: list[dict[str, str]]) -> None:
     recent_keys = recent_repository_keys(rows, verified_date(rows))
     specifications = [
         (
             ROOT / "README.md",
-            [
-                (label, rows_for_category(rows, category), format_readme_markdown_row)
-                for label, category in README_SECTIONS
-            ],
+            readme_sections(rows),
         ),
         (
             ROOT / "EMERGING.md",
