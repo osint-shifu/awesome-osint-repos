@@ -4,8 +4,8 @@
   <h1>Awesome OSINT Repositories Timeline</h1>
   <p>A visual chronology of tools added to the catalogue, newest first.</p>
   <p>
-    <img alt="Dated additions: 192" src="https://img.shields.io/badge/dated_additions-192-0969da?style=flat-square">
-    <img alt="Catalogue projects: 485" src="https://img.shields.io/badge/catalogue_projects-485-8250df?style=flat-square">
+    <img alt="Dated additions: 194" src="https://img.shields.io/badge/dated_additions-194-0969da?style=flat-square">
+    <img alt="Catalogue projects: 487" src="https://img.shields.io/badge/catalogue_projects-487-8250df?style=flat-square">
     <img alt="Last update: 2026-08-30" src="https://img.shields.io/badge/last_update-2026--08--30-1f883d?style=flat-square">
   </p>
   <p><strong><a href="TIMELINE.md">Catalogue Timeline</a></strong> · <a href="README.md">Awesome OSINT Repositories</a> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -25,7 +25,7 @@
   </thead>
   <tbody>
     <tr>
-      <td align="right" valign="middle"><strong>2026-08-30</strong><br><sub>29 projects</sub></td>
+      <td align="right" valign="middle"><strong>2026-08-30</strong><br><sub>31 projects</sub></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
         <strong><a href="https://github.com/WPTK/aircraft-research-claude-skill">Aircraft Research Skill</a></strong><br>
@@ -158,6 +158,16 @@
       <td align="right" valign="middle"></td>
       <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
       <td valign="middle">
+        <strong><a href="https://github.com/Amal-David/keyleak-detector">KeyLeak Detector</a></strong><br>
+        Scans live sites, browser runtime, and local configuration for exposed API keys and misconfigured backend services.<br>
+        <sub>Target Input: Domain; URL; File · Category: Web</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;266</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
         <strong><a href="https://github.com/alexandreborges/malwoverview">Malwoverview</a></strong><br>
         Performs first-response triage against VirusTotal, Hybrid Analysis, URLhaus, and similar services.<br>
         <sub>Target Input: Domain; IP Address; URL; File Hash · Category: Threat Intelligence</sub>
@@ -173,6 +183,16 @@
         <sub>Target Input: Domain · Category: Infrastructure</sub>
       </td>
       <td align="right" valign="top"><strong>⭐&nbsp;3,636</strong></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle">│<br><img src=".github/assets/new-dot.svg" width="7" height="7" alt=""><br>│</td>
+      <td valign="middle">
+        <strong><a href="https://github.com/cisco-ai-defense/mcp-scanner">MCP Scanner</a></strong><br>
+        Scans remote and local Model Context Protocol servers for unsafe tools, prompts, resources, and instructions.<br>
+        <sub>Target Input: URL; File · Category: Threat Intelligence</sub>
+      </td>
+      <td align="right" valign="top"><strong>⭐&nbsp;1,052</strong></td>
     </tr>
     <tr>
       <td align="right" valign="middle"></td>

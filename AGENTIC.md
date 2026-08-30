@@ -4,7 +4,7 @@
   <h1>Agentic AI OSINT</h1>
   <p>Open-source skills, plugins, MCP servers, and AI-agent integrations for investigative work.</p>
   <p>
-    <img alt="Total projects: 134" src="https://img.shields.io/badge/total_projects-134-bf8700?style=flat-square">
+    <img alt="Total projects: 135" src="https://img.shields.io/badge/total_projects-135-bf8700?style=flat-square">
     <img alt="MCP integrations: 64" src="https://img.shields.io/badge/MCP_integrations-64-0969da?style=flat-square">
     <img alt="Skill integrations: 55" src="https://img.shields.io/badge/skill_integrations-55-8250df?style=flat-square">
     <img alt="Last update: 2026-08-30" src="https://img.shields.io/badge/last_update-2026--08--30-1f883d?style=flat-square">
@@ -35,12 +35,12 @@ This view contains implementation-bearing repositories that expose investigative
 - [Infrastructure](#infrastructure) <sup>25 projects</sup>
 - [Web](#web) <sup>34 projects</sup>
 - [Dark Web](#dark-web) <sup>3 projects</sup>
-- [Threat Intelligence](#threat-intelligence) <sup>10 projects</sup>
+- [Threat Intelligence](#threat-intelligence) <sup>11 projects</sup>
 - [Documents & Records](#documents-records) <sup>22 projects</sup>
 - [Geolocation](#geolocation) <sup>6 projects</sup>
 - [Investigation](#investigation) <sup>17 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>485 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>487 unique repositories</sup>
 
 ---
 
@@ -180,13 +180,14 @@ Tools for discovering, collecting, and analyzing onion services and dark-web con
 
 <a id="threat-intelligence"></a>
 
-## 🛡️ Threat Intelligence <sup>10 projects</sup>
+## 🛡️ Threat Intelligence <sup>11 projects</sup>
 
 Tools for threat data, indicators, file hashes, vulnerabilities, and malware analysis.
 
 | Project | Target Input | AI Agent | Description | Created | Last Update | Stars |
 |:---|:---|:---|:---|:---:|:---:|---:|
 | [CVE MCP Server](https://github.com/mukul975/cve-mcp-server) | CVE ID | Any MCP-compatible agent | Correlates CVE, EPSS, KEV, Shodan, VirusTotal, and related security intelligence. | 2026-04-14 | 2026-06-22 | ⭐ 1,297 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [MCP Scanner](https://github.com/cisco-ai-defense/mcp-scanner) | URL; File | Claude Code | Scans remote and local Model Context Protocol servers for unsafe tools, prompts, resources, and instructions. | 2025-09-24 | 2026-08-28 | ⭐ 1,052 |
 | [MCP Security Hub](https://github.com/FuzzingLabs/mcp-security-hub) | Domain; IP Address; URL; File; File Hash | Any MCP-compatible agent | Exposes containerized security tools for recon, threat intelligence, code, and binary analysis. | 2026-01-06 | 2026-04-08 | ⭐ 771 |
 | [CTI Expert](https://github.com/7onez/cti-expert) | Domain; IP Address; URL; File Hash | Claude Code; OpenAI Codex | Guides structured cyber threat intelligence and OSINT collection with confidence scoring. | 2026-04-06 | 2026-08-28 | ⭐ 584 |
 | [Reversecore MCP](https://github.com/sjkim1127/Reversecore_MCP) | File; File Hash | Any MCP-compatible agent | Connects agents to reverse engineering, malware, forensics, and vulnerability research tools. | 2025-11-10 | 2026-08-27 | ⭐ 193 |

@@ -133,4 +133,4 @@ Membership in this view is stored in `Source Files`. Every project retains one o
 
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
-[Complete repository database (CSV)](osint-repositories.csv) <sup>485 unique repositories</sup>
+[Complete repository database (CSV)](osint-repositories.csv) <sup>487 unique repositories</sup>

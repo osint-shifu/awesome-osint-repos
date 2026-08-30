@@ -6,8 +6,8 @@
   <p>
     <a href="EMERGING.md"><img alt="Emerging projects: 106" src="https://img.shields.io/badge/emerging-106-bf8700?style=flat-square"></a>
     <a href="#social-media"><img alt="Social Media projects: 72" src="https://img.shields.io/badge/social_media-72-8250df?style=flat-square"></a>
-    <a href="AGENTIC.md"><img alt="Agentic integrations: 134" src="https://img.shields.io/badge/agentic_integrations-134-d1242f?style=flat-square"></a>
-    <img alt="Catalogue projects: 485" src="https://img.shields.io/badge/catalogue_projects-485-8250df?style=flat-square">
+    <a href="AGENTIC.md"><img alt="Agentic integrations: 135" src="https://img.shields.io/badge/agentic_integrations-135-d1242f?style=flat-square"></a>
+    <img alt="Catalogue projects: 487" src="https://img.shields.io/badge/catalogue_projects-487-8250df?style=flat-square">
     <img alt="Last update: 2026-08-30" src="https://img.shields.io/badge/last_update-2026--08--30-1f883d?style=flat-square">
   </p>
   <p><strong><a href="README.md">Awesome OSINT Repositories</a></strong> · <a href="EMERGING.md">Emerging Projects</a> · <a href="AGENTIC.md">Agentic AI OSINT</a> · <a href="TIMELINE.md">Catalogue Timeline</a> · <a href="osint-repositories.csv">Repository Database CSV</a></p>
@@ -42,18 +42,18 @@ Each project has exactly one value in `Categories`. `Target Input` contains only
 - [Social Media](#social-media) <sup>72 projects</sup>
 - [Code Repositories](#code-repositories) <sup>14 projects</sup>
 - [Infrastructure](#infrastructure) <sup>62 projects</sup>
-- [Web](#web) <sup>83 projects</sup>
+- [Web](#web) <sup>84 projects</sup>
 - [Dark Web](#dark-web) <sup>16 projects</sup>
-- [Threat Intelligence](#threat-intelligence) <sup>25 projects</sup>
+- [Threat Intelligence](#threat-intelligence) <sup>26 projects</sup>
 - [Documents & Records](#documents-records) <sup>46 projects</sup>
 - [Media](#media) <sup>48 projects</sup>
 - [Geolocation](#geolocation) <sup>42 projects</sup>
 - [Cryptocurrency](#cryptocurrency) <sup>9 projects</sup>
 - [Investigation](#investigation) <sup>34 projects</sup>
 - [Emerging projects](EMERGING.md) <sup>106 projects</sup>
-- [Agentic AI OSINT](AGENTIC.md) <sup>134 projects</sup>
+- [Agentic AI OSINT](AGENTIC.md) <sup>135 projects</sup>
 - [Catalogue timeline](TIMELINE.md)
-- [Complete repository database (CSV)](osint-repositories.csv) <sup>485 unique repositories</sup>
+- [Complete repository database (CSV)](osint-repositories.csv) <sup>487 unique repositories</sup>
 
 ---
 
@@ -285,7 +285,7 @@ Tools for domains, IP addresses, networks, ASNs, and related internet infrastruc
 
 <a id="web"></a>
 
-## 🔗 Web <sup>83 projects</sup>
+## 🔗 Web <sup>84 projects</sup>
 
 Tools that collect, search, analyze, crawl, or preserve public web content.
 
@@ -352,6 +352,7 @@ Tools that collect, search, analyze, crawl, or preserve public web content.
 | [TheScrapper](https://github.com/champmq/TheScrapper) | Python | URL | Crawls websites to extract email addresses, phone numbers, and social profile links. | 2021-05-07 | 2026-05-29 | ⭐ 369 |
 | [MCP Omnisearch](https://github.com/spences10/mcp-omnisearch) | MCP server | URL | Combines multiple search, AI search, and content-processing providers behind MCP. | 2025-03-08 | 2026-08-29 | ⭐ 346 |
 | <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Robofinder](https://github.com/Spix0r/robofinder) | Python | Domain; URL | Retrieves historical robots.txt snapshots from web archives to recover retired paths and directories. | 2023-06-17 | 2026-06-13 | ⭐ 269 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [KeyLeak Detector](https://github.com/Amal-David/keyleak-detector) | Python | Domain; URL; File | Scans live sites, browser runtime, and local configuration for exposed API keys and misconfigured backend services. | 2025-11-01 | 2026-07-08 | ⭐ 266 |
 | [Google Research MCP](https://github.com/mixelpixx/Nimrod) | MCP server | URL | Uses Google Search and browser automation for multi-step cited research. | 2024-12-19 | 2026-08-14 | ⭐ 255 |
 | <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [Bellingcat Wayback Google Analytics](https://github.com/bellingcat/wayback-google-analytics) | Python | Domain; URL | Scrapes current and archived Google Analytics identifiers to link related websites. | 2023-09-15 | 2024-02-16 | ⭐ 239 |
 | [agent-pulse](https://github.com/barretlee/agent-pulse) | TypeScript | URL; Document | Turns public AI releases, research, policy, funding, and propagation signals into source-linked events and evolving assessments. | 2026-07-11 | 2026-08-28 | ⭐ 235 |
@@ -406,7 +407,7 @@ Tools for discovering, collecting, and analyzing onion services and dark-web con
 
 <a id="threat-intelligence"></a>
 
-## 🛡️ Threat Intelligence <sup>25 projects</sup>
+## 🛡️ Threat Intelligence <sup>26 projects</sup>
 
 Tools for threat data, indicators, file hashes, vulnerabilities, and malware analysis.
 
@@ -424,6 +425,7 @@ Tools for threat data, indicators, file hashes, vulnerabilities, and malware ana
 | [CVE MCP Server](https://github.com/mukul975/cve-mcp-server) | MCP server | CVE ID | Correlates CVE, EPSS, KEV, Shodan, VirusTotal, and related security intelligence. | 2026-04-14 | 2026-06-22 | ⭐ 1,297 |
 | [Harpoon](https://github.com/Te-k/harpoon) | Python | IP Address | Provides command-line queries for open-source and threat intelligence indicators. | 2017-09-25 | 2026-05-18 | ⭐ 1,289 |
 | [Taranis AI](https://github.com/taranis-ai/taranis-ai) | Python | Domain; IP Address; URL; File Hash | Collects and analyzes open-source information for situational awareness. | 2023-10-05 | 2026-08-28 | ⭐ 1,206 |
+| <img src=".github/assets/new-dot.svg" width="6" height="6" alt=""> [MCP Scanner](https://github.com/cisco-ai-defense/mcp-scanner) | Python | URL; File | Scans remote and local Model Context Protocol servers for unsafe tools, prompts, resources, and instructions. | 2025-09-24 | 2026-08-28 | ⭐ 1,052 |
 | [Mihari](https://github.com/ninoseki/mihari) | Ruby | Domain; IP Address; URL; File Hash | Aggregates search queries across threat intelligence services. | 2019-04-15 | 2026-07-04 | ⭐ 942 |
 | [ThreatIngestor](https://github.com/pedramamini/ThreatIngestor) | Python | Domain; IP Address; URL; File Hash | Extracts and routes threat indicators from public information feeds. | 2017-08-31 | 2026-05-26 | ⭐ 926 |
 | [MCP Security Hub](https://github.com/FuzzingLabs/mcp-security-hub) | MCP collection | Domain; IP Address; URL; File; File Hash | Exposes containerized security tools for recon, threat intelligence, code, and binary analysis. | 2026-01-06 | 2026-04-08 | ⭐ 771 |
