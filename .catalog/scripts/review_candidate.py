@@ -23,8 +23,9 @@ from catalog_common import (
     repository_key,
     split_values,
     write_csv,
+    write_csv_batch,
 )
-from discover_candidates import CANDIDATE_FIELDS, CANDIDATE_PATH, HttpClient
+from discover_candidates import CANDIDATE_FIELDS, CANDIDATE_PATH, HttpClient, gitlab_repository_status
 from refresh_metadata import GitHubClient, bool_text, github_coordinates
 
 
@@ -94,7 +95,8 @@ def refresh_gitlab_candidate(candidate: dict[str, str]) -> str:
     )
     if not isinstance(metadata, dict):
         raise RuntimeError("GitLab returned invalid repository metadata")
-    if metadata.get("archived"):
+    archived, fork = gitlab_repository_status(client, metadata, project_path)
+    if archived:
         raise RuntimeError("repository is archived")
     default_branch = str(metadata.get("default_branch") or "")
     if not default_branch:
@@ -116,7 +118,7 @@ def refresh_gitlab_candidate(candidate: dict[str, str]) -> str:
             "Last Update": committed_at[:10],
             "Stars": str(metadata.get("star_count") or 0),
             "Archived": "false",
-            "Fork": bool_text(metadata.get("forked_from_project")),
+            "Fork": bool_text(fork),
         }
     )
     return str(metadata.get("id") or "")
@@ -317,8 +319,14 @@ def main() -> int:
     )
     candidate["Review Status"] = "accepted"
     candidate["Notes"] = args.notes
-    write_csv(ROOT / "osint-repositories.csv", ALL_COLUMNS, catalogue)
-    write_csv(CANDIDATE_PATH, CANDIDATE_FIELDS, candidates)
+    try:
+        write_csv_batch([
+            (ROOT / "osint-repositories.csv", ALL_COLUMNS, catalogue),
+            (CANDIDATE_PATH, CANDIDATE_FIELDS, candidates),
+        ])
+    except OSError as error:
+        print(f"Candidate acceptance could not be saved: {error}", file=sys.stderr)
+        return 1
     print(f"accepted {candidate['Repository']}; run render_catalog.py --write")
     return 0
 

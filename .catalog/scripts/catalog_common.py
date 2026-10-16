@@ -5,9 +5,12 @@ from __future__ import annotations
 
 import csv
 import re
+import shutil
+import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Iterable
+from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -224,6 +227,49 @@ def write_csv(path: Path, fieldnames: list[str], rows: Iterable[dict[str, str]])
     temporary.replace(path)
 
 
+def write_csv_batch(
+    updates: Iterable[tuple[Path, list[str], Iterable[dict[str, str]]]],
+) -> None:
+    """Prepare every CSV before publishing; roll back handled write failures."""
+    prepared: list[tuple[Path, Path, bool]] = []
+    published: list[tuple[Path, Path, bool]] = []
+    cleanup = True
+    try:
+        for path, fields, rows in updates:
+            directory = Path(tempfile.mkdtemp(prefix=f".{path.name}-", dir=path.parent))
+            existed = path.exists()
+            prepared.append((path, directory, existed))
+            write_csv(directory / "new.csv", fields, rows)
+            if existed:
+                shutil.copy2(path, directory / "previous.csv")
+                shutil.copymode(path, directory / "new.csv")
+        for path, directory, existed in prepared:
+            (directory / "new.csv").replace(path)
+            published.append((path, directory, existed))
+    except BaseException as error:
+        rollback_errors = []
+        for path, directory, existed in reversed(published):
+            try:
+                if existed:
+                    (directory / "previous.csv").replace(path)
+                else:
+                    path.unlink()
+            except OSError as rollback_error:
+                rollback_errors.append(f"{path}: {rollback_error}")
+        if rollback_errors:
+            cleanup = False
+            recovery = ", ".join(str(directory) for _, directory, _ in prepared)
+            raise OSError(
+                f"CSV rollback failed ({'; '.join(rollback_errors)}). "
+                f"Recovery files retained in: {recovery}"
+            ) from error
+        raise
+    finally:
+        if cleanup:
+            for _, directory, _ in prepared:
+                shutil.rmtree(directory, ignore_errors=True)
+
+
 def categories(row: dict[str, str]) -> list[str]:
     return split_values(row.get("Categories", ""))
 
@@ -260,7 +306,10 @@ def rows_for_source(
 
 def stars_as_int(value: str) -> int:
     cleaned = value.replace(",", "").strip()
-    return int(cleaned or "0")
+    number = int(cleaned or "0")
+    if number < 0:
+        raise ValueError(f"Stars must be non-negative: {value}")
+    return number
 
 
 def markdown_text(value: str) -> str:
@@ -306,9 +355,19 @@ def format_agentic_markdown_row(row: dict[str, str], is_new: bool = False) -> st
     )
 
 
+def is_iso_date(value: str) -> bool:
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        return False
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
 def verified_date(rows: Iterable[dict[str, str]]) -> str:
     values = [row.get("Verified", "") for row in rows]
-    valid = sorted(value for value in values if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value))
+    valid = sorted(value for value in values if is_iso_date(value))
     if valid:
         return valid[-1]
     return ""
@@ -316,6 +375,14 @@ def verified_date(rows: Iterable[dict[str, str]]) -> str:
 
 def repository_key(url: str) -> str:
     return url.strip().lower().removesuffix("/").removesuffix(".git")
+
+
+def repository_identity(row: dict[str, str]) -> tuple[str, str]:
+    url = row.get("Repository", "")
+    return (
+        urlparse(url).netloc.casefold(),
+        row.get("Repository ID") or repository_key(url),
+    )
 
 
 def recent_repository_keys(
@@ -331,6 +398,6 @@ def recent_repository_keys(
     return {
         repository_key(row.get("Repository", ""))
         for row in rows
-        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", row.get("Added", ""))
+        if is_iso_date(row.get("Added", ""))
         and earliest <= date.fromisoformat(row["Added"]) <= current
     }

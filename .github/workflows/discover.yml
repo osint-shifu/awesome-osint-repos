@@ -59,6 +59,7 @@ jobs:
             --delay 2.1 \
             "${seed[@]}" \
             --report "$RUNNER_TEMP/discovery-report.md"
+          python -m unittest discover -s tests -v
           python -m py_compile .catalog/scripts/*.py
           python .catalog/scripts/render_catalog.py --check
           python .catalog/scripts/validate_catalog.py
@@ -81,6 +82,7 @@ jobs:
           git commit -m "Add newly discovered candidates"
           git fetch origin main
           git rebase origin/main
+          python -m unittest discover -s tests -v
           python -m py_compile .catalog/scripts/*.py
           python .catalog/scripts/render_catalog.py --check
           python .catalog/scripts/validate_catalog.py

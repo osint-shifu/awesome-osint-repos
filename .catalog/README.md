@@ -8,7 +8,7 @@
     <img alt="Metadata refresh: weekly" src="https://img.shields.io/badge/metadata-weekly-0969da?style=flat-square">
     <img alt="Candidate discovery: weekly" src="https://img.shields.io/badge/discovery-weekly-8250df?style=flat-square">
     <img alt="Third-party code execution: disabled" src="https://img.shields.io/badge/third--party_code-not_executed-1f883d?style=flat-square">
-    <img alt="Last update: 2026-10-12" src="https://img.shields.io/badge/last_update-2026--10--12-1f883d?style=flat-square">
+    <img alt="Last update: 2026-10-16" src="https://img.shields.io/badge/last_update-2026--10--16-1f883d?style=flat-square">
   </p>
   <p><strong><a href="README.md">Monitoring</a></strong> · <a href="../README.md">Awesome OSINT Repositories</a> · <a href="../INPUTS.md">Tools by Target Input</a> · <a href="../EMERGING.md">Emerging Projects</a> · <a href="../AGENTIC.md">Agentic AI OSINT</a> · <a href="../TIMELINE.md">Catalogue Timeline</a> · <a href="../osint-repositories.csv">Repository Database CSV</a></p>
 </div>
@@ -24,7 +24,7 @@ The canonical CSV stores the publication date in its `Added` column. The rendere
 ```text
 .catalog/data/sources.csv -> discover_candidates.py -> .catalog/data/candidates.csv -> human review
                                                                            -> osint-repositories.csv
-GitHub API -> refresh_metadata.py -> osint-repositories.csv + .catalog/data/snapshots.csv
+GitHub / GitLab / Codeberg APIs -> refresh_metadata.py -> osint-repositories.csv + .catalog/data/snapshots.csv
 osint-repositories.csv -> render_catalog.py -> README.md + INPUTS.md + EMERGING.md + AGENTIC.md + TIMELINE.md
 all catalogue files -> validate_catalog.py -> pass or fail
 ```
@@ -81,7 +81,7 @@ python3 .catalog/scripts/render_catalog.py --check
 python3 .catalog/scripts/validate_catalog.py
 ```
 
-Refresh GitHub metadata and save a daily snapshot. A token is required for the batched full-catalogue query:
+Refresh repository metadata and save a daily snapshot. A token is required for the batched full-catalogue query:
 
 ```bash
 GITHUB_TOKEN=github_token python3 .catalog/scripts/refresh_metadata.py \
@@ -196,18 +196,18 @@ Edit `.catalog/data/sources.csv` to add, disable, or narrow a query. A new provi
 ## Scheduled workflows
 
 - `validate.yml` checks Python syntax, generated Markdown drift, CSV integrity, links between local files, duplicate repositories, table schemas, the 12-category taxonomy, and allowed target inputs on every push and pull request.
-- `refresh.yml` runs weekly, refreshes GitHub metadata, appends a snapshot, and regenerates all catalogue tables. It commits the refreshed data files directly to `main` after the same renderer, CSV, whitespace, and allowlist gates the candidate workflow uses, so published metadata never waits on an unmerged review branch.
+- `refresh.yml` runs weekly, refreshes GitHub, GitLab, and Codeberg metadata, appends a snapshot, and regenerates all catalogue tables. It commits the refreshed data files directly to `main` after the same renderer, CSV, whitespace, and allowlist gates the candidate workflow uses, so published metadata never waits on an unmerged review branch.
 - `discover.yml` runs weekly and keeps only the highest-scoring new candidates. It preserves only `Review Status: review` records from the legacy candidate branch when present, scans configured sources, and directly commits only `.catalog/data/candidates.csv` to `main` after strict source, renderer, CSV, whitespace, and allowlist gates. Historical accepted or rejected records are not imported. Every discovery remains at `Review Status: review`; `review_candidate.py` remains the only acceptance or rejection path.
 
 Scheduled workflows use the repository-provided `GITHUB_TOKEN`. Both scheduled workflows require Actions write permission but no OpenAI key, personal token, custom secret, pull-request creation, or force push. GitHub may disable scheduled workflows in inactive public repositories, so the manual `workflow_dispatch` trigger remains available.
 
 ## Metadata and lifecycle policy
 
-- `Last Update` records the date of the latest commit on the repository's default branch for GitHub records. Other hosts use the most precise repository activity date exposed by their API and are checked during review.
+- `Last Update` records the date of the latest commit on the repository's default branch for GitHub, GitLab, and Codeberg records.
 - `Stars` records an exact point-in-time value, never an approximation.
 - `Verified` records the last successful metadata check.
 - Renamed or transferred GitHub repositories are replaced with the canonical API URL.
-- Repositories confirmed as archived are removed from the canonical catalogue and active monitoring data. GitHub status is enforced by the scheduled metadata refresh; other hosts are checked during review.
+- Repositories confirmed as archived are removed from the canonical catalogue and active monitoring data. The scheduled metadata refresh checks GitHub, GitLab, and Codeberg status.
 - Repository age is not a removal criterion. Repositories whose latest default-branch commit predates `2020-01-01` are removed, while older projects with current maintenance remain eligible.
 - A recent push does not by itself prove operational usefulness. Stale integrations are reviewed for deprecated APIs, unsupported runtimes, broken installation paths, explicit maintenance notices, and maintained successors.
 - A confirmed `404` removes a repository from the canonical catalogue and active monitoring data. Transient network and API failures do not change repository status.
@@ -218,7 +218,7 @@ Scheduled workflows use the repository-provided `GITHUB_TOKEN`. Both scheduled w
 | Frequency | Review |
 |---|---|
 | Daily | Triage new high-confidence candidates and obvious false positives. |
-| Weekly | Review metadata pull request, star movement, archival changes, and unavailable repositories. |
+| Weekly | Review metadata changes, star movement, archival changes, and unavailable repositories. |
 | Monthly | Audit low-activity projects, category balance, target-input quality, source quality, and repeated discovery noise. |
 | Quarterly | Revisit inclusion rules, providers, the 12-category taxonomy, allowed target inputs, and AI-agent labels. |
 

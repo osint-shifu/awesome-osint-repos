@@ -37,10 +37,12 @@ from catalog_common import (
     format_markdown_row,
     format_readme_markdown_row,
     load_catalog,
+    is_iso_date,
     misplaced_platform,
     platform_groups,
     recent_repository_keys,
     repository_key,
+    repository_identity,
     rows_for_category,
     rows_for_source,
     split_values,
@@ -49,7 +51,6 @@ from catalog_common import (
 )
 
 
-DATE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}")
 MARKDOWN_LINK_PATTERN = re.compile(r"\[([^]]+)\]\(([^)]+)\)")
 
 
@@ -146,13 +147,13 @@ def validate_catalog(validation: Validation) -> tuple[list[str], list[dict[str, 
 
         for field in ("Created", "Last Update", "Verified"):
             value = row.get(field, "")
-            validation.check(bool(DATE_PATTERN.fullmatch(value)), f"osint-repositories.csv:{line_number}: invalid {field}: {value!r}")
+            validation.check(is_iso_date(value), f"osint-repositories.csv:{line_number}: invalid {field}: {value!r}")
         added = row.get("Added", "")
         validation.check(
-            not added or bool(DATE_PATTERN.fullmatch(added)),
+            not added or is_iso_date(added),
             f"osint-repositories.csv:{line_number}: invalid Added: {added!r}",
         )
-        if added and DATE_PATTERN.fullmatch(added):
+        if added and is_iso_date(added):
             validation.check(
                 added <= row.get("Verified", ""),
                 f"osint-repositories.csv:{line_number}: Added is later than Verified",
@@ -317,7 +318,7 @@ def validate_timeline(
     ]
     dated_groups: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
-        if DATE_PATTERN.fullmatch(row.get("Added", "")):
+        if is_iso_date(row.get("Added", "")):
             dated_groups[row["Added"]].append(row)
     dated = [
         row
@@ -328,7 +329,7 @@ def validate_timeline(
         )
     ]
     legacy = sorted(
-        (row for row in rows if not DATE_PATTERN.fullmatch(row.get("Added", ""))),
+        (row for row in rows if not is_iso_date(row.get("Added", ""))),
         key=lambda row: row["Project"].casefold(),
     )
     expected = [repository_key(row["Repository"]) for row in dated + legacy]
@@ -433,7 +434,7 @@ def validate_auxiliary_csv(
 ) -> None:
     canonical = {repository_key(row["Repository"]): row for row in catalogue}
     canonical_ids = {
-        row.get("Repository ID", "") for row in catalogue if row.get("Repository ID", "")
+        repository_identity(row) for row in catalogue if row.get("Repository ID", "")
     }
     schemas = {
         DATA_ROOT / "candidates.csv": [
@@ -465,9 +466,9 @@ def validate_auxiliary_csv(
                 key = repository_key(row.get("Repository", ""))
                 validation.check(bool(key) and key not in seen, f"candidates.csv:{line_number}: invalid or duplicate Repository")
                 seen.add(key)
-                validation.check(bool(DATE_PATTERN.fullmatch(row.get("Discovered", ""))), f"candidates.csv:{line_number}: invalid Discovered")
-                validation.check(bool(DATE_PATTERN.fullmatch(row.get("Created", ""))), f"candidates.csv:{line_number}: invalid Created")
-                validation.check(bool(DATE_PATTERN.fullmatch(row.get("Last Update", ""))), f"candidates.csv:{line_number}: invalid Last Update")
+                validation.check(is_iso_date(row.get("Discovered", "")), f"candidates.csv:{line_number}: invalid Discovered")
+                validation.check(is_iso_date(row.get("Created", "")), f"candidates.csv:{line_number}: invalid Created")
+                validation.check(is_iso_date(row.get("Last Update", "")), f"candidates.csv:{line_number}: invalid Last Update")
                 validation.check(
                     row.get("Last Update", "") >= MIN_LAST_UPDATE,
                     f"candidates.csv:{line_number}: repository is outside the lifecycle window",
@@ -522,20 +523,20 @@ def validate_auxiliary_csv(
                 except ValueError:
                     validation.errors.append(f"candidates.csv:{line_number}: invalid numeric value")
         elif path.name == "snapshots.csv":
-            seen_snapshots: set[tuple[str, str]] = set()
+            seen_snapshots: set[tuple[str, tuple[str, str]]] = set()
             for line_number, row in enumerate(rows, 2):
-                identity = row.get("Repository ID") or repository_key(row.get("Repository", ""))
+                identity = repository_identity(row)
                 snapshot_key = (row.get("Date", ""), identity)
                 validation.check(
-                    bool(identity) and snapshot_key not in seen_snapshots,
+                    bool(identity[1]) and snapshot_key not in seen_snapshots,
                     f"snapshots.csv:{line_number}: invalid or duplicate snapshot",
                 )
                 seen_snapshots.add(snapshot_key)
-                validation.check(bool(DATE_PATTERN.fullmatch(row.get("Date", ""))), f"snapshots.csv:{line_number}: invalid Date")
-                validation.check(bool(DATE_PATTERN.fullmatch(row.get("Last Update", ""))), f"snapshots.csv:{line_number}: invalid Last Update")
+                validation.check(is_iso_date(row.get("Date", "")), f"snapshots.csv:{line_number}: invalid Date")
+                validation.check(is_iso_date(row.get("Last Update", "")), f"snapshots.csv:{line_number}: invalid Last Update")
                 validation.check(
                     repository_key(row.get("Repository", "")) in canonical
-                    or row.get("Repository ID", "") in canonical_ids,
+                    or repository_identity(row) in canonical_ids,
                     f"snapshots.csv:{line_number}: snapshot repository is missing from canonical data",
                 )
                 validation.check(row.get("Archived") == "false", f"snapshots.csv:{line_number}: archived snapshots must be removed")

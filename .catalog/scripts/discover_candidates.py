@@ -22,6 +22,7 @@ from catalog_common import (
     DATA_ROOT,
     MIN_LAST_UPDATE,
     load_catalog,
+    is_iso_date,
     repository_key,
     write_csv,
 )
@@ -102,7 +103,7 @@ def clean_text(value: object) -> str:
 
 def iso_date(value: object) -> str:
     text = str(value or "")
-    return text[:10] if re.match(r"\d{4}-\d{2}-\d{2}", text) else ""
+    return text[:10] if is_iso_date(text[:10]) else ""
 
 
 def lifecycle_dates(item: dict[str, Any]) -> tuple[str, str] | None:
@@ -190,17 +191,23 @@ def gitlab_items(client: HttpClient, source: dict[str, str], since: str, limit: 
         }
     )
     payload = client.get(f"https://gitlab.com/api/v4/projects?{params}")
-    return [
-        {
+    results = []
+    for item in payload:
+        if source["Window"] == "created" and iso_date(item.get("created_at")) < since:
+            continue
+        project_path = urlparse(str(item.get("web_url") or "")).path.strip("/")
+        archived, fork = gitlab_repository_status(client, item, project_path)
+        if archived:
+            continue
+        results.append({
             "name": item.get("name"), "url": item.get("web_url"), "hosting": "GitLab",
             "description": item.get("description"), "created": item.get("created_at"),
             "updated": item.get("last_activity_at"), "stars": item.get("star_count"),
-            "language": "", "license": "", "archived": item.get("archived"),
-            "fork": bool(item.get("forked_from_project")), "topics": item.get("topics") or [],
+            "language": "", "license": "", "archived": archived,
+            "fork": fork, "topics": item.get("topics") or [],
             "size": 0,
-        }
-        for item in payload
-    ]
+        })
+    return results
 
 
 def codeberg_items(client: HttpClient, source: dict[str, str], since: str, limit: int) -> list[dict[str, Any]]:
@@ -243,25 +250,47 @@ def find_repository_url(value: object) -> str:
     return ""
 
 
-def mcp_items(client: HttpClient, source: dict[str, str], since: str, limit: int) -> list[dict[str, Any]]:
+def mcp_items(
+    client: HttpClient,
+    source: dict[str, str],
+    since: str,
+    limit: int,
+    fail_on_repository_error: bool = False,
+) -> list[dict[str, Any]]:
     params = urlencode({"search": source["Query"], "limit": min(limit, 100), "updated_since": f"{since}T00:00:00.000Z"})
-    payload = client.get(f"https://registry.modelcontextprotocol.io/v0.1/servers?{params}")
+    registry_url = f"https://registry.modelcontextprotocol.io/v0.1/servers?{params}"
+    payload = client.get(registry_url)
     results = []
+    seen: set[str] = set()
     for entry in payload.get("servers", []):
         server = entry.get("server", entry)
-        url = find_repository_url(server)
+        url = normalize_repository_url(find_repository_url(server))
         if not url:
             continue
-        results.append(
-            {
-                "name": server.get("name") or url.rstrip("/").rsplit("/", 1)[-1],
-                "url": url, "hosting": urlparse(url).netloc, "description": server.get("description"),
-                "created": entry.get("publishedAt") or entry.get("createdAt"),
-                "updated": entry.get("updatedAt") or entry.get("publishedAt"),
-                "stars": 0, "language": "", "license": "", "archived": False,
-                "fork": False, "topics": ["mcp"], "size": 1,
-            }
-        )
+        registry_metadata = (entry.get("_meta") or {}).get("io.modelcontextprotocol.registry/official") or {}
+        updated = iso_date(registry_metadata.get("updatedAt") or registry_metadata.get("publishedAt"))
+        if not updated:
+            raise RuntimeError(f"MCP Registry lifecycle dates could not be verified: {url}")
+        if updated < since or registry_metadata.get("status") not in {None, "active"}:
+            continue
+        key = repository_key(url)
+        if key in seen:
+            continue
+        seen.add(key)
+        try:
+            item = repository_item(client, url, registry_url)
+        except Exception as error:
+            if isinstance(error, HTTPError) and error.code == 404:
+                print(f"MCP Registry repository unavailable (HTTP 404): {url}", file=sys.stderr)
+                continue
+            message = f"MCP Registry repository lookup failed: {url}: {error}"
+            if fail_on_repository_error:
+                raise RuntimeError(message) from error
+            print(message, file=sys.stderr)
+            continue
+        if item is not None:
+            item["topics"] = list(dict.fromkeys([*(item.get("topics") or []), "mcp"]))
+            results.append(item)
     return results
 
 
@@ -288,6 +317,28 @@ def normalize_repository_url(value: str) -> str:
         return ""
     parts[-1] = parts[-1].removesuffix(".git")
     return f"https://{host}/{'/'.join(parts)}"
+
+
+def gitlab_repository_status(
+    client: HttpClient, metadata: dict[str, Any], project_path: str,
+) -> tuple[bool, bool]:
+    if isinstance(metadata.get("archived"), bool) and "forked_from_project" in metadata:
+        return metadata["archived"], bool(metadata["forked_from_project"])
+    query = (
+        "query { project(fullPath: " + json.dumps(project_path)
+        + ") { archived forkedFrom { id } } }"
+    )
+    payload = client.get(f"https://gitlab.com/api/graphql?{urlencode({'query': query})}")
+    project = (payload.get("data") or {}).get("project") if isinstance(payload, dict) else None
+    if (
+        not isinstance(project, dict)
+        or payload.get("errors")
+        or not isinstance(project.get("archived"), bool)
+        or "forkedFrom" not in project
+        or (project["forkedFrom"] is not None and not isinstance(project["forkedFrom"], dict))
+    ):
+        raise RuntimeError("GitLab repository status could not be verified")
+    return project["archived"], project["forkedFrom"] is not None
 
 
 def repository_item(client: HttpClient, repository_url: str, evidence: str) -> dict[str, Any] | None:
@@ -327,7 +378,8 @@ def repository_item(client: HttpClient, repository_url: str, evidence: str) -> d
         metadata = client.get(
             f"https://gitlab.com/api/v4/projects/{quote(project_path, safe='')}"
         )
-        if metadata.get("archived"):
+        archived, fork = gitlab_repository_status(client, metadata, project_path)
+        if archived:
             return None
         return {
             "name": metadata.get("name"),
@@ -339,8 +391,8 @@ def repository_item(client: HttpClient, repository_url: str, evidence: str) -> d
             "stars": metadata.get("star_count"),
             "language": "",
             "license": "",
-            "archived": metadata.get("archived"),
-            "fork": bool(metadata.get("forked_from_project")),
+            "archived": archived,
+            "fork": fork,
             "topics": metadata.get("topics") or [],
             "size": 0,
             "evidence": evidence,
@@ -607,7 +659,7 @@ def main() -> int:
             errors.append(f"{source['Name']}: unsupported provider {source['Provider']}")
             continue
         adapter_kwargs: dict[str, bool] = {}
-        if source["Provider"] == "Telegram Channel":
+        if source["Provider"] in {"Telegram Channel", "MCP Registry"}:
             adapter_kwargs["fail_on_repository_error"] = args.fail_on_source_error
         try:
             items = adapter(client, source, since, args.max_per_source, **adapter_kwargs)
